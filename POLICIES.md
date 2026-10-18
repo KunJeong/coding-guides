@@ -42,7 +42,7 @@ Each policy ID links to its optional explanation.
 
 - [P.commit-explanations](#p.commit-explanations). Each final commit message should explain the motivation and resulting change.
 
-  For refactors, identify the structural limitation and how the new structure addresses it. A sufficient subject needs no body. Identify a regression’s introducing commit when known.
+  Put motivation and solution in separate paragraphs when both appear in the body. Fixes must explain the fault, and refactors must explain the structural limitation. Feature, test, docs, and chore commits may omit motivation that would only restate the solution. A subject that conveys the required explanation needs no body. Identify a regression’s introducing commit when known.
 
 - [P.pr-explanations](#p.pr-explanations). Each PR body should explain its motivation, result, and scope.
 
@@ -82,7 +82,7 @@ Each policy ID links to its optional explanation.
 
 - [P.merge-method](#p.merge-method). Preserve final commits and record the contribution when landing.
 
-  Land multi-commit PRs with a merge commit explaining the whole contribution. Count commits after cleanup and preserve them without squashing during landing. A single-commit PR’s message must carry its motivation, result, and scope. Add its PR number through authorized cleanup.
+  Land multi-commit PRs with a merge commit explaining the whole contribution. Count commits after cleanup and preserve them without squashing during landing. A single-commit PR’s message must carry its result, scope, and the motivation required by P.commit-explanations. Add its PR number through authorized cleanup.
 
 - [P.direct-pushes](#p.direct-pushes). The maintainer may push bounded repairs and current-state documentation directly to `main`.
 
@@ -193,7 +193,11 @@ Readers should be able to rely on descriptions of the system without knowing an 
 
 *Requirement. [Motivation][motivation], [Coherence][coherence]*
 
-A commit message should let readers understand why the change was needed and what it accomplishes without having seen the original discussion. Motivation explains the prior problem, limitation, or research goal. Solution describes the resulting change that addresses it. For a refactor, the explanation must identify the structural limitation and show why the new structure addresses it.
+A commit message should let readers understand why the change was needed and what it accomplishes without having seen the original discussion. Motivation explains the prior problem, limitation, or research goal. Solution describes the resulting change. Put motivation and solution in separate paragraphs, with motivation first.
+
+Fixes must identify the incorrect behavior. Refactors must identify the structural limitation and explain how the new structure addresses it. Both always require motivation.
+
+For `feat`, `test`, `docs`, and `chore` commits, motivation may be omitted when it would only restate the solution. Include any user need, research goal, or maintenance reason the change addresses. Do not invent a problem to fill the format.
 
 When the subject already conveys the required explanation, the message does not need a body. Source records still follow [P.source-credit](#p.source-credit). Identify a known regression’s introducing commit. The [regression-record convention](CONVENTIONS.md#c.sources.regressions) supplies a recommended format.
 

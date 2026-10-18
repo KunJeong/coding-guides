@@ -268,12 +268,12 @@ Name the action and affected concept so readers can identify the change before o
 
 <a id="c.commit-format.subject"></a>**[C.commit-format.subject](#c.commit-format.subject). Use `type(scope): summary`, with standard types and the additional `reorg` type.**
 
-Use this format.
+Use this format, with the omissions allowed by [P.commit-explanations](POLICIES.md#p.commit-explanations).
 
 ```text
 type(scope): imperative summary
 
-Motivation describing the prior problem or limitation.
+Motivation describing the prior problem, limitation, or research goal.
 
 Solution describing the resulting change.
 ```
@@ -304,11 +304,13 @@ The `spec` commit type is deprecated. Historical `spec` commits denote specifica
 
 <a id="c.commit-prose.subjects"></a>**[C.commit-prose.subjects](#c.commit-prose.subjects). Use imperative subjects.** Name the concept. Put code identifiers in the body, where there is room to explain them. For example, `refactor(cli): group shared flags by role` gives the reader a concept, while its body can identify the modules and flag groups.
 
-<a id="c.commit-prose.bodies"></a>**[C.commit-prose.bodies](#c.commit-prose.bodies). Organize bodies as Motivation followed by Solution, without requiring section headings.** The body explains why and what. Omit the body when the subject already conveys both under [P.commit-explanations](POLICIES.md#p.commit-explanations). Source citations still follow [P.source-credit](POLICIES.md#p.source-credit).
+<a id="c.commit-prose.bodies"></a>**[C.commit-prose.bodies](#c.commit-prose.bodies). Separate motivation and solution into paragraphs, with motivation first.** This restates [P.commit-explanations](POLICIES.md#p.commit-explanations), including its exceptions for omitting motivation or the entire body. Section headings are optional. Source citations still follow [P.source-credit](POLICIES.md#p.source-credit).
 
 <a id="c.commit-prose.motivation-tense"></a>**[C.commit-prose.motivation-tense](#c.commit-prose.motivation-tense). Describe prior problems in past tense by default.** A `Currently, ...` framing is also acceptable.
 
-<a id="c.commit-prose.solution-tense"></a>**[C.commit-prose.solution-tense](#c.commit-prose.solution-tense). Describe solutions in third-person present.** Use forms such as `Adds...`, `Replaces...`, or `The helper is extracted...`. Avoid first-person and future-tense accounts of the solution. These forms also apply to bullets.
+<a id="c.commit-prose.solution-tense"></a>**[C.commit-prose.solution-tense](#c.commit-prose.solution-tense). Describe solutions in third-person present.** The opening sentence may omit "This commit" and begin with an action verb such as "Adds" or "Replaces". Give following sentences clear subjects, usually the components whose behavior they describe. Avoid first-person and future-tense accounts of the solution. The same structure applies to solution bullets.
+
+<a id="c.commit-prose.solution-verbs"></a>**[C.commit-prose.solution-verbs](#c.commit-prose.solution-verbs). Use specific verbs to describe what the change does.** Prefer "Removes expired cache entries" to "Updates the cache so expired entries are no longer retained". Omit temporal wording that only repeats context already supplied by the motivation. Sentence structure follows [C.commit-prose.solution-tense](#c.commit-prose.solution-tense).
 
 <a id="c.commit-prose.grouping"></a>**[C.commit-prose.grouping](#c.commit-prose.grouping). Use paragraphs for a change within one affected area and bullets for changes across distinct areas.** Keep the motivation in prose. Use solution bullets when separating changes to different components or responsibilities makes the result easier to scan. Name concrete identifiers where they help explain the result.
 
@@ -477,7 +479,7 @@ Count commits after final cleanup. A fast-forward avoids an extra merge commit b
 
 *Outline requirement. Policies [P.commit-explanations](POLICIES.md#p.commit-explanations), [P.pr-explanations](POLICIES.md#p.pr-explanations), [P.merge-method](POLICIES.md#p.merge-method).*
 
-A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records.
+A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [P.commit-explanations](POLICIES.md#p.commit-explanations) also applies here.
 
 ### Merge messages
 
