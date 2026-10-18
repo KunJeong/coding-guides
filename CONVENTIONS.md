@@ -489,7 +489,7 @@ A fast-forward creates no merge message, so the commit message is the permanent 
 
 *Default. Policies [P.commit-explanations](POLICIES.md#p.commit-explanations), [P.merge-method](POLICIES.md#p.merge-method).*
 
-The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Typed summary bullets describe the affected work under [C.merge-summary](#c.merge-summary).
+The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [C.merge-summary](#c.merge-summary).
 
 <a id="c.merge-summary"></a>
 
@@ -497,11 +497,11 @@ The summary uses the PR title with ordinary words in lowercase. Preserve proper 
 
 *Default. Policies [P.pr-explanations](POLICIES.md#p.pr-explanations), [P.merge-method](POLICIES.md#p.merge-method).*
 
-<a id="c.merge-summary.overview"></a>**[C.merge-summary.overview](#c.merge-summary.overview). Use a framing paragraph followed by typed summary bullets.** The paragraph explains the motivation and overall result. The bullets summarize the affected work by area and theme. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [C.commit-format](#c.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice.
+<a id="c.merge-summary.overview"></a>**[C.merge-summary.overview](#c.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [C.commit-format](#c.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [C.merge-summary.imports](#c.merge-summary.imports).
 
 <a id="c.merge-summary.reuse"></a>**[C.merge-summary.reuse](#c.merge-summary.reuse). Use Scope and Minor Changes as the basis for a shorter merge summary.** Condense and regroup their bullets by theme, preserving the main outcome and significant incidental work. Do not reproduce the PR's inventory of APIs, tests or packaging details. Include source references only when they add useful context beyond the provenance preserved in the constituent commits.
 
-Keep identifier backticks and use plain typed prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [C.commit-display](#c.commit-display). Use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [C.merge-summary.overview](#c.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
+Keep identifier backticks and use plain prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [C.commit-display](#c.commit-display). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [C.merge-summary.overview](#c.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
 
 ```text
 Merge: <lowercase summary> (#PR)
@@ -512,7 +512,9 @@ Framing paragraph explaining the motivation and resulting change.
 - docs(scope): Description.
 ```
 
-<a id="c.merge-summary.imports"></a>**[C.merge-summary.imports](#c.merge-summary.imports). Use upstream scope groups for Port and Sync merge summaries.** Use the PR's groups as `Ported:`, `Adapted:`, `Omitted:`, and Sync-only `Local Changes:`. Follow the distinctions in [C.ports-syncs](#c.ports-syncs) and omit empty groups. Condense each group's bullets under [C.merge-summary.reuse](#c.merge-summary.reuse). Source references may use an `Original: <ref>` suffix when they add useful context.
+<a id="c.merge-summary.imports"></a>**[C.merge-summary.imports](#c.merge-summary.imports). Use a single bullet list with source labels for Port and Sync merge summaries.** Label bullets `PORTED:`, `ADAPTED:`, `OMITTED:`, or Sync-only `LOCAL:`. Follow the PR's distinctions under [C.ports-syncs](#c.ports-syncs), with `LOCAL:` corresponding to its Local Changes category. Include only applicable labels.
+
+Group related work into concise bullets under [C.merge-summary.reuse](#c.merge-summary.reuse). Explain adaptations and reasons for omissions. Repeat a label when distinct changes need separate bullets. Use the source label and its colon as the only prefix. Source references may use an `Original: <ref>` suffix when they add useful context.
 
 <a id="c.deferred-work"></a>**[C.deferred-work](#c.deferred-work). Reserve `DEFERRED:` for work explicitly postponed from the contribution.**
 
