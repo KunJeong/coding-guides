@@ -76,7 +76,7 @@ As guidance, spend naming effort in proportion to how widely and how long a name
 
 - <a id="c.names.modules"></a>**[C.names.modules](#c.names.modules). Name modules for the responsibilities they own.**
 
-- <a id="c.names.functions"></a>**[C.names.functions](#c.names.functions). Name functions for their operations or results.** Prefer verbs or verb-led phrases for actions and transformations, including pure AST passes. Nouns are appropriate for projections and computed properties. A verb-led name does not imply mutation.
+- <a id="c.names.functions"></a>**[C.names.functions](#c.names.functions). Name functions for operations or results.** Use verbs for actions and semantic passes, nouns for properties, and parallel names across recursive types. Keep established domain abbreviations. Omit subjects already clear from the module, as in `Value.equal`.
 
 - <a id="c.names.parameters"></a>**[C.names.parameters](#c.names.parameters). Name parameters for what callers supply.** Use role names that can be referenced clearly in the function's contract.
 
@@ -86,11 +86,38 @@ As guidance, spend naming effort in proportion to how widely and how long a name
 
 - <a id="c.names.type-repetition"></a>**[C.names.type-repetition](#c.names.type-repetition). Avoid repeating type information in OCaml variable names.** Name values for their roles. OCaml is statically typed, so readers can infer type information from context or inspect it in an editor.
 
-- <a id="c.names.conversions"></a>**[C.names.conversions](#c.names.conversions). Prefer `to_x` and `of_x` for conversions.** `to_x` names the result representation, and `of_x` names the input representation. The module name identifies the other side of the conversion.
+- <a id="c.names.conversions"></a>**[C.names.conversions](#c.names.conversions). Name representation conversions by their endpoints.** Use `to_destination` in the source module, `of_source` in the destination module, and `destination_of_source` elsewhere. Semantic passes keep purpose names such as `elaborate` and `annotate`.
 
-- <a id="c.names.predicates"></a>**[C.names.predicates](#c.names.predicates). Name predicates for the conditions they test.** Use forms such as `is_...`, `has_...`, `contains`, or an established relation such as `eq`.
+- <a id="c.names.predicates"></a>**[C.names.predicates](#c.names.predicates). Name predicates for the conditions they test.** Use `is_*`, `has_*`, or a relation such as `contains` or `equal`. Prefer `equal` consistently. Preserve distinct relations such as `equivalent`.
 
-- <a id="c.names.arguments"></a>**[C.names.arguments](#c.names.arguments). Prefer argument labels when positional roles would be unclear at call sites.** Use labels to distinguish arguments with the same type but different roles and to explain callbacks or configuration options. Keep the main input positional when the function name makes its role clear.
+- <a id="c.names.arguments"></a>**[C.names.arguments](#c.names.arguments). Keep one primary subject positional and label other semantic inputs by default.** The subject is the transformed value or the container being operated on. Label every input when none is primary. Preserve positional conventions for symmetric operations, arithmetic, formatter callbacks, and external protocols. Fold callbacks take the accumulator first. Check partial applications and callback uses.
+
+- <a id="c.names.labels"></a>**[C.names.labels](#c.names.labels). Label arguments by role, adding direction when needed.** Use specific role names such as `~ctx`, `~subst`, and `~pattern`. Include a preposition when it distinguishes a relationship, as in `~to_pattern`. Avoid vague labels such as `~using` when a specific role name is available. Use `~f` for an ordinary callback, `~init` for an initial accumulator, and distinct role labels for multiple callbacks.
+
+```ocaml
+subst_typ typ ~subst
+bind value ~to_pattern:pattern
+```
+
+External labels may differ from local parameter names, as in `let bind value ~to_pattern:pattern = ...`.
+
+- <a id="c.names.failures"></a>**[C.names.failures](#c.names.failures). Make failure variants predictable.** Use `find_*_opt` and `as_*_opt` for absence or mismatch, with `_exn` variants that raise. Use `option` or `optional` for input constructs. Preserve domain result types and library naming conventions.
+
+- <a id="c.names.printing"></a>**[C.names.printing](#c.names.printing). Distinguish building a presentation from writing it.** Name presentation functions according to their result or destination.
+
+| Function form | Meaning |
+| --- | --- |
+| `doc_of_exp exp` | Return a composable document |
+| `string_of_exp exp` or `Exp.to_string exp` | Return text |
+| `pp_exp fmt exp` | Write formatted text to the supplied formatter |
+| `render_exp exp ~ctx` | Produce a particular presentation, such as prose |
+| `print_summary summary` | Write a summary to the operation's output destination |
+
+Apply the conversion ownership rule to document and string production. Keep the formatted representation clear from the module or function name when several presentations exist.
+
+- <a id="c.names.effects"></a>**[C.names.effects](#c.names.effects). Name persistence and event delivery by their responsibilities.** Use domain names such as checkpoint `save` and event `emit` where appropriate. Their contracts should identify the destination and effects.
+
+- <a id="c.names.construction"></a>**[C.names.construction](#c.names.construction). Use one default name for general construction.** Prefer `make` for project-owned constructors. Use `of_*` for representation conversions and `empty` for empty values. Reserve `init` for initializing existing state. Preserve library constructor names such as `Hashtbl.create`.
 
 Check existing uses of a concept before choosing its name. Evaluate a name at its call sites as well as in its declaration. Names are part of the specification vocabulary, so misleading names can obscure semantic errors.
 
@@ -134,7 +161,9 @@ Names and interfaces should express the responsibility, what callers supply, and
 
 - <a id="c.abstractions.operations"></a>**[C.abstractions.operations](#c.abstractions.operations). Extract meaningful operations.** Give each helper or module an operation or responsibility that its callers can name. One caller can justify an abstraction when it expresses a distinct operation.
 
-- <a id="c.abstractions.sharing"></a>**[C.abstractions.sharing](#c.abstractions.sharing). Share implementations only when callers need the same operation and constraints.** Similar syntax alone does not justify combining code with different meanings or reasons to change.
+- <a id="c.abstractions.sharing"></a>**[C.abstractions.sharing](#c.abstractions.sharing). Share implementations only when callers need the same operation and constraints.** Similar syntax alone does not justify sharing. Keep mutually recursive semantic operations together. Introduce shared signatures for consumers that need interchangeable implementations. Pass a function when one operation suffices.
+
+- <a id="c.traversals"></a>**[C.traversals](#c.traversals). Share structural traversal with explicit scope and order.** Use `map_*_children` for shallow transformation, `rewrite_*_postorder` for recursive rewriting, and `iter_*_preorder` or `fold_*_preorder` for visits or accumulation. Use the corresponding suffix for other orders. Define visited nodes, sibling order, and replacement behavior. Preserve metadata by default, and keep binding rules and conversions explicit. Extract against demonstrated duplication.
 
 - <a id="c.abstractions.exposure"></a>**[C.abstractions.exposure](#c.abstractions.exposure). Expose what callers need.** Keep representations private when callers need operations rather than direct inspection. Expose data when inspecting it is part of the caller's task.
 
@@ -168,11 +197,13 @@ Mutation can serve caches, registries, usage tracking, and resource management.
 
 - <a id="c.ocaml.casing"></a>**[C.ocaml.casing](#c.ocaml.casing). Follow OCaml's casing conventions.** Use `snake_case` for values and types and `PascalCase` for modules and constructors.
 
-- <a id="c.ocaml.callback-wrappers"></a>**[C.ocaml.callback-wrappers](#c.ocaml.callback-wrappers). Name setup-and-teardown callback wrappers `with_*`.** The name identifies the resource or context available to the callback.
+- <a id="c.ocaml.callback-wrappers"></a>**[C.ocaml.callback-wrappers](#c.ocaml.callback-wrappers). Reserve `with_*` for scoped callback execution.** Restore the context or release the resource when the callback exits.
 
 - <a id="c.ocaml.accumulators"></a>**[C.ocaml.accumulators](#c.ocaml.accumulators). Prefer accumulator-first parameter order for accumulator updates.** Follow `fold_left`.
 
 - <a id="c.ocaml.application"></a>**[C.ocaml.application](#c.ocaml.application). Use `@@` only when it clearly reduces indentation around a single callback body.**
+
+- <a id="c.ocaml.library-apis"></a>**[C.ocaml.library-apis](#c.ocaml.library-apis). Prefer established library operations when their semantics fit.** Avoid wrappers solely for naming. Evaluate migrations by simpler callers and reduced custom code. Preserve duplicate handling, failures, ordering, and equality and hashing semantics. Measure performance claims.
 
 Prefer direct code when handling exceptions.
 
