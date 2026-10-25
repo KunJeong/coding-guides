@@ -4,7 +4,7 @@ Personal guides for coding style, technical writing, and commit and PR practices
 
 - [Principles](PRINCIPLES.md) explain the reasoning behind the guidance, drawn from research and contribution practices.
 - [Policies](POLICIES.md) describe proposed collaboration rules derived from SpecTec. They apply where a project adopts them.
-- [Conventions](CONVENTIONS.md) cover coding style, comments, documentation, and change records.
+- [Conventions](CONVENTIONS.md) organize guidance by functionality, factoring, prose, and change records.
 - [Workflow recipes](WORKFLOWS.md) provide Git and GitHub procedures and SpecTec build commands.
 
 OCaml conventions apply to OCaml code. SpecTec compiler paths and build commands apply to SpecTec repositories. The collaboration policies do not establish agreements or grant permission to change another contributor's work.

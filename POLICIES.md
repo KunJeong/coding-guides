@@ -167,7 +167,7 @@ While a PR is under review, its planned topic should remain stable. Newly discov
 
 *Requirement. [Coherence][coherence], [Verification][verification]*
 
-Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. The [type and data conventions](CONVENTIONS.md#types-and-data) describe ways to enforce them.
+Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. The [construction and validation conventions](CONVENTIONS.md#functionality) describe ways to enforce them.
 
 <a id="p.renames"></a>
 

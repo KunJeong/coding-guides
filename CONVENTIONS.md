@@ -2,11 +2,11 @@
 
 Conventions settle routine decisions so contributors can reuse them. As a rule of thumb, document a routine choice here after similar decisions have been made three times. State the choice and when it applies.
 
-This personal reference covers code, comments, documentation, and change records. Defaults describe the usual approach, and editorial preferences guide writing and final polish. Repository rules and explicit agreements take precedence. Policy references point to the proposed rules in [POLICIES.md](POLICIES.md#policy-outline), which apply where a project adopts them. [PRINCIPLES.md](PRINCIPLES.md) explains the rationale, and [WORKFLOWS.md](WORKFLOWS.md) provides command recipes.
+This personal reference organizes guidance into [Functionality](#functionality), [Factoring](#factoring), [Prose](#prose), and [Change records](#change-records). Defaults describe the usual approach, and editorial preferences guide writing and final polish. Repository rules and explicit agreements take precedence. Policy references point to the proposed rules in [POLICIES.md](POLICIES.md#policy-outline), which apply where a project adopts them. [PRINCIPLES.md](PRINCIPLES.md) explains the rationale, and [WORKFLOWS.md](WORKFLOWS.md) provides command recipes.
 
 Convention IDs name topics and stay stable when rules move or their wording changes. Links below convention groups identify the shared requirements or principles that support them. Entries are defaults unless marked as editorial preferences or identified as restatements of an outline requirement. Defaults allow judgment under [P.rules](POLICIES.md#p.rules).
 
-## Across media
+<a id="across-media"></a>
 
 <a id="c.established-forms"></a>**[C.established-forms](#c.established-forms). Prefer established code and prose forms when alternatives offer no clear benefit.**
 
@@ -14,51 +14,25 @@ Convention IDs name topics and stay stable when rules move or their wording chan
 
 Familiar forms let readers focus on meaning and avoid repeated decisions. When alternatives express the same idea equally clearly, follow the surrounding code or prose. Use a different form when it makes an operation, dependency, or relationship clearer.
 
-As general writing guidance, write for readers who do not share your context. Explain what the surrounding artifact cannot readily show. The rules below make sentence structure, terminology, and punctuation easier to follow.
+## Functionality
 
-<a id="c.prose"></a>
+The [invariants policy](POLICIES.md#p.invariants) requires construction and updates to preserve the guarantees callers rely on. These conventions cover construction and runtime validation. [Factoring](#factoring) covers how types and interfaces express those guarantees.
 
-**[C.prose](#c.prose). Prose clarity**
+*Default. Policy [P.invariants](POLICIES.md#p.invariants).*
 
-*Editorial preference. Policies [P.documentation](POLICIES.md#p.documentation), [P.commit-explanations](POLICIES.md#p.commit-explanations), [P.pr-explanations](POLICIES.md#p.pr-explanations).*
+### Contracts and invariants
 
-Apply these conventions to prose sentences.
+- <a id="c.types.construction"></a>**[C.types.construction](#c.types.construction). Protect invariants at construction.** When callers rely on a value already being validated, use an abstract or private type with checked constructors. Every exposed operation that constructs or updates a value must preserve those constraints.
 
-**Sentence structure**
+### Runtime validation
 
-- <a id="c.prose.focus"></a>**[C.prose.focus](#c.prose.focus). Keep one main idea per sentence.** Split sentences that make separate claims readers need to assess independently.
+- <a id="c.types.runtime-checks"></a>**[C.types.runtime-checks](#c.types.runtime-checks). Keep checks for constraints the type does not enforce.** A type may guarantee a value's structure without guaranteeing its meaning or its relationship to other values. Validate those remaining constraints at runtime.
 
-- <a id="c.prose.flow"></a>**[C.prose.flow](#c.prose.flow). Order information from familiar context to new information.** Readers should be able to follow the sentence from left to right.
+As guidance, prefer explicit checks when encoding a constraint in a type would make ordinary operations harder to understand.
 
-- <a id="c.prose.subject-verbs"></a>**[C.prose.subject-verbs](#c.prose.subject-verbs). Keep subjects close to their verbs.**
+<a id="code"></a>
 
-**Actors and references**
-
-- <a id="c.prose.actors"></a>**[C.prose.actors](#c.prose.actors). Make clear who or what performs each action.** Name the actor when the sentence would otherwise leave it unclear. Assign actions to the entities that actually perform them.
-
-- <a id="c.prose.pronouns"></a>**[C.prose.pronouns](#c.prose.pronouns). Use pronouns only when their referents are clear.** Repeat a name when a pronoun could refer to more than one entity.
-
-- <a id="c.prose.explicit-nouns"></a>**[C.prose.explicit-nouns](#c.prose.explicit-nouns). State what is being described or compared.** Include the noun when readers would otherwise have to guess what has the stated property.
-
-- <a id="c.prose.modifiers"></a>**[C.prose.modifiers](#c.prose.modifiers). Place descriptive phrases next to the words they describe.** Rewrite a phrase when readers could connect it to the wrong person or thing.
-
-**Word choice**
-
-- <a id="c.prose.terms"></a>**[C.prose.terms](#c.prose.terms). Prefer defining unfamiliar technical terms before relying on them.** Use plain language for terms the intended reader is unlikely to know. For established project terms, link an existing definition when needed.
-
-- <a id="c.prose.hyphenation"></a>**[C.prose.hyphenation](#c.prose.hyphenation). Avoid invented hyphenated compounds.** State the action or relationship in an ordinary phrase. For example, prefer "selects the first successful alternative" to "first-success selection". Established compounds and standard prefixes are acceptable when they read naturally. Preserve hyphens in identifiers, URLs, proper names, and exact quotations.
-
-- <a id="c.prose.literal-language"></a>**[C.prose.literal-language](#c.prose.literal-language). Prefer literal descriptions to metaphors.** Use the actual operation, constraint, or relationship when a metaphor would leave readers to infer the meaning.
-
-**Punctuation**
-
-These punctuation choices support [one main idea per sentence](#c.prose.focus) and [the progression from familiar to new information](#c.prose.flow).
-
-- <a id="c.prose.punctuation"></a>**[C.prose.punctuation](#c.prose.punctuation). Replace semicolons, colons, and em dashes with clearer punctuation or separate sentences.** Use periods, commas, or parentheses according to the relationship being expressed. Preserve punctuation required by code, URLs, message syntax, source references, and exact quotations.
-
-- <a id="c.prose.parentheses"></a>**[C.prose.parentheses](#c.prose.parentheses). Prefer parentheses only for brief qualifications.** Put a separate claim or an essential step in the explanation in its own sentence.
-
-## Code
+## Factoring
 
 The [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/#naming) explain naming from a caller's perspective. Robert C. Martin's [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) includes chapters on meaningful names and functions. These are optional background reading. The conventions below state this project's choices.
 
@@ -141,11 +115,7 @@ Types let callers rely on constraints without checking them at every use. As gui
 
 - <a id="c.types.alternatives"></a>**[C.types.alternatives](#c.types.alternatives). Prefer representing alternatives with their required data.** Use variant constructors for cases that require different data. Avoid flags and optional fields that allow combinations the program cannot handle.
 
-- <a id="c.types.construction"></a>**[C.types.construction](#c.types.construction). Protect invariants at construction.** When callers rely on a value already being validated, use an abstract or private type with checked constructors. Every exposed operation that constructs or updates a value must preserve those constraints.
-
-- <a id="c.types.runtime-checks"></a>**[C.types.runtime-checks](#c.types.runtime-checks). Keep checks for constraints the type does not enforce.** A type may guarantee a value's structure without guaranteeing its meaning or its relationship to other values. Validate those remaining constraints at runtime.
-
-As guidance, prefer explicit checks when encoding a constraint in a type would make ordinary operations harder to understand.
+Construction and updates follow [C.types.construction](#c.types.construction). Constraints outside the type follow [C.types.runtime-checks](#c.types.runtime-checks).
 
 ### Abstractions and interfaces
 
@@ -223,7 +193,55 @@ Prefer direct code when handling exceptions.
 
 Keep semantic logic out of executable entrypoints so other callers can use it without starting the CLI.
 
-## Comments
+## Prose
+
+### General writing
+
+As general writing guidance, write for readers who do not share your context. Explain what the surrounding artifact cannot readily show. The rules below make sentence structure, terminology, and punctuation easier to follow.
+
+<a id="c.prose"></a>
+
+**[C.prose](#c.prose). Prose clarity**
+
+*Editorial preference. Policies [P.documentation](POLICIES.md#p.documentation), [P.commit-explanations](POLICIES.md#p.commit-explanations), [P.pr-explanations](POLICIES.md#p.pr-explanations).*
+
+Apply these conventions to prose sentences.
+
+**Sentence structure**
+
+- <a id="c.prose.focus"></a>**[C.prose.focus](#c.prose.focus). Keep one main idea per sentence.** Split sentences that make separate claims readers need to assess independently.
+
+- <a id="c.prose.flow"></a>**[C.prose.flow](#c.prose.flow). Order information from familiar context to new information.** Readers should be able to follow the sentence from left to right.
+
+- <a id="c.prose.subject-verbs"></a>**[C.prose.subject-verbs](#c.prose.subject-verbs). Keep subjects close to their verbs.**
+
+**Actors and references**
+
+- <a id="c.prose.actors"></a>**[C.prose.actors](#c.prose.actors). Make clear who or what performs each action.** Name the actor when the sentence would otherwise leave it unclear. Assign actions to the entities that actually perform them.
+
+- <a id="c.prose.pronouns"></a>**[C.prose.pronouns](#c.prose.pronouns). Use pronouns only when their referents are clear.** Repeat a name when a pronoun could refer to more than one entity.
+
+- <a id="c.prose.explicit-nouns"></a>**[C.prose.explicit-nouns](#c.prose.explicit-nouns). State what is being described or compared.** Include the noun when readers would otherwise have to guess what has the stated property.
+
+- <a id="c.prose.modifiers"></a>**[C.prose.modifiers](#c.prose.modifiers). Place descriptive phrases next to the words they describe.** Rewrite a phrase when readers could connect it to the wrong person or thing.
+
+**Word choice**
+
+- <a id="c.prose.terms"></a>**[C.prose.terms](#c.prose.terms). Prefer defining unfamiliar technical terms before relying on them.** Use plain language for terms the intended reader is unlikely to know. For established project terms, link an existing definition when needed.
+
+- <a id="c.prose.hyphenation"></a>**[C.prose.hyphenation](#c.prose.hyphenation). Avoid invented hyphenated compounds.** State the action or relationship in an ordinary phrase. For example, prefer "selects the first successful alternative" to "first-success selection". Established compounds and standard prefixes are acceptable when they read naturally. Preserve hyphens in identifiers, URLs, proper names, and exact quotations.
+
+- <a id="c.prose.literal-language"></a>**[C.prose.literal-language](#c.prose.literal-language). Prefer literal descriptions to metaphors.** Use the actual operation, constraint, or relationship when a metaphor would leave readers to infer the meaning.
+
+**Punctuation**
+
+These punctuation choices support [one main idea per sentence](#c.prose.focus) and [the progression from familiar to new information](#c.prose.flow).
+
+- <a id="c.prose.punctuation"></a>**[C.prose.punctuation](#c.prose.punctuation). Replace semicolons, colons, and em dashes with clearer punctuation or separate sentences.** Use periods, commas, or parentheses according to the relationship being expressed. Preserve punctuation required by code, URLs, message syntax, source references, and exact quotations.
+
+- <a id="c.prose.parentheses"></a>**[C.prose.parentheses](#c.prose.parentheses). Prefer parentheses only for brief qualifications.** Put a separate claim or an essential step in the explanation in its own sentence.
+
+### Comments
 
 <a id="c.comments.purpose"></a>**[C.comments.purpose](#c.comments.purpose). Use comments for constraints and reasons absent from the code.**
 
@@ -255,7 +273,7 @@ A reader should be able to understand a comment without seeing an earlier versio
 
 - <a id="c.comments.brevity"></a>**[C.comments.brevity](#c.comments.brevity). Prefer brief comments.** As guidance, one sentence often suffices. If a comment needs several sentences, consider whether clearer names, a smaller function, or a stronger type could express some of the information. Keep the explanation when the code cannot express it.
 
-## Documentation
+### Documentation
 
 <a id="c.documentation.locations"></a>**[C.documentation.locations](#c.documentation.locations). Give each explanation an authoritative home by default.**
 
@@ -265,6 +283,8 @@ Link to the explanation instead of maintaining competing copies. Put setup and u
 
 Comments and documentation describe the current system under [P.documentation](POLICIES.md#p.documentation).
 
+#### Markdown presentation
+
 <a id="c.markdown-wrapping"></a>
 
 **[C.markdown-wrapping](#c.markdown-wrapping). Do not hard-wrap Markdown paragraphs or bullet text.**
@@ -273,7 +293,9 @@ Comments and documentation describe the current system under [P.documentation](P
 
 Keep each paragraph or bullet's text on one source line and let the renderer wrap it. Preserve line breaks required by code blocks, tables, or other Markdown structure. This also applies to PR bodies.
 
-## Build and checks
+<a id="build-and-checks"></a>
+
+#### Build and checking documentation
 
 <a id="c.checking-instructions"></a>**[C.checking-instructions](#c.checking-instructions). Keep build and checking instructions with the component they apply to.**
 
@@ -282,6 +304,8 @@ Keep each paragraph or bullet's text on one source line and let the renderer wra
 Document formatter versions, commands, and prerequisites in the relevant component guide. Link those instructions instead of maintaining another command list here. The [workflow guide](WORKFLOWS.md#spectec-build-and-checks) provides compiler command recipes.
 
 ## Change records
+
+Apply the [general prose conventions](#c.prose) to writing in change records. The conventions below supply record-specific forms.
 
 <a id="c.change-summaries"></a>**[C.change-summaries](#c.change-summaries). Summarize the conceptual change in commit subjects and PR titles.**
 
@@ -478,7 +502,7 @@ An omission does not by itself promise later adoption. Include it under Deferred
 
 <a id="c.ports-syncs.references"></a>**[C.ports-syncs.references](#c.ports-syncs.references). Use GitHub source references in upstream scope groups.** Identify origins, for example `Original: org/repo@sha`, or link a comparison range or reference file for a Sync.
 
-## Review
+### Review
 
 <a id="c.review-labels"></a>**[C.review-labels](#c.review-labels). Label a review comment when its status could be unclear.**
 
@@ -486,9 +510,9 @@ An omission does not by itself promise later adoption. Include it under Deferred
 
 Use `Required:`, `Suggestion:`, or `Question:` to distinguish blockers, preferences, and requests for clarification. A label is unnecessary when the status is already clear. Explain blockers under [P.review-blockers](POLICIES.md#p.review-blockers).
 
-## Landing
+### Landing
 
-### Integration defaults
+#### Integration defaults
 
 <a id="c.integration"></a>**[C.integration](#c.integration). Integration defaults**
 
@@ -506,7 +530,7 @@ Update earlier when dependencies or conflicts require it. Contributors need not 
 
 Count commits after final cleanup. A fast-forward avoids an extra merge commit because the single commit supplies the contribution’s permanent record.
 
-### Single-commit records
+#### Single-commit records
 
 <a id="c.single-commit-record"></a>**[C.single-commit-record](#c.single-commit-record). A single-commit PR’s message must explain the PR’s motivation, result, and scope.**
 
@@ -514,7 +538,7 @@ Count commits after final cleanup. A fast-forward avoids an extra merge commit b
 
 A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [P.commit-explanations](POLICIES.md#p.commit-explanations) also applies here.
 
-### Merge messages
+#### Merge messages
 
 <a id="c.merge-subjects"></a>**[C.merge-subjects](#c.merge-subjects). Use `Merge: <lowercase summary> (#PR)` for merge subjects.**
 
