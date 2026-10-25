@@ -239,7 +239,7 @@ Apply these conventions to prose sentences.
 
 These punctuation choices support [one main idea per sentence](#c.prose.focus) and [the progression from familiar to new information](#c.prose.flow).
 
-- <a id="c.prose.punctuation"></a>**[C.prose.punctuation](#c.prose.punctuation). Replace semicolons, colons, and em dashes with clearer punctuation or separate sentences.** Use periods, commas, or parentheses according to the relationship being expressed. Preserve punctuation required by code, URLs, message syntax, source references, and exact quotations.
+- <a id="c.prose.punctuation"></a>**[C.prose.punctuation](#c.prose.punctuation). Replace semicolons, em dashes, and colons that join statements with clearer punctuation or separate sentences.** Use periods, commas, or parentheses according to the relationship being expressed. A colon may introduce a list. Preserve punctuation required by code, URLs, message syntax, source references, and exact quotations.
 
 - <a id="c.prose.parentheses"></a>**[C.prose.parentheses](#c.prose.parentheses). Prefer parentheses only for brief qualifications.** Put a separate claim or an essential step in the explanation in its own sentence.
 
