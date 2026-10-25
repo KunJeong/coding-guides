@@ -411,7 +411,7 @@ Ported from P4-SpecTec.
 Original-commit: https://github.com/kaist-plrg/p4-spectec/commit/<12-character-sha>
 ```
 
-<a id="c.sources.regressions"></a>**[C.sources.regressions](#c.sources.regressions). Record a known regression's introducing commit as `Fixes: <12-character SHA> ("<subject>")`.** Preserve its full subject. Omit the record when the introducing commit cannot be identified. Hash-length exceptions follow [C.sources.hashes](#c.sources.hashes). This format is an exception to the full-URL default. It may coexist with source records.
+<a id="c.sources.regressions"></a>**[C.sources.regressions](#c.sources.regressions). Record the commit that introduced a fixed fault as `Fixes: <12-character SHA> ("<subject>")`.** Find it by blaming the lines the fix changes, or by searching history for the code the fix replaces. Preserve the introducing commit's full subject. Hash-length exceptions follow [C.sources.hashes](#c.sources.hashes). This format is an exception to the full-URL default. It may coexist with source records.
 
 If a one-line `Fixes:` record exceeds 72 characters, move the complete quoted subject, including its parentheses, to a second line indented by one space. Do not wrap the quoted subject, even if that line exceeds 72 characters. Leave short records and existing two-line records unchanged.
 

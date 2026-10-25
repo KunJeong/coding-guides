@@ -42,7 +42,7 @@ Each policy ID links to its optional explanation.
 
 - [P.commit-explanations](#p.commit-explanations). Each final commit message should explain the motivation and resulting change.
 
-  Put motivation and solution in separate paragraphs when both appear in the body. Fixes must explain the fault, and refactors must explain the structural limitation. Feature, test, docs, and chore commits may omit motivation that would only restate the solution. A subject that conveys the required explanation needs no body. Identify a regression’s introducing commit when known.
+  Put motivation and solution in separate paragraphs when both appear in the body. Fixes must explain the fault, and refactors must explain the structural limitation. Feature, test, docs, and chore commits may omit motivation that would only restate the solution. A subject that conveys the required explanation needs no body. Fixes must also identify the commit that introduced the fault.
 
 - [P.pr-explanations](#p.pr-explanations). Each PR body should explain its motivation, result, and scope.
 
@@ -195,11 +195,11 @@ Readers should be able to rely on descriptions of the system without knowing an 
 
 A commit message should let readers understand why the change was needed and what it accomplishes without having seen the original discussion. Motivation explains the prior problem, limitation, or research goal. Solution describes the resulting change. Put motivation and solution in separate paragraphs, with motivation first.
 
-Fixes must identify the incorrect behavior. Refactors must identify the structural limitation and explain how the new structure addresses it. Both always require motivation.
+Fixes must identify the incorrect behavior and the commit that introduced it. Refactors must identify the structural limitation and explain how the new structure addresses it. Both always require motivation.
 
 For `feat`, `test`, `docs`, and `chore` commits, motivation may be omitted when it would only restate the solution. Include any user need, research goal, or maintenance reason the change addresses. Do not invent a problem to fill the format.
 
-When the subject already conveys the required explanation, the message does not need a body. Source records still follow [P.source-credit](#p.source-credit). Identify a known regression’s introducing commit. The [regression-record convention](CONVENTIONS.md#c.sources.regressions) supplies a recommended format.
+When the subject already conveys the required explanation, the message does not need a body. Source records still follow [P.source-credit](#p.source-credit). The [regression-record convention](CONVENTIONS.md#c.sources.regressions) supplies the format for recording a fix's introducing commit.
 
 <a id="p.pr-explanations"></a>
 
