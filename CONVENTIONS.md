@@ -229,7 +229,7 @@ Apply these conventions to prose sentences.
 
 **Word choice**
 
-- <a id="c.prose.terms"></a>**[C.prose.terms](#c.prose.terms). Prefer defining unfamiliar technical terms before relying on them.** Use plain language for terms the intended reader is unlikely to know. For established project terms, link an existing definition when needed.
+- <a id="c.prose.terms"></a>**[C.prose.terms](#c.prose.terms). Build explanations from common words and from concrete names in the material.** Avoid technical jargon. When a technical term is necessary, define it in plain words before relying on it. For established project terms, link an existing definition when needed.
 
 - <a id="c.prose.hyphenation"></a>**[C.prose.hyphenation](#c.prose.hyphenation). Avoid invented hyphenated compounds.** State the action or relationship in an ordinary phrase. For example, prefer "selects the first successful alternative" to "first-success selection". Established compounds and standard prefixes are acceptable when they read naturally. Preserve hyphens in identifiers, URLs, proper names, and exact quotations.
 
