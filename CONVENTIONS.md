@@ -42,7 +42,7 @@ The [Swift API Design Guidelines](https://www.swift.org/documentation/api-design
 
 As general guidance, use names and interfaces to make a component's meaning and responsibility clear to its callers. Choose names from the project's vocabulary and use them consistently for the same concept. As a default, keep code that maintains the same invariant together. [P.invariants](POLICIES.md#p.invariants) requires operations to preserve the guarantees callers rely on.
 
-As guidance, spend naming effort in proportion to how widely and how long a name is used. The default order of attention is module names, function names, labeled parameters, positional parameters, local bindings, and bindings in lambdas or match arms. Short names are appropriate when the surrounding code makes their roles immediately clear.
+As guidance, spend naming effort in proportion to how widely and how long a name is used. The default order of attention is module names, function names, labeled parameters, positional parameters, local bindings, and bindings in lambdas or match arms. Use compact names in small local scopes when the surrounding code makes their roles clear. Keep public function names and argument labels explicit, using established domain abbreviations where appropriate.
 
 <a id="c.names"></a>
 
@@ -60,7 +60,7 @@ As guidance, spend naming effort in proportion to how widely and how long a name
 
 - <a id="c.names.helpers"></a>**[C.names.helpers](#c.names.helpers). Name recursive helpers for what they compute or traverse.** Do not use generic names such as `aux`, `go`, or `loop` as defaults.
 
-- <a id="c.names.type-repetition"></a>**[C.names.type-repetition](#c.names.type-repetition). Avoid repeating type information in OCaml variable names.** Name values for their roles. OCaml is statically typed, so readers can infer type information from context or inspect it in an editor.
+- <a id="c.names.type-repetition"></a>**[C.names.type-repetition](#c.names.type-repetition). Avoid prefixes that only repeat a value's OCaml type.** Prefer role names such as `expected`, `remaining`, and `result`. When several values share a role, add a short, recognizable concept qualifier. For example, `td_left` and `v_left` distinguish a type definition from its value on the left side of a comparison. Use these qualifiers where they clarify the roles, without requiring a prefix for every value of a particular type.
 
 - <a id="c.names.conversions"></a>**[C.names.conversions](#c.names.conversions). Name representation conversions by their endpoints.** Use `to_destination` in the source module, `of_source` in the destination module, and `destination_of_source` elsewhere. Semantic passes keep purpose names such as `elaborate` and `annotate`.
 
