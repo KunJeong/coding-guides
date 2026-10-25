@@ -79,7 +79,7 @@ git diff <base> <tip>
 Use the shared guides to assess these dimensions:
 
 - **Names.** Consistent with existing vocabulary and communicating responsibility. Use C.names and Coherence to distinguish ambiguity from a naming preference.
-- **Comments and prose.** Check both the purpose and wording of new comments. C.comments and C.comments.purpose govern what a comment explains and where it belongs. C.prose governs sentence focus, actors, pronouns, terminology, and readability. Apply prose guidance to docstrings and other changed documentation too. Quote text when it helps explain a finding.
+- **Comments and prose.** Check every comment and docstring the diff adds or changes in two passes, both required. First, under C.comments.purpose and C.comments, decide whether the comment earns its place and sits beside the code it explains, or whether a clearer name, smaller function, or stronger type should replace it. Second, quote each surviving comment and check every sentence against C.prose. Apply C.prose to other changed documentation too.
 - **Interface hygiene.** Whether a new `.mli` docstring, exported name, or signature fits the public surface, and whether an edit left the `.mli` and `.ml` out of step.
 - **Types and state.** Under C.types and C.mutation, assess whether construction and exposed updates preserve invariants, whether inputs are explicit, and whether mutable state has a clear owner and lifetime.
 - **Half-finished edits.** A rename applied in some sites and not others. A removed function still referenced. A TODO left where the change was meant to complete.
