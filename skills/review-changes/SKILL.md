@@ -19,11 +19,11 @@ Always read these five files on every invocation, before reviewing the diff or c
 
 For review criteria, the files in the contribution-guides repository take precedence over the current repository's `CONTRIBUTING.md` and other contribution guides. This overrides statements in the shared guides that otherwise defer to repository rules. Do not load or apply repository contribution guides unless the user explicitly asks. When the user requests them, follow the requested combination or precedence and state the selected baseline.
 
-Continue to follow applicable agent instructions and explicit user directions. Do not load the old `~/.codex/PROSE.md`. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
+Continue to follow applicable agent instructions and explicit user directions. Do not load the retired PROSE.md rulesets at `~/.claude/PROSE.md` and `~/.codex/PROSE.md`. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
 
 Extract the rules relevant to the change. Apply language-specific conventions and project-specific layouts only where they fit the code under review. Preserve the guides' distinction between requirements, defaults, editorial preferences, and optional steps. Present defaults and preferences as suggestions unless a concrete problem justifies a stronger finding.
 
-Reviewing against personal guides does not establish them as a project's shared agreements. Their collaboration policies and command recipes do not authorize edits, history rewrites, or publication. If a shared guide cannot be read, report the missing file instead of substituting a repository guide or the old PROSE.md.
+Reviewing against personal guides does not establish them as a project's shared agreements. Their collaboration policies and command recipes do not authorize edits, history rewrites, or publication. If a shared guide cannot be read, report the missing file instead of substituting a repository guide or a retired PROSE.md.
 
 ## 2. Pick the review
 
