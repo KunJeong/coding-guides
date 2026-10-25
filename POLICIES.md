@@ -44,6 +44,10 @@ Each policy ID links to its optional explanation.
 
   Put motivation and solution in separate paragraphs when both appear in the body. Fixes must explain the fault, and refactors must explain the structural limitation. Feature, test, docs, and chore commits may omit motivation that would only restate the solution. A subject that conveys the required explanation needs no body. Fixes must also identify the commit that introduced the fault.
 
+- [P.commit-wrapping](#p.commit-wrapping). Wrap final commit messages at 72 columns.
+
+  URLs, identifiers, and quoted subjects in source records may exceed the limit.
+
 - [P.pr-explanations](#p.pr-explanations). Each PR body should explain its motivation, result, and scope.
 
   One short description may cover all three.
@@ -200,6 +204,14 @@ Fixes must identify the incorrect behavior and the commit that introduced it. Re
 For `feat`, `test`, `docs`, and `chore` commits, motivation may be omitted when it would only restate the solution. Include any user need, research goal, or maintenance reason the change addresses. Do not invent a problem to fill the format.
 
 When the subject already conveys the required explanation, the message does not need a body. Source records still follow [P.source-credit](#p.source-credit). The [regression-record convention](CONVENTIONS.md#c.sources.regressions) supplies the format for recording a fix's introducing commit.
+
+<a id="p.commit-wrapping"></a>
+
+**[P.commit-wrapping](#p.commit-wrapping). Wrap final commit messages at 72 columns.**
+
+*Requirement. [Coherence][coherence]*
+
+Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole so readers can follow and search them. The [display conventions](CONVENTIONS.md#c.commit-display.wrapping) give the details.
 
 <a id="p.pr-explanations"></a>
 

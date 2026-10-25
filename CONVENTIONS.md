@@ -377,11 +377,11 @@ The `spec` commit type is deprecated. Historical `spec` commits denote specifica
 
 **[C.commit-display](#c.commit-display). Commit character set and wrapping**
 
-*Editorial preference. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
+*Editorial preference. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality). Policy [P.commit-wrapping](POLICIES.md#p.commit-wrapping).*
 
 <a id="c.commit-display.characters"></a>**[C.commit-display.characters](#c.commit-display.characters). Prefer ASCII in commit-message prose for predictable terminal display.** Use UTF-8 when accurate names, identifiers, or exact source text require it.
 
-<a id="c.commit-display.wrapping"></a>**[C.commit-display.wrapping](#c.commit-display.wrapping). Prefer wrapping commit-message prose at 72 columns.** Leave URLs unbroken. Keep identifiers and verbatim subjects in source records intact even when they exceed that width. Markdown paragraphs and PR bodies follow [C.markdown-wrapping](#c.markdown-wrapping).
+<a id="c.commit-display.wrapping"></a>**[C.commit-display.wrapping](#c.commit-display.wrapping). Wrap commit-message lines at 72 columns.** This restates [P.commit-wrapping](POLICIES.md#p.commit-wrapping). Leave URLs unbroken. Keep identifiers and verbatim subjects in source records intact even when they exceed that width. Markdown paragraphs and PR bodies follow [C.markdown-wrapping](#c.markdown-wrapping).
 
 ### Sources and credit
 

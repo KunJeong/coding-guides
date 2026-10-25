@@ -23,7 +23,7 @@ Start with [PRINCIPLES.md](PRINCIPLES.md) for the reasoning behind the guidance.
 | [Prose](CONVENTIONS.md#prose) | Wording across media | [General writing](CONVENTIONS.md#general-writing) |
 | Prose | Comments and docstrings | [Comments](CONVENTIONS.md#comments), [documentation policy](POLICIES.md#p.documentation) |
 | Prose | Documentation and presentation | [Documentation](CONVENTIONS.md#documentation), [build and checking documentation](CONVENTIONS.md#build-and-checking-documentation) |
-| [Change records](CONVENTIONS.md#change-records) | Commit messages | [Commit conventions](CONVENTIONS.md#commit-messages), [explanation policy](POLICIES.md#p.commit-explanations) |
+| [Change records](CONVENTIONS.md#change-records) | Commit messages | [Commit conventions](CONVENTIONS.md#commit-messages), [explanation policy](POLICIES.md#p.commit-explanations), [wrapping policy](POLICIES.md#p.commit-wrapping) |
 | Change records | Sources and attribution | [Source records](CONVENTIONS.md#sources-and-credit), [credit policy](POLICIES.md#p.source-credit), [imported work](POLICIES.md#p.imported-work) |
 | Change records | PR scope and descriptions | [PR conventions](CONVENTIONS.md#pr-titles-and-descriptions), [Ports and Syncs](CONVENTIONS.md#ports-and-syncs), [scope policy](POLICIES.md#p.change-scope), [explanation policy](POLICIES.md#p.pr-explanations) |
 | Change records | Review and landing | [Review comments](CONVENTIONS.md#review), [integration and landing records](CONVENTIONS.md#landing), [review blockers](POLICIES.md#p.review-blockers) |
