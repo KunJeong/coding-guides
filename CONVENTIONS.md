@@ -6,6 +6,8 @@ This personal reference organizes guidance into [Functionality](#functionality),
 
 Convention IDs name topics and stay stable when rules move or their wording changes. Links below convention groups identify the shared requirements or principles that support them. Entries are defaults unless marked as editorial preferences or identified as restatements of an outline requirement. Defaults allow judgment under [P.rules](POLICIES.md#p.rules).
 
+Use the [topic index](README.md#topic-index) to locate conventions and their supporting policies.
+
 <a id="across-media"></a>
 
 <a id="c.established-forms"></a>**[C.established-forms](#c.established-forms). Prefer established code and prose forms when alternatives offer no clear benefit.**
