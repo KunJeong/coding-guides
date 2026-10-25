@@ -24,7 +24,7 @@ Each policy ID links to its optional explanation.
 
 - [P.change-scope](#p.change-scope). Each commit should express one idea, and each PR should develop one main topic.
 
-  Incidental commits may accompany the main topic when a separate PR adds little value. Keep them distinct, explain their inclusion, and keep the topic stable during review. Limit each Port to one upstream PR and necessary local adaptations.
+  Split commits as far as possible without placeholders or a broken build, keeping an idea's tests and documentation with it. Incidental commits may accompany the main topic when a separate PR adds little value. Keep them distinct, explain their inclusion, and keep the topic stable during review. Limit each Port to one upstream PR and necessary local adaptations.
 
 - [P.invariants](#p.invariants). Preserve the guarantees callers rely on.
 
@@ -159,7 +159,7 @@ New explanations, factual corrections, changes to assumptions or motivation, and
 
 *Requirement. [Coherence][coherence] ↔ [Proportionality][proportionality]*
 
-Edits that implement, test, or explain the same idea belong together. Unrelated ideas should have separate commits so readers can understand and review each change on its own.
+A commit carries one idea with its tests and documentation. A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split as far as possible without placeholders or a broken build under [P.commit-buildability](#p.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
 
 A PR may include commits outside its main topic when a separate PR would add review and landing overhead without enough practical benefit. Those commits should remain distinct, and the PR body should explain why they belong. A Port is limited to one upstream PR and its necessary local adaptations. The [porting conventions](CONVENTIONS.md#c.ports-syncs.scope) explain this scope.
 
