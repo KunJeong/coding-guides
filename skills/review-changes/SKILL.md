@@ -5,7 +5,7 @@ description: Review staged changes or a branch against the shared personal contr
 
 # review-changes
 
-Review changes against the user's personal contribution guides. Use the same references in every repository and report actionable findings without applying edits.
+Review changes against the user's version-controlled contribution guides by default. Use the same references in every repository and report actionable findings without applying edits.
 
 ## 1. Load the shared guides
 
@@ -17,7 +17,9 @@ Always read these five files on every invocation, before reviewing the diff or c
 - [Conventions](/Users/kunjeong/Code/1_resources/contribution-guides/CONVENTIONS.md)
 - [Workflow recipes](/Users/kunjeong/Code/1_resources/contribution-guides/WORKFLOWS.md)
 
-These guides are the review baseline. Do not load the old `~/.codex/PROSE.md` or discover repository-specific rule files to assemble another ruleset. Instructions already supplied in the session and explicit user directions still apply. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
+For review criteria, the files in the contribution-guides repository take precedence over the current repository's `CONTRIBUTING.md` and other contribution guides. This overrides statements in the shared guides that otherwise defer to repository rules. Do not load or apply repository contribution guides unless the user explicitly asks. When the user requests them, follow the requested combination or precedence and state the selected baseline.
+
+Continue to follow applicable agent instructions and explicit user directions. Do not load the old `~/.codex/PROSE.md`. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
 
 Extract the rules relevant to the change. Apply language-specific conventions and project-specific layouts only where they fit the code under review. Preserve the guides' distinction between requirements, defaults, editorial preferences, and optional steps. Present defaults and preferences as suggestions unless a concrete problem justifies a stronger finding.
 
@@ -87,12 +89,12 @@ This skill reviews conventions and design. It does not run builds or tests or cl
 
 ## 5. Report
 
-Start with one brief line identifying the shared-guide baseline and review scope. Then give one findings list, most-severe first.
+Start with one brief line identifying the selected guideline baseline and review scope. Then give one findings list, most-severe first.
 
 Each finding, in three parts:
 
 - **Where.** `path:line`, clickable.
-- **What, and which rule.** Explain the issue and cite the applicable principle, policy, or convention from the shared guides, using its stable ID and an absolute file link. Mark suggestions based on defaults or editorial preferences as suggestions. For stronger findings, identify the required rule or concrete consequence. Omit unsupported opinions.
+- **What, and which rule.** Explain the issue and cite the applicable principle, policy, or convention from the selected baseline, using its stable ID when available and an absolute file link. Mark suggestions based on defaults or editorial preferences as suggestions. For stronger findings, identify the required rule or concrete consequence. Omit unsupported opinions.
 - **The fix.** A concrete change, as a short diff or the replacement text. Not a direction to go figure it out.
 
 Order by how much the finding matters to a reader or a future bisect, not by file order. If nothing violates a convention, say that in one line rather than padding the list.
@@ -101,4 +103,4 @@ Order by how much the finding matters to a reader or a future bisect, not by fil
 
 **Reports only.** Applying a fix is ordinary follow-up work in the next message, not part of this skill. Ask for the fixes you want after reading the list.
 
-**Shared baseline.** Editing the reference guides changes future reviews across repositories. Do not cache their contents across review invocations or merge in a repository's rule files.
+**Shared baseline.** Editing the reference guides changes future reviews across repositories. Do not cache their contents across review invocations. Include repository contribution guides only when the user explicitly requests them.
