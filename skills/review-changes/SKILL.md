@@ -76,6 +76,8 @@ git diff <base> <tip>
 
 ## 4. Review dimensions
 
+Findings cover only what the diff adds, changes, or removes. Read unchanged code for context, but do not report on it, except to show a site an incomplete edit missed.
+
 Use the shared guides to assess these dimensions:
 
 - **Names.** Consistent with existing vocabulary and communicating responsibility. Use C.names and Coherence to distinguish ambiguity from a naming preference.
