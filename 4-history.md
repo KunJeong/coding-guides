@@ -110,6 +110,8 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.commit-prose.solution-verbs"></a>**[R.commit-prose.solution-verbs](#r.commit-prose.solution-verbs). Use specific verbs to describe what the change does.** Prefer "Removes expired cache entries" to "Updates the cache so expired entries are no longer retained". Omit temporal wording that only repeats context already supplied by the motivation. Sentence structure follows [R.commit-prose.solution-tense](#r.commit-prose.solution-tense).
 
+<a id="r.commit-prose.diff"></a>**[R.commit-prose.diff](#r.commit-prose.diff). Leave out what the diff shows.** The body explains why the change was made and what it achieves. How the change was made, which files it touches, and its edits line by line belong to the diff.
+
 <a id="r.commit-prose.grouping"></a>**[R.commit-prose.grouping](#r.commit-prose.grouping). Use paragraphs for a change within one affected area and bullets for changes across distinct areas.** Keep the motivation in prose. Use solution bullets when separating changes to different components or responsibilities makes the result easier to scan. Name concrete identifiers where they help explain the result.
 
 <a id="r.commit-prose.identifiers"></a>**[R.commit-prose.identifiers](#r.commit-prose.identifiers). Use backticks around code identifiers in commit bodies.** This distinguishes identifiers from ordinary prose.
