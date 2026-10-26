@@ -20,7 +20,7 @@ Keep semantic logic out of executable entrypoints so other callers can use it wi
 
 <a id="r.commit-format.specifications"></a>**[R.commit-format.specifications](#r.commit-format.specifications). Use `spec` or `spec/<target>` scopes for specification work, such as `fix(spec/deneb): correct blob validation`.**
 
-Specification messages should distinguish changes in modeled behavior from changes in notation or organization.
+Specification messages should distinguish changes in modeled behavior from changes in notation or organization. A change in modeled behavior is a `fix` or `feat`. A change in notation or organization is a `refactor` or `reorg`. [R.evidence](../1-functionality.md#r.evidence) gives the evidence each type needs.
 
 Other scopes name compiler areas, such as `converter`, `cli`, `elaborate`, `il`, `interp`, `instrumentation`, or `targets/p4`.
 

@@ -43,7 +43,7 @@ Integration conflicts are resolved on the PR branch, where reviewers can inspect
 
 *Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
-The history should preserve reviewed units of work and explain their integration. Land multi-commit PRs with a merge commit that explains the contribution as a whole. Count commits after cleanup and preserve the resulting commits without squashing during landing.
+The history should preserve reviewed units of work and explain their integration. Land multi-commit PRs with a merge commit that explains the contribution as a whole. Count commits after cleanup and preserve the resulting commits without squashing during landing. The landing record is the merge message, or the message of a single-commit PR. For a performance claim, it keeps one line with the measured result under [R.evidence.locations](../1-functionality.md#r.evidence.locations).
 
 For single-commit PRs, the [integration default](#r.integration.method) is a fast-forward. Their commit message supplies the permanent record under [R.single-commit-record](#r.single-commit-record). Add the PR number through authorized final cleanup under [R.final-cleanup](#r.final-cleanup).
 

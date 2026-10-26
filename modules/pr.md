@@ -54,6 +54,8 @@ In both sections, use `**type(scope):** Description.` for summary bullets. Choos
 - **docs(readme):** Clarifies compiler setup instructions.
 ```
 
+<a id="r.pr-body.validation"></a>**[R.pr-body.validation](#r.pr-body.validation). Under Validation, give the evidence that the diff, the Scope section, and CI do not show.** Report the measurements and other checks that [R.evidence](../1-functionality.md#r.evidence) asks for, taken on the final branch. State what was not checked. Leave out CI status, which the PR page shows, and added tests, which Scope lists. Omit the section when nothing remains.
+
 <a id="r.pr-body.commit-log"></a>**[R.pr-body.commit-log](#r.pr-body.commit-log). End multi-commit PR bodies with `## Commit Log` for GitHub searchability.** List final commit subjects verbatim and in order, including their `type(scope):` prefixes. Do not add backticks or hyperlinks around them. Preserve any literal characters already in a subject and keep the list synchronized with the final history.
 
 <a id="r.pr-body.follow-ups"></a>**[R.pr-body.follow-ups](#r.pr-body.follow-ups). Separate deferred tasks from ideas and open questions under Future Work.** Use `## Future Work` when the PR has follow-ups to record. Include only subsections with content.
