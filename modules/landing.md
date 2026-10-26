@@ -55,7 +55,7 @@ New design or interfaces, multiple independent behaviors, uncertain impact, and 
 
 <a id="r.integration.rebase"></a>**[R.integration.rebase](#r.integration.rebase). Rebase onto current `main` during final integration by default.**
 
-Update earlier when dependencies or conflicts require it. Contributors need not rebase every open branch after each merge. Before replacing commits that dependent branches use, coordinate with affected contributors under [R.rules](collaboration.md#r.rules). Reviewer rewrites also follow [R.reviewer-tasks](collaboration.md#r.reviewer-tasks). Agree another integration method if rebasing would disrupt shared work.
+Update earlier when dependencies or conflicts require it. Contributors need not rebase every open branch after each merge. Before replacing commits that dependent branches use, coordinate with the affected contributors. Reviewer rewrites also follow [R.reviewer-tasks](collaboration.md#r.reviewer-tasks). Agree another integration method if rebasing would disrupt shared work.
 
 <a id="r.integration.method"></a>**[R.integration.method](#r.integration.method). Fast-forward single-commit PRs by default.**
 

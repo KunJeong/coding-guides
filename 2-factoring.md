@@ -114,7 +114,7 @@ Rename a component once its boundary and responsibility support the new name. Pu
 
 <a id="r.names.renames"></a>**[R.names.renames](#r.names.renames). Rename declarations and callers together by default.**
 
-Do not retain compatibility aliases by default. Two names can suggest different meanings. When a consumer cannot migrate in the same change, record the obstacle and agree the alias’s removal under [R.renames](modules/collaboration.md#r.renames).
+Do not retain compatibility aliases by default. Two names can suggest different meanings. When a consumer cannot migrate in the same change, record the obstacle and the point at which the alias will be removed.
 
 ## Types and data
 

@@ -13,7 +13,7 @@ Personal guides for coding style, technical writing, and commit and PR practices
 | [modules/pr.md](modules/pr.md) | PR titles and descriptions |
 | [modules/ports.md](modules/ports.md) | Ports and Syncs of upstream work |
 | [modules/landing.md](modules/landing.md) | Integration, merge messages, and landing recipes |
-| [modules/collaboration.md](modules/collaboration.md) | Working with other contributors and reviewing their PRs |
+| [modules/collaboration.md](modules/collaboration.md) | Reviewing other contributors' PRs |
 | [modules/spectec.md](modules/spectec.md) | SpecTec layout, specification commits, and build commands |
 
 ## Load map
@@ -32,7 +32,7 @@ Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTe
 
 Each rule has an ID, such as `R.invariants` or `R.names.helpers`. IDs name topics and stay stable when rules move or their wording changes.
 
-Each outcome rule names the principles it serves in the line below its title. The rules under an outcome serve the same principles. `↔` marks a tradeoff between two principles. The collaboration module keeps its own grading of rules, because that grading decides what may block a collaborator's PR.
+Each outcome rule names the principles it serves in the line below its title. The rules under an outcome serve the same principles. `↔` marks a tradeoff between two principles. A review of a collaborator's PR treats the project's CONTRIBUTING.md as the source of what may block it.
 
 The stage files and the pr and ports modules open with a checklist. Each item is a question with a yes or no answer, and a no is a finding that cites the linked rules. The checklists describe code and text as they stand, so they apply to a diff, a branch, or a whole codebase.
 

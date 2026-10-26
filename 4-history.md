@@ -62,7 +62,7 @@ Terminals, `git log`, and emailed patches show commit messages as written, witho
 
 Source references let readers trace inherited work and preserve its contributors' credit. A commit containing copied or adapted work should identify the source revision and explain local differences in behavior or design. When several commits are folded together, all their source references should remain in the resulting message.
 
-Rewrites must preserve source references and author attribution. Credit records do not change responsibility under [R.responsibility](modules/collaboration.md#r.responsibility). Coauthor credit is optional and limited to actual human joint authorship. Tools are not coauthors. Recommended source-trailer formats are described in [Sources and credit](#sources-and-credit).
+Rewrites must preserve source references and author attribution. Credit records do not change who is responsible for the work. Coauthor credit is optional and limited to actual human joint authorship. Tools are not coauthors. Recommended source-trailer formats are described in [Sources and credit](#sources-and-credit).
 
 <a id="r.commit-buildability"></a>**[R.commit-buildability](#r.commit-buildability). Finalize each commit as a buildable unit.**
 
@@ -171,7 +171,7 @@ If a one-line `Fixes:` record exceeds 72 characters, move the complete quoted su
 
 <a id="r.sources.order"></a>**[R.sources.order](#r.sources.order). Place records after the body in one block, in this order: source records, then `Fixes:`, then `Co-authored-by:`.** Source records come first so that a Port's attribution paragraph sits directly above them, under [R.sources.port-attribution](modules/ports.md#r.sources.port-attribution). `[auto]`
 
-In PR bodies and merge summaries, GitHub shorthand such as `org/repo@sha` or `org/repo#number` is appropriate. Preserve author information during a rewrite, while allowing Git to record who created the rewritten commit as its committer. The committer field alone does not determine responsibility under [R.responsibility](modules/collaboration.md#r.responsibility).
+In PR bodies and merge summaries, GitHub shorthand such as `org/repo@sha` or `org/repo#number` is appropriate. Preserve author information during a rewrite, while allowing Git to record who created the rewritten commit as its committer. The committer field alone does not determine who is responsible for the work.
 
 ## Revising reviewed commits
 

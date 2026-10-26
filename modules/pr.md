@@ -107,7 +107,7 @@ Under `### Deferred Tasks`, identify specific work deliberately postponed from t
 
 Under `### Ideas and Open Questions`, describe possible improvements or open design questions without implying a commitment to pursue them. These possibilities do not belong in the merge message's `DEFERRED:` records. Select follow-up items deliberately instead of treating every possible improvement as backlog.
 
-<a id="r.pr-body.tool-use"></a>**[R.pr-body.tool-use](#r.pr-body.tool-use). Omit routine tool-use disclaimer sections by default.** AI use alone does not require a disclosure section. Put relevant tool details with the method, source, or limitation they explain under [R.responsibility](collaboration.md#r.responsibility).
+<a id="r.pr-body.tool-use"></a>**[R.pr-body.tool-use](#r.pr-body.tool-use). Omit routine tool-use disclaimer sections by default.** AI use alone does not require a disclosure section. Put relevant tool details with the method, source, or limitation they explain.
 
 ## Opening a PR
 
