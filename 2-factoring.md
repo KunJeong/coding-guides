@@ -2,6 +2,41 @@
 
 # Factoring
 
+## Checklist
+
+**Each name**
+
+- Does it match the name the project uses for the same concept? [R.names](#r.names)
+- Is it the only name for its concept, with no alias? [R.names.renames](#r.names.renames)
+- Does it say what the thing owns, computes, or holds, rather than how it works or what type it has? [R.names.modules](#r.names.modules), [R.names.functions](#r.names.functions), [R.names.parameters](#r.names.parameters), [R.names.locals](#r.names.locals), [R.names.helpers](#r.names.helpers), [R.names.type-repetition](#r.names.type-repetition)
+- Does it follow the [naming patterns](#naming-patterns)?
+
+**Each function**
+
+- Is the primary subject positional, with every other semantic input labeled by its role? [R.names.arguments](#r.names.arguments), [R.names.labels](#r.names.labels)
+- Does every input that affects the result arrive as an argument rather than from mutable global state? [R.mutation.inputs](#r.mutation.inputs)
+- Does it keep computation apart from loading and saving data? [R.abstractions.io](#r.abstractions.io)
+
+**Each abstraction**
+
+- Does it perform an operation that its callers can name? [R.abstractions.operations](#r.abstractions.operations)
+- Do current callers use it? [R.abstractions](#r.abstractions)
+- Does it expose only what callers need? [R.abstractions.exposure](#r.abstractions.exposure)
+- If several callers share it, do they all need the same operation and the same constraints? [R.abstractions.sharing](#r.abstractions.sharing)
+
+**Each type**
+
+- Does each variant carry the data it needs, without flags or optional fields that allow combinations the program cannot handle? [R.types.alternatives](#r.types.alternatives)
+
+**Each piece of mutable state**
+
+- Does one component own it, with a clear lifetime? [R.mutation.ownership](#r.mutation.ownership)
+- Would recursion or a fold express the same control flow more clearly? [R.mutation.recursion](#r.mutation.recursion)
+
+**Each form**
+
+- Does it match the form the surrounding code uses for the same purpose, unless another form makes an operation, dependency, or relationship clearer? [R.established-forms](#r.established-forms)
+
 The [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/#naming) explain naming from a caller's perspective. Robert C. Martin's [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) includes chapters on meaningful names and functions. These are optional background reading. The rules below state this project's choices.
 
 <a id="across-media"></a>
@@ -72,6 +107,20 @@ Apply the conversion ownership rule to document and string production. Keep the 
 Check existing uses of a concept before choosing its name. Evaluate a name at its call sites as well as in its declaration. Names are part of the specification vocabulary, so misleading names can obscure semantic errors.
 
 Rename a component once its boundary and responsibility support the new name. Public APIs should express the intended semantic model even when dependency constraints require different internal module paths. Prefer explicit organization over broad buckets such as `core` when distinct responsibilities can be named.
+
+### Naming patterns
+
+| Kind | Pattern | Rule |
+| --- | --- | --- |
+| Conversion between representations | `to_<target>` in the source module, `of_<source>` in the target module, `<target>_of_<source>` elsewhere | [R.names.conversions](#r.names.conversions) |
+| Predicate | `is_*`, `has_*`, or a relation such as `equal` or `contains` | [R.names.predicates](#r.names.predicates) |
+| Lookup that can fail | `find_*_opt` or `as_*_opt`, with an `_exn` variant that raises | [R.names.failures](#r.names.failures) |
+| Presentation | `doc_of_*` builds a document, `string_of_*` returns text, `pp_*` writes to a formatter, `render_*` builds one particular presentation, `print_*` writes to the output | [R.names.printing](#r.names.printing) |
+| Constructor | `make`, plus `of_*` for conversions and `empty` for empty values | [R.names.construction](#r.names.construction) |
+| Persistence or event delivery | Domain verbs such as `save` or `emit` | [R.names.effects](#r.names.effects) |
+| Callback label | `~f` for a single callback, `~init` for an initial accumulator | [R.names.labels](#r.names.labels) |
+| Recursive helper | Named for what it computes, not `aux`, `go`, or `loop` `[auto]` | [R.names.helpers](#r.names.helpers) |
+| Traversal | `map_*_children`, `rewrite_*_postorder`, `iter_*_preorder`, or `fold_*_preorder` | [R.traversals](#r.traversals) |
 
 <a id="r.names.renames"></a>**[R.names.renames](#r.names.renames). Rename declarations and callers together by default.**
 

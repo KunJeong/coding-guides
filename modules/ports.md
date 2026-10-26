@@ -1,5 +1,16 @@
 # Ports and Syncs
 
+## Checklist
+
+**Each Port or Sync body**
+
+- Does Motivation link the source and say why the work is needed here? [R.ports-syncs.explanations](#r.ports-syncs.explanations)
+- For a Port, does the PR stay within one upstream PR and the local work it needs? [R.ports-syncs.scope](#r.ports-syncs.scope)
+- Does Core Concepts cover only what the source leaves unexplained? [R.ports-syncs.explanations](#r.ports-syncs.explanations)
+- Does every upstream change appear under Ported, Adapted, or Omitted, with a reason for each omission? [R.imported-work](#r.imported-work), [R.ports-syncs.groups](#r.ports-syncs.groups)
+- Does each Local bullet say why the Port or Sync needs it? [R.imported-work](#r.imported-work)
+- Does Validation compare the result with its source? [R.ports-syncs.groups](#r.ports-syncs.groups), [R.pr-body.validation](pr.md#r.pr-body.validation)
+
 <a id="r.imported-work"></a>
 
 **[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
@@ -22,12 +33,27 @@ The local PR should summarize why the work is needed here and what result it bri
 
 <a id="r.ports-syncs.groups"></a>**[R.ports-syncs.groups](#r.ports-syncs.groups). Use `Ported`, `Adapted`, `Omitted`, and `Local` as the subsections of Scope.** Use `###` headings within `## Scope`. Include the applicable groups and omit empty ones.
 
-| Group | Work to describe |
-| --- | --- |
-| `Ported` | Upstream work taken nearly directly. |
-| `Adapted` | Upstream work adjusted for the local context. |
-| `Omitted` | Upstream work not taken, with the reason. |
-| `Local` | Local work the Port or Sync needs. |
+```markdown
+## Scope
+
+### Ported
+
+- **type(scope):** Upstream work taken nearly directly. Original: org/repo@sha
+
+### Adapted
+
+- **type(scope):** Upstream work adjusted for the local context, including conflict resolutions.
+
+### Omitted
+
+- **type(scope):** Upstream work not taken, and why.
+
+### Local
+
+- **type(scope):** Local work the Port or Sync needs, and why.
+```
+
+Validation compares the result with its source, such as upstream tests that now pass locally or reference suites that pass after a Sync.
 
 An omission does not by itself promise later adoption. Include it under Deferred Tasks only when its later adoption has been explicitly deferred.
 

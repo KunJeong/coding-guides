@@ -1,5 +1,33 @@
 # History
 
+## Checklist
+
+**Each commit**
+
+- Does it hold one idea, together with its tests and documentation? [R.change-scope](#r.change-scope)
+- Is it free of changes that could land as their own buildable commit, such as a preparatory refactor, rename, or move? [R.change-scope](#r.change-scope)
+- Does it build without anything that a later commit adds? [R.commit-buildability](#r.commit-buildability)
+- Does it carry the evidence its type requires? [R.evidence](1-functionality.md#r.evidence)
+- For a refactor, reorg, or performance change, are test expectations unchanged? [R.evidence.preservation](1-functionality.md#r.evidence.preservation)
+
+**Each commit message**
+
+- Does the message explain the resulting change, and the motivation wherever the subject does not already make it clear? [R.commit-explanations](#r.commit-explanations)
+- For a fix, does the body name the incorrect behavior? [R.commit-explanations](#r.commit-explanations)
+- For a refactor, does the body name the structural limitation? [R.commit-explanations](#r.commit-explanations)
+- Does the subject name the concept, so that a reader scanning the log understands the change? [R.change-summaries](#r.change-summaries)
+- Do the type and scope fit the intent and the affected area? [R.commit-format.classification](#r.commit-format.classification)
+- For a fix, does the `Fixes:` record point at the commit that introduced the fault? [R.sources.regressions](#r.sources.regressions)
+- For copied or adapted work, does a source record cite the origin, with author credit preserved? [R.source-credit](#r.source-credit)
+- Does every coauthor credit name a person who wrote part of the change? [R.sources.coauthors](#r.sources.coauthors)
+- Does the body leave out what the diff shows, including measurements? [R.commit-prose.diff](#r.commit-prose.diff), [R.evidence.locations](1-functionality.md#r.evidence.locations)
+- Does every sentence follow the prose rules? [R.prose](3-prose.md#r.prose)
+- Does the message match the [commit form](#commit-form)?
+
+**Each branch**
+
+- Does it develop one main topic, with incidental commits kept distinct? [R.change-scope](#r.change-scope)
+
 <a id="r.change-scope"></a>
 
 **[R.change-scope](#r.change-scope). Each commit should express one idea, and each PR should develop one main topic.**
@@ -28,7 +56,7 @@ When the subject already conveys the required explanation, the message does not 
 
 <a id="r.commit-wrapping"></a>
 
-**[R.commit-wrapping](#r.commit-wrapping). Wrap final commit messages at 72 columns.**
+**[R.commit-wrapping](#r.commit-wrapping). Wrap final commit messages at 72 columns.** `[auto]`
 
 *Required. Principle [Coherence](PRINCIPLES.md#coherence).*
 
@@ -64,13 +92,30 @@ Name the action and affected concept so readers can identify the change before o
 
 ## Commit messages
 
+### Commit form
+
+```text
+type(scope): imperative summary of the concept
+
+The prior problem, limitation, or goal, in the past tense.
+
+What the change does, in the third person present, with identifiers
+such as `make_env` in backticks.
+
+Original-commit: https://github.com/org/repo/commit/0123456789ab
+Fixes: 0123456789ab ("subject of the commit that introduced the fault")
+Co-authored-by: Name <email>
+```
+
+The rules below define each part of the form.
+
 <a id="r.commit-format"></a>
 
 **[R.commit-format](#r.commit-format). Commit classification and format**
 
 *Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.commit-explanations](#r.commit-explanations).*
 
-<a id="r.commit-format.subject"></a>**[R.commit-format.subject](#r.commit-format.subject). Use `type(scope): summary`, with standard types and the additional `reorg` type.**
+<a id="r.commit-format.subject"></a>**[R.commit-format.subject](#r.commit-format.subject). Use `type(scope): summary`, with standard types and the additional `reorg` type.** `[auto]`
 
 Use this format, with the omissions allowed by [R.commit-explanations](#r.commit-explanations).
 
@@ -122,7 +167,7 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 *Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
 
-<a id="r.commit-display.characters"></a>**[R.commit-display.characters](#r.commit-display.characters). Prefer ASCII in commit-message prose for predictable terminal display.** Use UTF-8 when accurate names, identifiers, or exact source text require it.
+<a id="r.commit-display.characters"></a>**[R.commit-display.characters](#r.commit-display.characters). Prefer ASCII in commit-message prose for predictable terminal display.** Use UTF-8 when accurate names, identifiers, or exact source text require it. `[auto]`
 
 ## Sources and credit
 
@@ -144,13 +189,15 @@ Upstream commits retained by a merge already preserve their origins and need no 
 
 <a id="r.sources.cherry-picks"></a>**[R.sources.cherry-picks](#r.sources.cherry-picks). Use `Cherry-picked-from:` as an optional record for transfers between maintained branches.** It helps trace a release backport or another transfer between histories that remain in use. Omit it for a move from a superseded branch. Preserve existing source records under [R.source-credit](#r.source-credit). Work imported from another repository follows [R.sources.commits](#r.sources.commits).
 
-<a id="r.sources.regressions"></a>**[R.sources.regressions](#r.sources.regressions). Record the commit that introduced a fixed fault as `Fixes: <12-character SHA> ("<subject>")`.** Find it by blaming the lines the fix changes, or by searching history for the code the fix replaces. Preserve the introducing commit's full subject. Hash-length exceptions follow [R.sources.hashes](#r.sources.hashes). This format is an exception to the full-URL default. It may coexist with source records.
+<a id="r.sources.regressions"></a>**[R.sources.regressions](#r.sources.regressions). Record the commit that introduced a fixed fault as `Fixes: <12-character SHA> ("<subject>")`.** Find it by blaming the lines the fix changes, or by searching history for the code the fix replaces. Preserve the introducing commit's full subject. Hash-length exceptions follow [R.sources.hashes](#r.sources.hashes). This format is an exception to the full-URL default. It may coexist with source records. `[auto]`
 
 If a one-line `Fixes:` record exceeds 72 characters, move the complete quoted subject, including its parentheses, to a second line indented by one space. Do not wrap the quoted subject, even if that line exceeds 72 characters. Leave short records and existing two-line records unchanged.
 
-<a id="r.sources.hashes"></a>**[R.sources.hashes](#r.sources.hashes). Use 12-character commit hashes in same-repository references and Git URLs that accept abbreviated hashes.** This includes prose references, GitHub shorthand, commit URLs, revision paths, and both endpoints of comparison URLs. Use a longer hash when 12 characters would be ambiguous or the URL requires it. Shortening a hash changes its length while retaining the URL and the identified revision. Preserve hashes in verbatim source quotations and copied commit subjects.
+<a id="r.sources.hashes"></a>**[R.sources.hashes](#r.sources.hashes). Use 12-character commit hashes in same-repository references and Git URLs that accept abbreviated hashes.** This includes prose references, GitHub shorthand, commit URLs, revision paths, and both endpoints of comparison URLs. Use a longer hash when 12 characters would be ambiguous or the URL requires it. Shortening a hash changes its length while retaining the URL and the identified revision. Preserve hashes in verbatim source quotations and copied commit subjects. `[auto]`
 
 <a id="r.sources.coauthors"></a>**[R.sources.coauthors](#r.sources.coauthors). Credit human coauthors with optional `Co-authored-by: Name <email>` trailers.** Use the trailer only for actual joint authorship and place it in the final record block. Do not add AI or other tool names as coauthors. Existing attribution records remain subject to preservation under [R.source-credit](#r.source-credit) and agreement on attribution changes under [R.reviewer-tasks](modules/collaboration.md#r.reviewer-tasks).
+
+<a id="r.sources.order"></a>**[R.sources.order](#r.sources.order). Place records after the body in one block, in this order: source records, then `Fixes:`, then `Co-authored-by:`.** Source records come first so that a Port's attribution paragraph sits directly above them, under [R.sources.port-attribution](modules/ports.md#r.sources.port-attribution). `[auto]`
 
 In PR bodies and merge summaries, GitHub shorthand such as `org/repo@sha` or `org/repo#number` is appropriate. Preserve author information during a rewrite, while allowing Git to record who created the rewritten commit as its committer. The committer field alone does not determine responsibility under [R.responsibility](modules/collaboration.md#r.responsibility).
 
@@ -184,6 +231,8 @@ the user without a useful location for the error.
 
 Reports a syntax diagnostic at the declaration and adds a negative test
 for the missing field type.
+
+Fixes: 0123456789ab ("feat(parser): parse field declarations")
 ```
 
 Its PR can contain a short Motivation explaining the same problem and result. It needs no separate Core Concepts, Scope, or Commit Log. If the maintainer performs cleanup within [R.final-cleanup](modules/landing.md#r.final-cleanup), the merge notice can say what was corrected. After final cleanup adds the PR number, this single commit is fast-forwarded and its message carries the landing record.

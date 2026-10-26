@@ -1,5 +1,24 @@
 # Functionality
 
+## Checklist
+
+Clients are the callers and users who reach the code through its interface.
+
+**Each type with an invariant**
+
+- Does every way to create a value establish the invariant? [R.types.construction](#r.types.construction), [R.invariants](#r.invariants)
+- Does every public operation that changes a value keep the invariant? [R.invariants](#r.invariants)
+- Is each constraint the type cannot express checked at runtime? [R.types.runtime-checks](#r.types.runtime-checks)
+
+**Each behavior clients rely on**
+
+- Does a test exercise it through the interface clients use? [R.tests.interfaces](#r.tests.interfaces)
+
+**Each test**
+
+- Does it catch a failure that no other test catches? [R.tests.purpose](#r.tests.purpose)
+- Does it reach the code through the interface clients use? [R.tests.interfaces](#r.tests.interfaces)
+
 <a id="r.invariants"></a>
 
 **[R.invariants](#r.invariants). Preserve the guarantees callers rely on.**
@@ -57,7 +76,7 @@ As guidance, prefer explicit checks when encoding a constraint in a type would m
 
 *Default. Principles [Verification](PRINCIPLES.md#verification) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
-Each test is code to read, run, and maintain. Clients are the callers and users who reach the code through its interface.
+Each test is code to read, run, and maintain.
 
 - <a id="r.tests.purpose"></a>**[R.tests.purpose](#r.tests.purpose). Add a test only when it catches a failure that no other test catches, in a behavior clients rely on.** Name that failure. Remove or merge a test that stops meeting this rule. Coverage shows which lines a test runs, not which failures it catches.
 

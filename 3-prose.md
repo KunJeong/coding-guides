@@ -1,5 +1,27 @@
 # Prose
 
+## Checklist
+
+**Each comment, including docstrings**
+
+First pass:
+
+- Does it state a constraint or reason the code cannot show? [R.comments.purpose](#r.comments.purpose)
+- Does it describe the code as it is, without referring to an earlier version? [R.documentation-accuracy](#r.documentation-accuracy)
+- Does it sit where its readers will look? That means beside the code it explains, at the caller for a condition specific to that caller, or in the interface for a contract all callers rely on. [R.comments.placement](#r.comments.placement), [R.comments.callers](#r.comments.callers), [R.comments.interfaces](#r.comments.interfaces)
+- Does it match the style and density of the surrounding comments? [R.comments.idiom](#r.comments.idiom), [R.comments.brevity](#r.comments.brevity)
+
+Second pass, which quotes each comment that the first pass keeps:
+
+- Does every sentence follow the prose rules? [R.prose](#r.prose)
+
+**Each paragraph of documentation**
+
+- Does it describe the system as it is? [R.documentation-accuracy](#r.documentation-accuracy)
+- Is it the one place that explains its topic, with other places linking to it? [R.documentation.locations](#r.documentation.locations)
+- Does every sentence follow the prose rules? [R.prose](#r.prose)
+- If it gives build or check instructions, does it sit with the component they apply to? [R.checking-instructions](#r.checking-instructions)
+
 <a id="r.documentation-accuracy"></a>
 
 **[R.documentation-accuracy](#r.documentation-accuracy). Keep comments and documentation accurate to the current system.**
@@ -50,7 +72,7 @@ Apply these rules to prose sentences.
 
 These punctuation choices support [one main idea per sentence](#r.prose.focus) and [the progression from familiar to new information](#r.prose.flow).
 
-- <a id="r.prose.punctuation"></a>**[R.prose.punctuation](#r.prose.punctuation). Replace semicolons, em dashes, and colons that join statements with clearer punctuation or separate sentences.** Use periods, commas, or parentheses according to the relationship being expressed. A colon may introduce a list. Preserve punctuation required by code, URLs, message syntax, source references, and exact quotations.
+- <a id="r.prose.punctuation"></a>**[R.prose.punctuation](#r.prose.punctuation). Replace semicolons, em dashes, and colons that join statements with clearer punctuation or separate sentences.** Use periods, commas, or parentheses according to the relationship being expressed. A colon may introduce a list. Preserve punctuation required by code, URLs, message syntax, source references, and exact quotations. `[auto, semicolons and em dashes only]`
 
 - <a id="r.prose.parentheses"></a>**[R.prose.parentheses](#r.prose.parentheses). Prefer parentheses only for brief qualifications.** Put a separate claim or an essential step in the explanation in its own sentence.
 
@@ -100,7 +122,7 @@ Comments and documentation describe the current system under [R.documentation-ac
 
 <a id="r.markdown-wrapping"></a>
 
-**[R.markdown-wrapping](#r.markdown-wrapping). Do not hard-wrap Markdown paragraphs or bullet text.**
+**[R.markdown-wrapping](#r.markdown-wrapping). Do not hard-wrap Markdown paragraphs or bullet text.** `[auto]`
 
 *Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
 

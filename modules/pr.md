@@ -1,5 +1,16 @@
 # PR titles and descriptions
 
+## Checklist
+
+**Each PR body**
+
+- Does Motivation state the problem or research goal? [R.pr-body.motivation](#r.pr-body.motivation)
+- Does Core Concepts explain the central idea a reviewer needs before reading the diff? [R.pr-body.concepts](#r.pr-body.concepts)
+- Does every commit fall under a Scope or Minor Changes bullet? [R.pr-body.scope](#r.pr-body.scope), [R.change-scope](../4-history.md#r.change-scope)
+- Does every Scope bullet describe work the branch contains? [R.pr-body.scope](#r.pr-body.scope)
+- Does Validation hold only evidence that the diff, Scope, and CI do not show, including what was not checked? [R.pr-body.validation](#r.pr-body.validation)
+- Does the body match the [PR form](#pr-form)?
+
 <a id="r.pr-explanations"></a>
 
 **[R.pr-explanations](#r.pr-explanations). Each PR body should explain its motivation, result, and scope.**
@@ -25,6 +36,44 @@ Choose a title that identifies the main concept. When several changes form one i
 | Reorg | `Reorg <concept>` |
 
 A Port names the work being adopted. A Sync names the area being brought to a reference state because it can combine several kinds of change. Other PR categories use a concept-led title describing the change.
+
+## PR form
+
+```markdown
+## Motivation
+
+The problem or research goal.
+
+## Core Concepts
+
+### <concept>
+
+The central idea a reviewer needs before reading the diff.
+
+## Scope
+
+- **type(scope):** What the change affects, grouped by area.
+
+## Minor Changes
+
+- **type(scope):** Incidental work, and why it is included.
+
+## Validation
+
+- Evidence the diff, Scope, and CI do not show, and what was not checked.
+
+## Future Work
+
+### Deferred Tasks
+
+### Ideas and Open Questions
+
+## Commit Log
+
+- type(scope): subject
+```
+
+Sections appear in this order, and empty sections are omitted. A Port or Sync divides Scope into the subsections of [R.ports-syncs.groups](ports.md#r.ports-syncs.groups).
 
 <a id="r.pr-body"></a>
 

@@ -28,13 +28,17 @@ Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTe
 | Landing a PR | 4, pr, and landing |
 | Reviewing a collaborator's PR | 1 to 4, pr, collaboration, and the project's CONTRIBUTING.md, plus ocaml or ports when relevant |
 
-## Rules and labels
+## Rules, checklists, and forms
 
 Each rule has an ID, such as `R.invariants` or `R.names.helpers`. IDs name topics and stay stable when rules move or their wording changes.
 
 Each rule is marked as required or as a default. A required rule holds in every case its text does not exempt. A default describes the usual approach and allows another approach when that serves the work better. The landing module marks the maintainer's permissions. The collaboration module keeps its own grading, because that grading decides what may block a collaborator's PR.
 
 The line below a rule's title names the principles and rules that support it. `↔` marks a tradeoff between principles.
+
+The stage files and the pr and ports modules open with a checklist. Each item is a question with a yes or no answer, and a no is a finding that cites the linked rules. The checklists describe code and text as they stand, so they apply to a diff, a branch, or a whole codebase.
+
+Conventions with a fixed shape appear as forms, such as templates and tables. `[auto]` marks a rule that a script can check exactly.
 
 As a rule of thumb, document a routine choice after similar decisions have been made three times. State the choice and when it applies.
 
