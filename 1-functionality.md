@@ -4,15 +4,13 @@
 
 **[R.invariants](#r.invariants). Preserve the guarantees callers rely on.**
 
-*Requirement. [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification)*
+*Required. Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification).*
 
-Construction must establish those guarantees, and exposed updates must preserve them.
+Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. [R.types.construction](#r.types.construction) and [R.types.runtime-checks](#r.types.runtime-checks) describe ways to enforce them.
 
-Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. The [construction and validation conventions](#functionality) describe ways to enforce them.
+[Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees.
 
-The [invariants policy](#r.invariants) requires construction and updates to preserve the guarantees callers rely on. These conventions cover construction and runtime checks. [Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees.
-
-*Default. Policy [R.invariants](#r.invariants).*
+*Default. Rule [R.invariants](#r.invariants).*
 
 ## Contracts and invariants
 

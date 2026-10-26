@@ -6,9 +6,7 @@ Prepare the reviewed contribution for `main` and record its integration. Substan
 
 **[R.final-cleanup](#r.final-cleanup). The core maintainer may polish existing comments and commit messages and prepare reviewed commits during final integration.**
 
-*Permission. [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Responsibility](collaboration.md#responsibility) ↔ [Coordination](collaboration.md#coordination)*
-
-Without separate approval, this permits meaning-preserving wording and formatting corrections, formatting existing source trailers, adding a single-commit PR number, and folding, combining, or reordering reviewed commits for coherence and buildability. Combining or reordering must preserve final file contents on the same base. All cleanup must preserve motivation, sources, and author credit. Keep independent changes distinguishable. The maintainer may amend, rebase, and publish with a lease after coordinating dependent branches, and must report the cleanup at merge. New explanations, factual corrections, changed assumptions or motivation, ambiguous intent, attribution changes, and PR metadata changes need discussion. Executable-code changes and substantive conflict resolutions return to review.
+*Permission. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Responsibility](collaboration.md#responsibility) ↔ [Coordination](collaboration.md#coordination).*
 
 The core maintainer bears most of the lasting cost of unclear prose and fragmented history. During final integration, the maintainer may perform the routine cleanup below without asking for separate approval.
 
@@ -16,7 +14,7 @@ The core maintainer bears most of the lasting cost of unclear prose and fragment
 
 - Correct spelling, grammar, formatting, and wording in existing comments while preserving their facts, constraints, and reasons.
 - Correct spelling, grammar, and wording in commit subjects and bodies without changing their meaning or motivation.
-- Apply commit-message format and wrapping conventions.
+- Apply commit-message format and wrapping rules.
 - Format existing source and attribution trailers without changing their facts or credit.
 - Add the PR number to a single-commit PR's commit subject.
 
@@ -35,9 +33,7 @@ New explanations, factual corrections, changes to assumptions or motivation, and
 
 **[R.conflict-resolution](#r.conflict-resolution). Resolve integration conflicts on the PR branch before landing.**
 
-*Requirement. [Coherence](../PRINCIPLES.md#coherence), [Coordination](collaboration.md#coordination)*
-
-Return substantive resolutions to review. The landing merge must introduce no further conflict-resolution edits.
+*Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Coordination](collaboration.md#coordination).*
 
 Integration conflicts are resolved on the PR branch, where reviewers can inspect the resolutions. Those resolutions can change behavior, so substantive changes need an explanation and a return to review before landing. The landing merge must introduce no further conflict-resolution edits.
 
@@ -45,9 +41,7 @@ Integration conflicts are resolved on the PR branch, where reviewers can inspect
 
 **[R.merge-method](#r.merge-method). Preserve final commits and record the contribution when landing.**
 
-*Requirement. [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality)*
-
-Land multi-commit PRs with a merge commit explaining the whole contribution. Count commits after cleanup and preserve them without squashing during landing. A single-commit PR’s message must carry its result, scope, and the motivation required by R.commit-explanations. Add its PR number through authorized cleanup.
+*Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
 The history should preserve reviewed units of work and explain their integration. Land multi-commit PRs with a merge commit that explains the contribution as a whole. Count commits after cleanup and preserve the resulting commits without squashing during landing.
 
@@ -57,19 +51,17 @@ For single-commit PRs, the [integration default](#r.integration.method) is a fas
 
 **[R.direct-pushes](#r.direct-pushes). The maintainer may push bounded repairs and current-state documentation directly to `main`.**
 
-*Permission. [Responsibility](collaboration.md#responsibility), [Coordination](collaboration.md#coordination) ↔ [Proportionality](../PRINCIPLES.md#proportionality)*
-
-Repairs must address an identified fault with known expected behavior and affected callers. Documentation edits must describe existing behavior or clarify existing rules. New designs or interfaces, multiple independent behaviors, uncertain impact, and changes to contribution rules need a PR. Other contributors use PRs by default. Direct changes must meet the same requirements.
+*Permission. Principles [Responsibility](collaboration.md#responsibility), [Coordination](collaboration.md#coordination) ↔ [Proportionality](../PRINCIPLES.md#proportionality).*
 
 The core maintainer may push a fix directly to `main` when it addresses an identified fault with known expected behavior and affected callers. Documentation edits may also go directly to `main` when they describe existing behavior or clarify existing rules. This keeps routine corrections from waiting for a separate PR that would add little value.
 
-New design or interfaces, multiple independent behaviors, uncertain impact, and changes to contribution rules need a PR. Other contributors use PRs by default. Direct commits must meet the same outline requirements. The [SpecTec module](spectec.md#spectec-build-and-checks) describes available checks.
+New design or interfaces, multiple independent behaviors, uncertain impact, and changes to contribution rules need a PR. Other contributors use PRs by default. Direct commits must meet the same requirements as other commits. The [SpecTec module](spectec.md#spectec-build-and-checks) describes available checks.
 
 ## Integration defaults
 
 <a id="r.integration"></a>**[R.integration](#r.integration). Integration defaults**
 
-*Default. Policies [R.rules](collaboration.md#r.rules), [R.reviewer-tasks](collaboration.md#r.reviewer-tasks), [R.merge-method](#r.merge-method).*
+*Default. Rules [R.rules](collaboration.md#r.rules), [R.reviewer-tasks](collaboration.md#r.reviewer-tasks), [R.merge-method](#r.merge-method).*
 
 <a id="r.integration.rebase"></a>**[R.integration.rebase](#r.integration.rebase). Rebase onto current `main` during final integration by default.**
 
@@ -79,7 +71,7 @@ Update earlier when dependencies or conflicts require it. Contributors need not 
 
 <a id="r.integration.method"></a>**[R.integration.method](#r.integration.method). Fast-forward single-commit PRs by default.**
 
-*Default. Policy [R.merge-method](#r.merge-method).*
+*Default. Rule [R.merge-method](#r.merge-method).*
 
 Count commits after final cleanup. A fast-forward avoids an extra merge commit because the single commit supplies the contribution’s permanent record.
 
@@ -87,7 +79,7 @@ Count commits after final cleanup. A fast-forward avoids an extra merge commit b
 
 <a id="r.single-commit-record"></a>**[R.single-commit-record](#r.single-commit-record). A single-commit PR’s message must explain the PR’s motivation, result, and scope.**
 
-*Outline requirement. Policies [R.commit-explanations](../4-history.md#r.commit-explanations), [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
+*Required. Rules [R.commit-explanations](../4-history.md#r.commit-explanations), [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
 
 A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [R.commit-explanations](../4-history.md#r.commit-explanations) also applies here.
 
@@ -95,7 +87,7 @@ A fast-forward creates no merge message, so the commit message is the permanent 
 
 <a id="r.merge-subjects"></a>**[R.merge-subjects](#r.merge-subjects). Use `Merge: <lowercase summary> (#PR)` for merge subjects.**
 
-*Default. Policies [R.commit-explanations](../4-history.md#r.commit-explanations), [R.merge-method](#r.merge-method).*
+*Default. Rules [R.commit-explanations](../4-history.md#r.commit-explanations), [R.merge-method](#r.merge-method).*
 
 The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [R.merge-summary](#r.merge-summary).
 
@@ -103,7 +95,7 @@ The summary uses the PR title with ordinary words in lowercase. Preserve proper 
 
 **[R.merge-summary](#r.merge-summary). Merge-message summaries**
 
-*Default. Policies [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
+*Default. Rules [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
 
 <a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [R.commit-format](../4-history.md#r.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
 
@@ -122,7 +114,7 @@ Framing paragraph explaining the motivation and resulting change.
 
 <a id="r.deferred-work"></a>**[R.deferred-work](#r.deferred-work). Reserve `DEFERRED:` for work explicitly postponed from the contribution.**
 
-*Default. Policies [R.follow-ups](collaboration.md#r.follow-ups), [R.merge-method](#r.merge-method).*
+*Default. Rules [R.follow-ups](collaboration.md#r.follow-ups), [R.merge-method](#r.merge-method).*
 
 Carry only the explicitly deferred items identified in the PR's Deferred Tasks subsection or review discussion. These can include a known shortcoming accepted for this PR that should be repaired soon, or work intentionally omitted from a Port or Sync for later adoption. Ideas and Open Questions do not become deferred commitments.
 
@@ -134,7 +126,7 @@ Use separate bullets without a deferred-work heading. Record the unfinished task
 
 <a id="r.pr-number"></a>**[R.pr-number](#r.pr-number). Append `(#PR)` to a single-commit PR's commit subject during authorized final cleanup.**
 
-*Default. Policies [R.final-cleanup](#r.final-cleanup), [R.merge-method](#r.merge-method).*
+*Default. Rules [R.final-cleanup](#r.final-cleanup), [R.merge-method](#r.merge-method).*
 
 [R.merge-method](#r.merge-method) requires the PR number in the permanent landing record. Appending `(#PR)` to the subject is the default format. The [landing recipes](#landing-recipes) contain amendment and integration commands.
 

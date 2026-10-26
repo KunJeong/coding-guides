@@ -32,9 +32,9 @@ Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTe
 
 Each rule has an ID, such as `R.invariants` or `R.names.helpers`. IDs name topics and stay stable when rules move or their wording changes.
 
-Entries are defaults unless marked as requirements, permissions, or editorial preferences, or identified as restatements of a requirement. Defaults describe the usual approach and allow judgment under [R.rules](modules/collaboration.md#r.rules). Editorial preferences guide writing and final polish.
+Each rule is marked as required or as a default. A required rule holds in every case its text does not exempt. A default describes the usual approach and allows another approach when that serves the work better. The landing module marks the maintainer's permissions. The collaboration module keeps its own grading, because that grading decides what may block a collaborator's PR.
 
-Links below a rule's title identify the requirements or principles that support it. `↔` marks a tradeoff between principles.
+The line below a rule's title names the principles and rules that support it. `↔` marks a tradeoff between principles.
 
 As a rule of thumb, document a routine choice after similar decisions have been made three times. State the choice and when it applies.
 

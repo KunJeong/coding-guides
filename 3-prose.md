@@ -4,11 +4,9 @@
 
 **[R.documentation-accuracy](#r.documentation-accuracy). Keep comments and documentation accurate to the current system.**
 
-*Requirement. [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification)*
+*Required. Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification).*
 
-Put accounts of what changed and why in change records.
-
-Readers should be able to rely on descriptions of the system without knowing an earlier implementation. Describe current behavior, constraints, and lasting reasons. Put accounts of what changed and why in change records. Placement and duplication follow the [documentation conventions](#r.documentation.locations).
+Readers should be able to rely on descriptions of the system without knowing an earlier implementation. Describe current behavior, constraints, and lasting reasons. Put accounts of what changed and why in change records. Placement and duplication follow [R.documentation.locations](#r.documentation.locations).
 
 ## General writing
 
@@ -18,9 +16,9 @@ As general writing guidance, write for readers who do not share your context. Ex
 
 **[R.prose](#r.prose). Prose clarity**
 
-*Editorial preference. Policies [R.documentation-accuracy](#r.documentation-accuracy), [R.commit-explanations](4-history.md#r.commit-explanations), [R.pr-explanations](modules/pr.md#r.pr-explanations).*
+*Default. Rules [R.documentation-accuracy](#r.documentation-accuracy), [R.commit-explanations](4-history.md#r.commit-explanations), [R.pr-explanations](modules/pr.md#r.pr-explanations).*
 
-Apply these conventions to prose sentences.
+Apply these rules to prose sentences.
 
 **Sentence structure**
 
@@ -60,7 +58,7 @@ These punctuation choices support [one main idea per sentence](#r.prose.focus) a
 
 <a id="r.comments.purpose"></a>**[R.comments.purpose](#r.comments.purpose). Use comments for constraints and reasons absent from the code.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [R.documentation-accuracy](#r.documentation-accuracy).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.documentation-accuracy](#r.documentation-accuracy).*
 
 Names, types, and implementation often supply the explanation. Add a comment when a constraint or reason is not evident from them. Accounts of what changed and why belong in change records under [R.documentation-accuracy](#r.documentation-accuracy).
 
@@ -72,7 +70,7 @@ A reader should be able to understand a comment without seeing an earlier versio
 
 **[R.comments](#r.comments). Comment placement and idiom**
 
-*Default. Policy [R.documentation-accuracy](#r.documentation-accuracy).*
+*Default. Rule [R.documentation-accuracy](#r.documentation-accuracy).*
 
 - <a id="r.comments.definitions"></a>**[R.comments.definitions](#r.comments.definitions). Use function definition comments for caller-visible facts not evident from the signature.** For example, explain a required input order here.
 
@@ -92,7 +90,7 @@ A reader should be able to understand a comment without seeing an earlier versio
 
 <a id="r.documentation.locations"></a>**[R.documentation.locations](#r.documentation.locations). Give each explanation an authoritative home by default.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [R.documentation-accuracy](#r.documentation-accuracy).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.documentation-accuracy](#r.documentation-accuracy).*
 
 Link to the explanation instead of maintaining competing copies. Put setup and usage guidance in the relevant README, and keep component-specific details near the component.
 
@@ -104,7 +102,7 @@ Comments and documentation describe the current system under [R.documentation-ac
 
 **[R.markdown-wrapping](#r.markdown-wrapping). Do not hard-wrap Markdown paragraphs or bullet text.**
 
-*Editorial preference. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
+*Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
 
 Keep each paragraph or bullet's text on one source line and let the renderer wrap it. Preserve line breaks required by code blocks, tables, or other Markdown structure. This also applies to PR bodies.
 
@@ -114,6 +112,6 @@ Keep each paragraph or bullet's text on one source line and let the renderer wra
 
 <a id="r.checking-instructions"></a>**[R.checking-instructions](#r.checking-instructions). Keep build and checking instructions with the component they apply to.**
 
-*Default. Policy [R.documentation-accuracy](#r.documentation-accuracy).*
+*Default. Rule [R.documentation-accuracy](#r.documentation-accuracy).*
 
 Document formatter versions, commands, and prerequisites in the relevant component guide. Link those instructions instead of maintaining another command list here. The [SpecTec module](modules/spectec.md#spectec-build-and-checks) provides compiler command recipes.

@@ -2,7 +2,7 @@
 
 # Factoring
 
-The [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/#naming) explain naming from a caller's perspective. Robert C. Martin's [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) includes chapters on meaningful names and functions. These are optional background reading. The conventions below state this project's choices.
+The [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/#naming) explain naming from a caller's perspective. Robert C. Martin's [Clean Code](https://www.oreilly.com/library/view/clean-code-a/9780136083238/) includes chapters on meaningful names and functions. These are optional background reading. The rules below state this project's choices.
 
 <a id="across-media"></a>
 
@@ -22,7 +22,7 @@ As guidance, spend naming effort in proportion to how widely and how long a name
 
 **[R.names](#r.names). Names**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [R.renames](modules/collaboration.md#r.renames).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.renames](modules/collaboration.md#r.renames).*
 
 - <a id="r.names.modules"></a>**[R.names.modules](#r.names.modules). Name modules for the responsibilities they own.**
 
@@ -75,7 +75,7 @@ Rename a component once its boundary and responsibility support the new name. Pu
 
 <a id="r.names.renames"></a>**[R.names.renames](#r.names.renames). Rename declarations and callers together by default.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [R.renames](modules/collaboration.md#r.renames).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.renames](modules/collaboration.md#r.renames).*
 
 Do not retain compatibility aliases by default. Two names can suggest different meanings. When a consumer cannot migrate in the same change, record the obstacle and agree the alias’s removal under [R.renames](modules/collaboration.md#r.renames).
 
@@ -85,7 +85,7 @@ Do not retain compatibility aliases by default. Two names can suggest different 
 
 **[R.types](#r.types). Type constraints**
 
-*Default. Policy [R.invariants](1-functionality.md#r.invariants).*
+*Default. Rule [R.invariants](1-functionality.md#r.invariants).*
 
 Types let callers rely on constraints without checking them at every use. As guidance, make invalid states unrepresentable with the simplest type that captures the constraint.
 
@@ -123,7 +123,7 @@ As general guidance, prefer functional updates that return new values over mutat
 
 **[R.mutation](#r.mutation). Mutation**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [R.invariants](1-functionality.md#r.invariants).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.invariants](1-functionality.md#r.invariants).*
 
 - <a id="r.mutation.inputs"></a>**[R.mutation.inputs](#r.mutation.inputs). Pass inputs as arguments instead of reading mutable global state by default.** Pass settings and environments that affect a result at the call site. This lets readers see the function's dependencies.
 

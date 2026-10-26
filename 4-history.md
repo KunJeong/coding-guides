@@ -4,9 +4,7 @@
 
 **[R.change-scope](#r.change-scope). Each commit should express one idea, and each PR should develop one main topic.**
 
-*Requirement. [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality)*
-
-Split commits as far as possible without placeholders or a broken build, keeping an idea's tests and documentation with it. Incidental commits may accompany the main topic when a separate PR adds little value. Keep them distinct and explain their inclusion.
+*Required. Principles [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
 A commit carries one idea with its tests and documentation. A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split as far as possible without placeholders or a broken build under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
 
@@ -18,9 +16,7 @@ Final commit preparation follows [R.commit-buildability](#r.commit-buildability)
 
 **[R.commit-explanations](#r.commit-explanations). Each final commit message should explain the motivation and resulting change.**
 
-*Requirement. [Motivation](PRINCIPLES.md#motivation), [Coherence](PRINCIPLES.md#coherence)*
-
-Put motivation and solution in separate paragraphs when both appear in the body. Fixes must explain the fault, and refactors must explain the structural limitation. Feature, test, docs, and chore commits may omit motivation that would only restate the solution. A subject that conveys the required explanation needs no body. Fixes must also identify the commit that introduced the fault.
+*Required. Principles [Motivation](PRINCIPLES.md#motivation), [Coherence](PRINCIPLES.md#coherence).*
 
 A commit message should let readers understand why the change was needed and what it accomplishes without having seen the original discussion. Motivation explains the prior problem, limitation, or research goal. Solution describes the resulting change. Put motivation and solution in separate paragraphs, with motivation first.
 
@@ -28,25 +24,21 @@ Fixes must identify the incorrect behavior and the commit that introduced it. Re
 
 For `feat`, `test`, `docs`, and `chore` commits, motivation may be omitted when it would only restate the solution. Include any user need, research goal, or maintenance reason the change addresses. Do not invent a problem to fill the format.
 
-When the subject already conveys the required explanation, the message does not need a body. Source records still follow [R.source-credit](#r.source-credit). The [regression-record convention](#r.sources.regressions) supplies the format for recording a fix's introducing commit.
+When the subject already conveys the required explanation, the message does not need a body. Source records still follow [R.source-credit](#r.source-credit). [R.sources.regressions](#r.sources.regressions) supplies the format for recording a fix's introducing commit.
 
 <a id="r.commit-wrapping"></a>
 
 **[R.commit-wrapping](#r.commit-wrapping). Wrap final commit messages at 72 columns.**
 
-*Requirement. [Coherence](PRINCIPLES.md#coherence)*
+*Required. Principle [Coherence](PRINCIPLES.md#coherence).*
 
-URLs, identifiers, and quoted subjects in source records may exceed the limit.
-
-Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole so readers can follow and search them. The [display conventions](#r.commit-display.wrapping) give the details.
+Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole, even past 72 columns, so readers can follow and search them. Markdown paragraphs and PR bodies follow [R.markdown-wrapping](3-prose.md#r.markdown-wrapping) instead.
 
 <a id="r.source-credit"></a>
 
 **[R.source-credit](#r.source-credit). Commits containing copied or adapted work must cite its source and preserve author credit.**
 
-*Requirement. [Provenance](PRINCIPLES.md#provenance)*
-
-Identify the source revision and explain local differences. Preserve all references and author attribution when rewriting or folding commits. Coauthor credit is optional and limited to actual human joint authorship. Do not credit tools as coauthors.
+*Required. Principle [Provenance](PRINCIPLES.md#provenance).*
 
 Source references let readers trace inherited work and preserve its contributors' credit. A commit containing copied or adapted work should identify the source revision and explain local differences in behavior or design. When several commits are folded together, all their source references should remain in the resulting message.
 
@@ -56,19 +48,17 @@ Rewrites must preserve source references and author attribution. Credit records 
 
 **[R.commit-buildability](#r.commit-buildability). Finalize each commit as a buildable unit.**
 
-*Requirement. [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification), [Proportionality](PRINCIPLES.md#proportionality)*
-
-Fold review fixups into the commits they complete. Combine commits when separation would require placeholders or break the build.
+*Required. Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification), [Proportionality](PRINCIPLES.md#proportionality).*
 
 Each final commit should express one idea under [R.change-scope](#r.change-scope) and leave the project buildable, so maintainers can investigate regressions without first repairing intermediate states. If separating commits would require placeholders or break the build, they should be combined.
 
 Review fixups are folded into the commits they complete before landing.
 
-Apply the [general prose conventions](3-prose.md#r.prose) to writing in change records. The conventions below supply record-specific forms.
+Apply the [prose rules](3-prose.md#r.prose) to writing in change records. The rules below supply record-specific forms.
 
 <a id="r.change-summaries"></a>**[R.change-summaries](#r.change-summaries). Summarize the conceptual change in commit subjects and PR titles.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policies [R.commit-explanations](#r.commit-explanations), [R.pr-explanations](modules/pr.md#r.pr-explanations).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rules [R.commit-explanations](#r.commit-explanations), [R.pr-explanations](modules/pr.md#r.pr-explanations).*
 
 Name the action and affected concept so readers can identify the change before opening its details. A commit subject describes that commit’s idea. A PR title names the contribution’s main topic, and its body accounts for accompanying work.
 
@@ -78,7 +68,7 @@ Name the action and affected concept so readers can identify the change before o
 
 **[R.commit-format](#r.commit-format). Commit classification and format**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [R.commit-explanations](#r.commit-explanations).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.commit-explanations](#r.commit-explanations).*
 
 <a id="r.commit-format.subject"></a>**[R.commit-format.subject](#r.commit-format.subject). Use `type(scope): summary`, with standard types and the additional `reorg` type.**
 
@@ -108,11 +98,11 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 **[R.commit-prose](#r.commit-prose). Commit prose**
 
-*Editorial preference. Policy [R.commit-explanations](#r.commit-explanations).*
+*Default. Rule [R.commit-explanations](#r.commit-explanations).*
 
 <a id="r.commit-prose.subjects"></a>**[R.commit-prose.subjects](#r.commit-prose.subjects). Use imperative subjects.** Name the concept. Put code identifiers in the body, where there is room to explain them. For example, `refactor(cli): group shared flags by role` gives the reader a concept, while its body can identify the modules and flag groups.
 
-<a id="r.commit-prose.bodies"></a>**[R.commit-prose.bodies](#r.commit-prose.bodies). Separate motivation and solution into paragraphs, with motivation first.** This restates [R.commit-explanations](#r.commit-explanations), including its exceptions for omitting motivation or the entire body. Section headings are optional. Source citations still follow [R.source-credit](#r.source-credit).
+<a id="r.commit-prose.bodies"></a>**[R.commit-prose.bodies](#r.commit-prose.bodies). Separate motivation and solution into paragraphs, with motivation first.** Exceptions for omitting motivation or the whole body follow [R.commit-explanations](#r.commit-explanations). Section headings are optional. Source citations still follow [R.source-credit](#r.source-credit).
 
 <a id="r.commit-prose.motivation-tense"></a>**[R.commit-prose.motivation-tense](#r.commit-prose.motivation-tense). Describe prior problems in past tense by default.** A `Currently, ...` framing is also acceptable.
 
@@ -126,13 +116,11 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.commit-display"></a>
 
-**[R.commit-display](#r.commit-display). Commit character set and wrapping**
+**[R.commit-display](#r.commit-display). Commit character set**
 
-*Editorial preference. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality). Policy [R.commit-wrapping](#r.commit-wrapping).*
+*Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
 
 <a id="r.commit-display.characters"></a>**[R.commit-display.characters](#r.commit-display.characters). Prefer ASCII in commit-message prose for predictable terminal display.** Use UTF-8 when accurate names, identifiers, or exact source text require it.
-
-<a id="r.commit-display.wrapping"></a>**[R.commit-display.wrapping](#r.commit-display.wrapping). Wrap commit-message lines at 72 columns.** This restates [R.commit-wrapping](#r.commit-wrapping). Leave URLs unbroken. Keep identifiers and verbatim subjects in source records intact even when they exceed that width. Markdown paragraphs and PR bodies follow [R.markdown-wrapping](3-prose.md#r.markdown-wrapping).
 
 ## Sources and credit
 
@@ -140,7 +128,7 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 **[R.sources](#r.sources). Source and related-revision records**
 
-*Default. Policies [R.source-credit](#r.source-credit), [R.commit-explanations](#r.commit-explanations), [R.responsibility](modules/collaboration.md#r.responsibility).*
+*Default. Rules [R.source-credit](#r.source-credit), [R.commit-explanations](#r.commit-explanations), [R.responsibility](modules/collaboration.md#r.responsibility).*
 
 In commit messages, source records use full URLs so they remain useful outside GitHub's PR view. Repeat records when a local commit combines several sources. Describe meaningful adaptations in the body. Preserve credit under [R.source-credit](#r.source-credit).
 

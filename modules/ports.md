@@ -4,19 +4,17 @@
 
 **[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
 
-*Requirement. [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality)*
+*Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
-Identify the sources and explain adaptations and conflict resolutions.
-
-Reviewers need to compare the source work with the local result. Identify the sources and explain adaptations, omissions, and independent local changes, including conflict resolutions. The [Port and Sync conventions](#ports-and-syncs) recommend description groups and explain when upstream explanations can be reused.
+Reviewers need to compare the source work with the local result. Identify the sources and explain adaptations, omissions, and independent local changes, including conflict resolutions. The [Port and Sync rules](#r.ports-syncs) recommend description groups and explain when upstream explanations can be reused.
 
 <a id="r.ports-syncs"></a>
 
 **[R.ports-syncs](#r.ports-syncs). Upstream scope groups**
 
-*Default. Policies [R.change-scope](../4-history.md#r.change-scope), [R.imported-work](#r.imported-work), [R.source-credit](../4-history.md#r.source-credit), [R.pr-explanations](pr.md#r.pr-explanations).*
+*Default. Rules [R.change-scope](../4-history.md#r.change-scope), [R.imported-work](#r.imported-work), [R.source-credit](../4-history.md#r.source-credit), [R.pr-explanations](pr.md#r.pr-explanations).*
 
-<a id="r.ports-syncs.scope"></a>**[R.ports-syncs.scope](#r.ports-syncs.scope). Limit each Port to one upstream PR and its necessary local adaptations.** This restates [R.change-scope](../4-history.md#r.change-scope) so reviewers can compare the original work with the local result. Independent local changes belong in another PR. A Sync may cover broader upstream changes and related local work.
+<a id="r.ports-syncs.scope"></a>**[R.ports-syncs.scope](#r.ports-syncs.scope). Limit each Port to one upstream PR and its necessary local adaptations.** This applies [R.change-scope](../4-history.md#r.change-scope) to Ports, so reviewers can compare the original work with the local result. Independent local changes belong in another PR. A Sync may cover broader upstream changes and related local work.
 
 <a id="r.ports-syncs.explanations"></a>**[R.ports-syncs.explanations](#r.ports-syncs.explanations). Reuse upstream explanations only when they cover the adopted design and its local assumptions.** Ports link their upstream PR in Motivation. Syncs link the comparison range or reference state being adopted.
 
