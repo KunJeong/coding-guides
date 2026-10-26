@@ -5,7 +5,7 @@ description: Review staged changes or a branch against the shared personal contr
 
 # review-changes
 
-Review changes against the user's version-controlled contribution guides by default. Use the same references in every repository and report actionable findings without applying edits.
+Review changes against the user's version-controlled contribution guides and report actionable findings without applying edits.
 
 ## 1. Load the shared guides
 
@@ -24,13 +24,13 @@ Always read these files on every invocation, before reviewing the diff or commit
 - [Collaboration module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/collaboration.md)
 - [SpecTec module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/spectec.md)
 
-For review criteria, the files in the contribution-guides repository take precedence over the current repository's `CONTRIBUTING.md` and other contribution guides. This overrides statements in the shared guides that otherwise defer to repository rules. Do not load or apply repository contribution guides unless the user explicitly asks. When the user requests them, follow the requested combination or precedence and state the selected baseline.
+Which rules win depends on who maintains the repository, as the user's global instructions state. In a repository the user maintains, review against these guides, and load the repository's contribution guide only when the user asks. In any other repository, also load its contribution guide, and let it govern where it conflicts with these guides. When the user asks for a different combination, follow it and state the selected baseline.
 
-Continue to follow applicable agent instructions and explicit user directions. Do not load the retired PROSE.md rulesets at `~/.claude/PROSE.md` and `~/.codex/PROSE.md`. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
+Continue to follow applicable agent instructions and explicit user directions. Do not use `~/.claude/PROSE.md` or `~/.codex/PROSE.md` as review rules. They govern how agents write, not what a review checks. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
 
 Extract the rules relevant to the change. Apply language-specific conventions and project-specific layouts only where they fit the code under review. Preserve the guides' distinction between requirements, defaults, editorial preferences, and optional steps. Present defaults and preferences as suggestions unless a concrete problem justifies a stronger finding.
 
-Reviewing against personal guides does not establish them as a project's shared agreements. Their collaboration policies and command recipes do not authorize edits, history rewrites, or publication. If a shared guide cannot be read, report the missing file instead of substituting a repository guide or a retired PROSE.md.
+Reviewing against personal guides does not establish them as a project's shared agreements. Their collaboration policies and command recipes do not authorize edits, history rewrites, or publication. If a shared guide cannot be read, report the missing file instead of substituting a repository guide or PROSE.md.
 
 ## 2. Pick the review
 
