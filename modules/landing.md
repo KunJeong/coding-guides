@@ -2,9 +2,9 @@
 
 Prepare the reviewed contribution for `main` and record its integration. Substantive changes made during preparation return to review.
 
-<a id="p.final-cleanup"></a>
+<a id="r.final-cleanup"></a>
 
-**[P.final-cleanup](#p.final-cleanup). The core maintainer may polish existing comments and commit messages and prepare reviewed commits during final integration.**
+**[R.final-cleanup](#r.final-cleanup). The core maintainer may polish existing comments and commit messages and prepare reviewed commits during final integration.**
 
 *Permission. [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Responsibility](collaboration.md#responsibility) ↔ [Coordination](collaboration.md#coordination)*
 
@@ -23,17 +23,17 @@ The core maintainer bears most of the lasting cost of unclear prose and fragment
 **Commit preparation**
 
 - Fold review fixups into the commits they complete.
-- Combine or reorder reviewed commits when needed to make them coherent and buildable under [P.commit-buildability](../4-history.md#p.commit-buildability).
+- Combine or reorder reviewed commits when needed to make them coherent and buildable under [R.commit-buildability](../4-history.md#r.commit-buildability).
 
-Combining or reordering commits must preserve the branch's final file contents on the same base. Rebasing onto a new base follows [P.conflict-resolution](#p.conflict-resolution). Editorial edits are limited to the prose and record corrections above. Preserve each change's motivation, source references, and author credit. Keep independent changes distinguishable under [P.change-scope](../4-history.md#p.change-scope).
+Combining or reordering commits must preserve the branch's final file contents on the same base. Rebasing onto a new base follows [R.conflict-resolution](#r.conflict-resolution). Editorial edits are limited to the prose and record corrections above. Preserve each change's motivation, source references, and author credit. Keep independent changes distinguishable under [R.change-scope](../4-history.md#r.change-scope).
 
 The maintainer may amend commits, rebase them, and publish the rewritten PR branch using a lease for this cleanup. [Publishing a rewritten branch](#publishing-a-rewritten-branch) gives the commands. Before rewriting, coordinate with contributors whose branches depend on the affected commits. When merging, tell the contributor what was edited and how the commits were reorganized.
 
-New explanations, factual corrections, changes to assumptions or motivation, and resolving ambiguous intent need discussion under [P.reviewer-tasks](collaboration.md#p.reviewer-tasks). Changes to attribution or PR metadata also follow P.reviewer-tasks. Executable-code changes and substantive conflict resolutions return to review under [P.conflict-resolution](#p.conflict-resolution).
+New explanations, factual corrections, changes to assumptions or motivation, and resolving ambiguous intent need discussion under [R.reviewer-tasks](collaboration.md#r.reviewer-tasks). Changes to attribution or PR metadata also follow R.reviewer-tasks. Executable-code changes and substantive conflict resolutions return to review under [R.conflict-resolution](#r.conflict-resolution).
 
-<a id="p.conflict-resolution"></a>
+<a id="r.conflict-resolution"></a>
 
-**[P.conflict-resolution](#p.conflict-resolution). Resolve integration conflicts on the PR branch before landing.**
+**[R.conflict-resolution](#r.conflict-resolution). Resolve integration conflicts on the PR branch before landing.**
 
 *Requirement. [Coherence](../PRINCIPLES.md#coherence), [Coordination](collaboration.md#coordination)*
 
@@ -41,21 +41,21 @@ Return substantive resolutions to review. The landing merge must introduce no fu
 
 Integration conflicts are resolved on the PR branch, where reviewers can inspect the resolutions. Those resolutions can change behavior, so substantive changes need an explanation and a return to review before landing. The landing merge must introduce no further conflict-resolution edits.
 
-<a id="p.merge-method"></a>
+<a id="r.merge-method"></a>
 
-**[P.merge-method](#p.merge-method). Preserve final commits and record the contribution when landing.**
+**[R.merge-method](#r.merge-method). Preserve final commits and record the contribution when landing.**
 
 *Requirement. [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality)*
 
-Land multi-commit PRs with a merge commit explaining the whole contribution. Count commits after cleanup and preserve them without squashing during landing. A single-commit PR’s message must carry its result, scope, and the motivation required by P.commit-explanations. Add its PR number through authorized cleanup.
+Land multi-commit PRs with a merge commit explaining the whole contribution. Count commits after cleanup and preserve them without squashing during landing. A single-commit PR’s message must carry its result, scope, and the motivation required by R.commit-explanations. Add its PR number through authorized cleanup.
 
 The history should preserve reviewed units of work and explain their integration. Land multi-commit PRs with a merge commit that explains the contribution as a whole. Count commits after cleanup and preserve the resulting commits without squashing during landing.
 
-For single-commit PRs, the [integration default](#c.integration.method) is a fast-forward. Their commit message supplies the permanent record under [C.single-commit-record](#c.single-commit-record). Add the PR number through authorized final cleanup under [P.final-cleanup](#p.final-cleanup).
+For single-commit PRs, the [integration default](#r.integration.method) is a fast-forward. Their commit message supplies the permanent record under [R.single-commit-record](#r.single-commit-record). Add the PR number through authorized final cleanup under [R.final-cleanup](#r.final-cleanup).
 
-<a id="p.direct-pushes"></a>
+<a id="r.direct-pushes"></a>
 
-**[P.direct-pushes](#p.direct-pushes). The maintainer may push bounded repairs and current-state documentation directly to `main`.**
+**[R.direct-pushes](#r.direct-pushes). The maintainer may push bounded repairs and current-state documentation directly to `main`.**
 
 *Permission. [Responsibility](collaboration.md#responsibility), [Coordination](collaboration.md#coordination) ↔ [Proportionality](../PRINCIPLES.md#proportionality)*
 
@@ -67,49 +67,49 @@ New design or interfaces, multiple independent behaviors, uncertain impact, and 
 
 ## Integration defaults
 
-<a id="c.integration"></a>**[C.integration](#c.integration). Integration defaults**
+<a id="r.integration"></a>**[R.integration](#r.integration). Integration defaults**
 
-*Default. Policies [P.rules](collaboration.md#p.rules), [P.reviewer-tasks](collaboration.md#p.reviewer-tasks), [P.merge-method](#p.merge-method).*
+*Default. Policies [R.rules](collaboration.md#r.rules), [R.reviewer-tasks](collaboration.md#r.reviewer-tasks), [R.merge-method](#r.merge-method).*
 
-<a id="c.integration.rebase"></a>**[C.integration.rebase](#c.integration.rebase). Rebase onto current `main` during final integration by default.**
+<a id="r.integration.rebase"></a>**[R.integration.rebase](#r.integration.rebase). Rebase onto current `main` during final integration by default.**
 
 *Default. Principles [Coordination](collaboration.md#coordination), [Proportionality](../PRINCIPLES.md#proportionality).*
 
-Update earlier when dependencies or conflicts require it. Contributors need not rebase every open branch after each merge. Before replacing commits that dependent branches use, coordinate with affected contributors under [P.rules](collaboration.md#p.rules). Reviewer rewrites also follow [P.reviewer-tasks](collaboration.md#p.reviewer-tasks). Agree another integration method if rebasing would disrupt shared work.
+Update earlier when dependencies or conflicts require it. Contributors need not rebase every open branch after each merge. Before replacing commits that dependent branches use, coordinate with affected contributors under [R.rules](collaboration.md#r.rules). Reviewer rewrites also follow [R.reviewer-tasks](collaboration.md#r.reviewer-tasks). Agree another integration method if rebasing would disrupt shared work.
 
-<a id="c.integration.method"></a>**[C.integration.method](#c.integration.method). Fast-forward single-commit PRs by default.**
+<a id="r.integration.method"></a>**[R.integration.method](#r.integration.method). Fast-forward single-commit PRs by default.**
 
-*Default. Policy [P.merge-method](#p.merge-method).*
+*Default. Policy [R.merge-method](#r.merge-method).*
 
 Count commits after final cleanup. A fast-forward avoids an extra merge commit because the single commit supplies the contribution’s permanent record.
 
 ## Single-commit records
 
-<a id="c.single-commit-record"></a>**[C.single-commit-record](#c.single-commit-record). A single-commit PR’s message must explain the PR’s motivation, result, and scope.**
+<a id="r.single-commit-record"></a>**[R.single-commit-record](#r.single-commit-record). A single-commit PR’s message must explain the PR’s motivation, result, and scope.**
 
-*Outline requirement. Policies [P.commit-explanations](../4-history.md#p.commit-explanations), [P.pr-explanations](pr.md#p.pr-explanations), [P.merge-method](#p.merge-method).*
+*Outline requirement. Policies [R.commit-explanations](../4-history.md#r.commit-explanations), [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
 
-A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [P.commit-explanations](../4-history.md#p.commit-explanations) also applies here.
+A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [R.commit-explanations](../4-history.md#r.commit-explanations) also applies here.
 
 ## Merge messages
 
-<a id="c.merge-subjects"></a>**[C.merge-subjects](#c.merge-subjects). Use `Merge: <lowercase summary> (#PR)` for merge subjects.**
+<a id="r.merge-subjects"></a>**[R.merge-subjects](#r.merge-subjects). Use `Merge: <lowercase summary> (#PR)` for merge subjects.**
 
-*Default. Policies [P.commit-explanations](../4-history.md#p.commit-explanations), [P.merge-method](#p.merge-method).*
+*Default. Policies [R.commit-explanations](../4-history.md#r.commit-explanations), [R.merge-method](#r.merge-method).*
 
-The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [C.merge-summary](#c.merge-summary).
+The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [R.merge-summary](#r.merge-summary).
 
-<a id="c.merge-summary"></a>
+<a id="r.merge-summary"></a>
 
-**[C.merge-summary](#c.merge-summary). Merge-message summaries**
+**[R.merge-summary](#r.merge-summary). Merge-message summaries**
 
-*Default. Policies [P.pr-explanations](pr.md#p.pr-explanations), [P.merge-method](#p.merge-method).*
+*Default. Policies [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
 
-<a id="c.merge-summary.overview"></a>**[C.merge-summary.overview](#c.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [C.commit-format](../4-history.md#c.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [C.merge-summary.imports](ports.md#c.merge-summary.imports).
+<a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [R.commit-format](../4-history.md#r.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
 
-<a id="c.merge-summary.reuse"></a>**[C.merge-summary.reuse](#c.merge-summary.reuse). Use Scope and Minor Changes as the basis for a shorter merge summary.** Condense and regroup their bullets by theme, preserving the main outcome and significant incidental work. Do not reproduce the PR's inventory of APIs, tests or packaging details. Include source references only when they add useful context beyond the provenance preserved in the constituent commits.
+<a id="r.merge-summary.reuse"></a>**[R.merge-summary.reuse](#r.merge-summary.reuse). Use Scope and Minor Changes as the basis for a shorter merge summary.** Condense and regroup their bullets by theme, preserving the main outcome and significant incidental work. Do not reproduce the PR's inventory of APIs, tests or packaging details. Include source references only when they add useful context beyond the provenance preserved in the constituent commits.
 
-Keep identifier backticks and use plain prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [C.commit-display](../4-history.md#c.commit-display). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [C.merge-summary.overview](#c.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
+Keep identifier backticks and use plain prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [R.commit-display](../4-history.md#r.commit-display). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [R.merge-summary.overview](#r.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
 
 ```text
 Merge: <lowercase summary> (#PR)
@@ -120,9 +120,9 @@ Framing paragraph explaining the motivation and resulting change.
 - docs(scope): Description.
 ```
 
-<a id="c.deferred-work"></a>**[C.deferred-work](#c.deferred-work). Reserve `DEFERRED:` for work explicitly postponed from the contribution.**
+<a id="r.deferred-work"></a>**[R.deferred-work](#r.deferred-work). Reserve `DEFERRED:` for work explicitly postponed from the contribution.**
 
-*Default. Policies [P.follow-ups](pr.md#p.follow-ups), [P.merge-method](#p.merge-method).*
+*Default. Policies [R.follow-ups](pr.md#r.follow-ups), [R.merge-method](#r.merge-method).*
 
 Carry only the explicitly deferred items identified in the PR's Deferred Tasks subsection or review discussion. These can include a known shortcoming accepted for this PR that should be repaired soon, or work intentionally omitted from a Port or Sync for later adoption. Ideas and Open Questions do not become deferred commitments.
 
@@ -132,11 +132,11 @@ Use separate bullets without a deferred-work heading. Record the unfinished task
 - DEFERRED: Port the omitted input forms after their dependency lands.
 ```
 
-<a id="c.pr-number"></a>**[C.pr-number](#c.pr-number). Append `(#PR)` to a single-commit PR's commit subject during authorized final cleanup.**
+<a id="r.pr-number"></a>**[R.pr-number](#r.pr-number). Append `(#PR)` to a single-commit PR's commit subject during authorized final cleanup.**
 
-*Default. Policies [P.final-cleanup](#p.final-cleanup), [P.merge-method](#p.merge-method).*
+*Default. Policies [R.final-cleanup](#r.final-cleanup), [R.merge-method](#r.merge-method).*
 
-[P.merge-method](#p.merge-method) requires the PR number in the permanent landing record. Appending `(#PR)` to the subject is the default format. The [landing recipes](#landing-recipes) contain amendment and integration commands.
+[R.merge-method](#r.merge-method) requires the PR number in the permanent landing record. Appending `(#PR)` to the subject is the default format. The [landing recipes](#landing-recipes) contain amendment and integration commands.
 
 ## Landing recipes
 
@@ -156,7 +156,7 @@ For a multi-commit PR, prepare the merge before recording its cover letter.
 git merge --no-ff --no-commit topic
 ```
 
-If this merge reports conflicts, run `git merge --abort`. Resolve the conflicts on the PR branch and make the resolutions available for review under [P.conflict-resolution](#p.conflict-resolution). Repeat integration after resolving any review blockers. Follow the existing component checking instructions, then record the merge message and publish.
+If this merge reports conflicts, run `git merge --abort`. Resolve the conflicts on the PR branch and make the resolutions available for review under [R.conflict-resolution](#r.conflict-resolution). Repeat integration after resolving any review blockers. Follow the existing component checking instructions, then record the merge message and publish.
 
 ```bash
 git commit
@@ -183,7 +183,7 @@ git push origin main
 
 ## Publishing a rewritten branch
 
-Publish a rewritten branch within the agreement under [P.reviewer-tasks](collaboration.md#p.reviewer-tasks) or the maintainer's final-cleanup permission under [P.final-cleanup](#p.final-cleanup). Use a lease against the remote tip you reviewed so another contributor's intervening push prevents replacement. For an example branch named `topic`, capture the tip before rewriting.
+Publish a rewritten branch within the agreement under [R.reviewer-tasks](collaboration.md#r.reviewer-tasks) or the maintainer's final-cleanup permission under [R.final-cleanup](#r.final-cleanup). Use a lease against the remote tip you reviewed so another contributor's intervening push prevents replacement. For an example branch named `topic`, capture the tip before rewriting.
 
 ```bash
 git fetch origin

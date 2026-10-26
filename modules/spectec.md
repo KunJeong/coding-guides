@@ -2,9 +2,9 @@
 
 ## SpecTec compiler layout
 
-<a id="c.compiler-layout"></a>
+<a id="r.compiler-layout"></a>
 
-**[C.compiler-layout](#c.compiler-layout). Place compiler code according to its responsibility.**
+**[R.compiler-layout](#r.compiler-layout). Place compiler code according to its responsibility.**
 
 *Default. Principle [Coherence](../PRINCIPLES.md#coherence).*
 
@@ -18,7 +18,7 @@ Keep semantic logic out of executable entrypoints so other callers can use it wi
 
 ## Specification commits
 
-<a id="c.commit-format.specifications"></a>**[C.commit-format.specifications](#c.commit-format.specifications). Use `spec` or `spec/<target>` scopes for specification work, such as `fix(spec/deneb): correct blob validation`.**
+<a id="r.commit-format.specifications"></a>**[R.commit-format.specifications](#r.commit-format.specifications). Use `spec` or `spec/<target>` scopes for specification work, such as `fix(spec/deneb): correct blob validation`.**
 
 Specification messages should distinguish changes in modeled behavior from changes in notation or organization.
 

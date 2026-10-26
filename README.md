@@ -30,9 +30,9 @@ Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTe
 
 ## Rules and labels
 
-Each rule has an ID, such as `P.invariants` or `C.names.helpers`. IDs name topics and stay stable when rules move or their wording changes.
+Each rule has an ID, such as `R.invariants` or `R.names.helpers`. IDs name topics and stay stable when rules move or their wording changes.
 
-Entries are defaults unless marked as requirements, permissions, or editorial preferences, or identified as restatements of a requirement. Defaults describe the usual approach and allow judgment under [P.rules](modules/collaboration.md#p.rules). Editorial preferences guide writing and final polish.
+Entries are defaults unless marked as requirements, permissions, or editorial preferences, or identified as restatements of a requirement. Defaults describe the usual approach and allow judgment under [R.rules](modules/collaboration.md#r.rules). Editorial preferences guide writing and final polish.
 
 Links below a rule's title identify the requirements or principles that support it. `↔` marks a tradeoff between principles.
 

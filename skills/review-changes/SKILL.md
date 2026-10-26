@@ -75,11 +75,11 @@ git log --format='%H%n%B==END==' <base>..<tip>
 git diff <base> <tip>
 ```
 
-**Per commit:** check subject classification and wording, motivation and result, source records, author credit, prose, and display conventions against the shared guides. Respect P.commit-explanations: a subject may supply the full explanation, and redundant motivation may be omitted for the listed commit types. Do not request an invented motivation or a body solely to fill a template. Flag every `fix` commit without a `Fixes:` record under P.commit-explanations. Find the introducing commit by blaming or searching the history of the lines the fix changes, and give the record as the fix. Check an existing record's target the same way. Under P.change-scope, flag a commit containing a change that could land as its own buildable commit, such as a preparatory refactor, rename, move, or unrelated fix. Tests and documentation for the commit's idea stay with it. Do not claim a commit builds without build evidence. Report only what the message, diff, and inspected history establish.
+**Per commit:** check subject classification and wording, motivation and result, source records, author credit, prose, and display conventions against the shared guides. Respect R.commit-explanations: a subject may supply the full explanation, and redundant motivation may be omitted for the listed commit types. Do not request an invented motivation or a body solely to fill a template. Flag every `fix` commit without a `Fixes:` record under R.commit-explanations. Find the introducing commit by blaming or searching the history of the lines the fix changes, and give the record as the fix. Check an existing record's target the same way. Under R.change-scope, flag a commit containing a change that could land as its own buildable commit, such as a preparatory refactor, rename, move, or unrelated fix. Tests and documentation for the commit's idea stay with it. Do not claim a commit builds without build evidence. Report only what the message, diff, and inspected history establish.
 
 **Across the whole range:** the review dimensions in section 4.
 
-**PR readiness:** assess the branch's main topic and incidental changes under P.change-scope, and use the shared PR conventions to identify a suitable category and description structure. Do not require every optional section or draft the PR body unless asked.
+**PR readiness:** assess the branch's main topic and incidental changes under R.change-scope, and use the shared PR conventions to identify a suitable category and description structure. Do not require every optional section or draft the PR body unless asked.
 
 ## 4. Review dimensions
 
@@ -87,10 +87,10 @@ Findings cover only what the diff adds, changes, or removes. Read unchanged code
 
 Use the shared guides to assess these dimensions:
 
-- **Names.** Consistent with existing vocabulary and communicating responsibility. Use C.names and Coherence to distinguish ambiguity from a naming preference.
-- **Comments and prose.** Check every comment and docstring the diff adds or changes in two passes, both required. First, under C.comments.purpose and C.comments, decide whether the comment earns its place and sits beside the code it explains, or whether a clearer name, smaller function, or stronger type should replace it. Second, quote each surviving comment and check every sentence against C.prose. Apply C.prose to other changed documentation too.
+- **Names.** Consistent with existing vocabulary and communicating responsibility. Use R.names and Coherence to distinguish ambiguity from a naming preference.
+- **Comments and prose.** Check every comment and docstring the diff adds or changes in two passes, both required. First, under R.comments.purpose and R.comments, decide whether the comment earns its place and sits beside the code it explains, or whether a clearer name, smaller function, or stronger type should replace it. Second, quote each surviving comment and check every sentence against R.prose. Apply R.prose to other changed documentation too.
 - **Interface hygiene.** Whether a new `.mli` docstring, exported name, or signature fits the public surface, and whether an edit left the `.mli` and `.ml` out of step.
-- **Types and state.** Under C.types and C.mutation, assess whether construction and exposed updates preserve invariants, whether inputs are explicit, and whether mutable state has a clear owner and lifetime.
+- **Types and state.** Under R.types and R.mutation, assess whether construction and exposed updates preserve invariants, whether inputs are explicit, and whether mutable state has a clear owner and lifetime.
 - **Half-finished edits.** A rename applied in some sites and not others. A removed function still referenced. A TODO left where the change was meant to complete.
 - **Abstraction fit.** Whether a new helper or type is justified by real uses, or is complexity for a hypothetical future. Whether the change fits the existing architecture rather than cutting across it.
 
