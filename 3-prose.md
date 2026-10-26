@@ -1,8 +1,8 @@
 # Prose
 
-<a id="p.documentation"></a>
+<a id="p.documentation-accuracy"></a>
 
-**[P.documentation](#p.documentation). Keep comments and documentation accurate to the current system.**
+**[P.documentation-accuracy](#p.documentation-accuracy). Keep comments and documentation accurate to the current system.**
 
 *Requirement. [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification)*
 
@@ -18,7 +18,7 @@ As general writing guidance, write for readers who do not share your context. Ex
 
 **[C.prose](#c.prose). Prose clarity**
 
-*Editorial preference. Policies [P.documentation](#p.documentation), [P.commit-explanations](4-history.md#p.commit-explanations), [P.pr-explanations](modules/pr.md#p.pr-explanations).*
+*Editorial preference. Policies [P.documentation-accuracy](#p.documentation-accuracy), [P.commit-explanations](4-history.md#p.commit-explanations), [P.pr-explanations](modules/pr.md#p.pr-explanations).*
 
 Apply these conventions to prose sentences.
 
@@ -60,9 +60,9 @@ These punctuation choices support [one main idea per sentence](#c.prose.focus) a
 
 <a id="c.comments.purpose"></a>**[C.comments.purpose](#c.comments.purpose). Use comments for constraints and reasons absent from the code.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [P.documentation](#p.documentation).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [P.documentation-accuracy](#p.documentation-accuracy).*
 
-Names, types, and implementation often supply the explanation. Add a comment when a constraint or reason is not evident from them. Accounts of what changed and why belong in change records under [P.documentation](#p.documentation).
+Names, types, and implementation often supply the explanation. Add a comment when a constraint or reason is not evident from them. Accounts of what changed and why belong in change records under [P.documentation-accuracy](#p.documentation-accuracy).
 
 Before adding a comment, consider whether a clearer name, smaller function, or stronger type can express the information. Omit comments that only paraphrase code, repeat a name, or label the next block.
 
@@ -72,7 +72,7 @@ A reader should be able to understand a comment without seeing an earlier versio
 
 **[C.comments](#c.comments). Comment placement and idiom**
 
-*Default. Policy [P.documentation](#p.documentation).*
+*Default. Policy [P.documentation-accuracy](#p.documentation-accuracy).*
 
 - <a id="c.comments.definitions"></a>**[C.comments.definitions](#c.comments.definitions). Use function definition comments for caller-visible facts not evident from the signature.** For example, explain a required input order here.
 
@@ -92,11 +92,11 @@ A reader should be able to understand a comment without seeing an earlier versio
 
 <a id="c.documentation.locations"></a>**[C.documentation.locations](#c.documentation.locations). Give each explanation an authoritative home by default.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [P.documentation](#p.documentation).*
+*Default. Principle [Coherence](PRINCIPLES.md#coherence). Policy [P.documentation-accuracy](#p.documentation-accuracy).*
 
 Link to the explanation instead of maintaining competing copies. Put setup and usage guidance in the relevant README, and keep component-specific details near the component.
 
-Comments and documentation describe the current system under [P.documentation](#p.documentation).
+Comments and documentation describe the current system under [P.documentation-accuracy](#p.documentation-accuracy).
 
 ### Markdown presentation
 
@@ -114,6 +114,6 @@ Keep each paragraph or bullet's text on one source line and let the renderer wra
 
 <a id="c.checking-instructions"></a>**[C.checking-instructions](#c.checking-instructions). Keep build and checking instructions with the component they apply to.**
 
-*Default. Policy [P.documentation](#p.documentation).*
+*Default. Policy [P.documentation-accuracy](#p.documentation-accuracy).*
 
 Document formatter versions, commands, and prerequisites in the relevant component guide. Link those instructions instead of maintaining another command list here. The [SpecTec module](modules/spectec.md#spectec-build-and-checks) provides compiler command recipes.
