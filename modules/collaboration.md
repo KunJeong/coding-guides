@@ -68,6 +68,20 @@ A reviewer who asks for a change that must be made before merging should explain
 
 Reviewers should present preferences as suggestions. If a rule's meaning is unclear, the reviewer should ask for clarification.
 
+<a id="r.follow-ups"></a>
+
+**[R.follow-ups](#r.follow-ups). Do not delay a ready contribution for independent follow-up work.**
+
+*Requirement. [Coherence](../PRINCIPLES.md#coherence), [Proportionality](../PRINCIPLES.md#proportionality)*
+
+Record deliberately postponed tasks and their reasons, and preserve the record when landing. Possible improvements are not deferred commitments.
+
+While a PR is under review, its planned topic should remain stable. Newly discovered independent work normally belongs in another PR, unless a separate PR would add little value.
+
+Once review blockers are resolved, the contribution can proceed towards landing. Newly discovered work belongs in another PR unless it is needed to implement or verify the current contribution. Independent follow-up work should not hold up a ready contribution or other work that depends on it.
+
+The PR should identify work explicitly postponed from the contribution and explain why it was postponed. Preserve that record when landing. Possible future improvements are not deferred commitments.
+
 ## Review
 
 <a id="r.review-labels"></a>**[R.review-labels](#r.review-labels). Label a review comment when its status could be unclear.**

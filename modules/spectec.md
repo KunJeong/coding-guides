@@ -22,6 +22,8 @@ Keep semantic logic out of executable entrypoints so other callers can use it wi
 
 Specification messages should distinguish changes in modeled behavior from changes in notation or organization.
 
+Other scopes name compiler areas, such as `converter`, `cli`, `elaborate`, `il`, `interp`, `instrumentation`, or `targets/p4`.
+
 The `spec` commit type is deprecated. Historical `spec` commits denote specification changes. Do not rewrite existing history solely to replace the deprecated type.
 
 ## SpecTec build and checks

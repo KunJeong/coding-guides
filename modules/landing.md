@@ -22,7 +22,7 @@ The core maintainer bears most of the lasting cost of unclear prose and fragment
 
 **Commit preparation**
 
-- Fold review fixups into the commits they complete.
+- Fold review fixups into the commits they complete. Their messages may stay brief until then.
 - Combine or reorder reviewed commits when needed to make them coherent and buildable under [R.commit-buildability](../4-history.md#r.commit-buildability).
 
 Combining or reordering commits must preserve the branch's final file contents on the same base. Rebasing onto a new base follows [R.conflict-resolution](#r.conflict-resolution). Editorial edits are limited to the prose and record corrections above. Preserve each change's motivation, source references, and author credit. Keep independent changes distinguishable under [R.change-scope](../4-history.md#r.change-scope).
@@ -122,7 +122,7 @@ Framing paragraph explaining the motivation and resulting change.
 
 <a id="r.deferred-work"></a>**[R.deferred-work](#r.deferred-work). Reserve `DEFERRED:` for work explicitly postponed from the contribution.**
 
-*Default. Policies [R.follow-ups](pr.md#r.follow-ups), [R.merge-method](#r.merge-method).*
+*Default. Policies [R.follow-ups](collaboration.md#r.follow-ups), [R.merge-method](#r.merge-method).*
 
 Carry only the explicitly deferred items identified in the PR's Deferred Tasks subsection or review discussion. These can include a known shortcoming accepted for this PR that should be repaired soon, or work intentionally omitted from a Port or Sync for later adoption. Ideas and Open Questions do not become deferred commitments.
 

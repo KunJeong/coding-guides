@@ -1,4 +1,4 @@
-# Change records
+# History
 
 <a id="r.change-scope"></a>
 
@@ -6,13 +6,13 @@
 
 *Requirement. [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality)*
 
-Split commits as far as possible without placeholders or a broken build, keeping an idea's tests and documentation with it. Incidental commits may accompany the main topic when a separate PR adds little value. Keep them distinct, explain their inclusion, and keep the topic stable during review. Limit each Port to one upstream PR and necessary local adaptations.
+Split commits as far as possible without placeholders or a broken build, keeping an idea's tests and documentation with it. Incidental commits may accompany the main topic when a separate PR adds little value. Keep them distinct and explain their inclusion.
 
 A commit carries one idea with its tests and documentation. A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split as far as possible without placeholders or a broken build under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
 
-A PR may include commits outside its main topic when a separate PR would add review and landing overhead without enough practical benefit. Those commits should remain distinct, and the PR body should explain why they belong. A Port is limited to one upstream PR and its necessary local adaptations. The [porting conventions](modules/ports.md#r.ports-syncs.scope) explain this scope.
+A PR may include commits outside its main topic when a separate PR would add review and landing overhead without enough practical benefit. Those commits should remain distinct, and the PR body should explain why they belong.
 
-While a PR is under review, its planned topic should remain stable. Newly discovered independent work normally belongs in another PR, unless the same grouping exception applies. Once the contribution is ready, [R.follow-ups](modules/pr.md#r.follow-ups) explains how to handle follow-up work. Final commit preparation follows [R.commit-buildability](#r.commit-buildability).
+Final commit preparation follows [R.commit-buildability](#r.commit-buildability).
 
 <a id="r.commit-explanations"></a>
 
@@ -62,7 +62,7 @@ Fold review fixups into the commits they complete. Combine commits when separati
 
 Each final commit should express one idea under [R.change-scope](#r.change-scope) and leave the project buildable, so maintainers can investigate regressions without first repairing intermediate states. If separating commits would require placeholders or break the build, they should be combined.
 
-Review fixups are folded into the commits they complete before landing. Their messages may remain brief until that cleanup. The maintainer may perform this preparation under [R.final-cleanup](modules/landing.md#r.final-cleanup).
+Review fixups are folded into the commits they complete before landing.
 
 Apply the [general prose conventions](3-prose.md#r.prose) to writing in change records. The conventions below supply record-specific forms.
 
@@ -98,7 +98,7 @@ Commit types include `feat`, `fix`, `refactor`, `test`, `docs`, `ci`, `chore`, `
 
 Classify structural or behavioral changes by their own intent, even when they accompany reorganization or formatting. Explain those changes separately. A `reorg` label does not establish behavior preservation by itself.
 
-Choose the narrowest accurate scope, such as `converter`, `cli`, `elaborate`, `il`, `interp`, `instrumentation`, or `targets/p4`.
+Choose the narrowest accurate scope.
 
 For documentation changes, choose the scope by topic. Use `docs(principles)` for project principles, `docs(conventions)` for routine conventions, and `docs(contributing)` for contribution policies or changes spanning the contribution process. Name affected documents in the body when that helps readers locate the work.
 

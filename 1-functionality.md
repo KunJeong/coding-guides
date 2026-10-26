@@ -10,7 +10,7 @@ Construction must establish those guarantees, and exposed updates must preserve 
 
 Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. The [construction and validation conventions](#functionality) describe ways to enforce them.
 
-The [invariants policy](#r.invariants) requires construction and updates to preserve the guarantees callers rely on. These conventions cover construction and runtime validation. [Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees.
+The [invariants policy](#r.invariants) requires construction and updates to preserve the guarantees callers rely on. These conventions cover construction and runtime checks. [Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees.
 
 *Default. Policy [R.invariants](#r.invariants).*
 
@@ -18,7 +18,7 @@ The [invariants policy](#r.invariants) requires construction and updates to pres
 
 - <a id="r.types.construction"></a>**[R.types.construction](#r.types.construction). Protect invariants at construction.** When callers rely on a value already being validated, use an abstract or private type with checked constructors. Every exposed operation that constructs or updates a value must preserve those constraints.
 
-## Runtime validation
+## Runtime checks
 
 - <a id="r.types.runtime-checks"></a>**[R.types.runtime-checks](#r.types.runtime-checks). Keep checks for constraints the type does not enforce.** A type may guarantee a value's structure without guaranteeing its meaning or its relationship to other values. Validate those remaining constraints at runtime.
 

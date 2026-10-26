@@ -12,18 +12,6 @@ The PR body should give reviewers enough context to assess the contribution as a
 
 The PR body should identify commits outside the main topic and explain their inclusion. Section formats are described in [R.pr-titles](#r.pr-titles) and [R.pr-body](#r.pr-body).
 
-<a id="r.follow-ups"></a>
-
-**[R.follow-ups](#r.follow-ups). Do not delay a ready contribution for independent follow-up work.**
-
-*Requirement. [Coherence](../PRINCIPLES.md#coherence), [Proportionality](../PRINCIPLES.md#proportionality)*
-
-Record deliberately postponed tasks and their reasons, and preserve the record when landing. Possible improvements are not deferred commitments.
-
-Once review blockers are resolved, the contribution can proceed towards landing. Newly discovered work belongs in another PR unless it is needed to implement or verify the current contribution. Independent follow-up work should not hold up a ready contribution or other work that depends on it.
-
-The PR should identify work explicitly postponed from the contribution and explain why it was postponed. Preserve that record when landing. Possible future improvements are not deferred commitments.
-
 Choose a title that identifies the main concept. When several changes form one idea, name that idea. Account for accompanying work in the body under [R.pr-explanations](#r.pr-explanations). Concrete titles are easier to understand than abstract labels whose meaning depends on the body.
 
 <a id="r.pr-titles"></a>**[R.pr-titles](#r.pr-titles). Match the PR title form to its category.**
@@ -44,7 +32,7 @@ A Port names the work being adopted. A Sync names the area being brought to a re
 
 **[R.pr-body](#r.pr-body). PR sections**
 
-*Default. Policies [R.change-scope](../4-history.md#r.change-scope), [R.pr-explanations](#r.pr-explanations), [R.follow-ups](#r.follow-ups), [R.responsibility](collaboration.md#r.responsibility).*
+*Default. Policies [R.change-scope](../4-history.md#r.change-scope), [R.pr-explanations](#r.pr-explanations), [R.follow-ups](collaboration.md#r.follow-ups), [R.responsibility](collaboration.md#r.responsibility).*
 
 <a id="r.pr-body.sections"></a>**[R.pr-body.sections](#r.pr-body.sections). Add sections when they answer additional review questions.** Use the standard headings for the purposes defined below. Give additional sections headings that describe their content. Omit sections that repeat information already covered elsewhere.
 
