@@ -28,9 +28,7 @@
 
 - Does it develop one main topic, with incidental commits kept distinct? [R.change-scope](#r.change-scope)
 
-<a id="r.change-scope"></a>
-
-**[R.change-scope](#r.change-scope). Each commit should express one idea, and each PR should develop one main topic.**
+<a id="r.change-scope"></a>**[R.change-scope](#r.change-scope). Each commit should express one idea, and each PR should develop one main topic.**
 
 *Required. Principles [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
@@ -40,9 +38,7 @@ A PR may include commits outside its main topic when a separate PR would add rev
 
 Final commit preparation follows [R.commit-buildability](#r.commit-buildability).
 
-<a id="r.commit-explanations"></a>
-
-**[R.commit-explanations](#r.commit-explanations). Each final commit message should explain the motivation and resulting change.**
+<a id="r.commit-explanations"></a>**[R.commit-explanations](#r.commit-explanations). Each final commit message should explain the motivation and resulting change.**
 
 *Required. Principles [Motivation](PRINCIPLES.md#motivation), [Coherence](PRINCIPLES.md#coherence).*
 
@@ -54,17 +50,13 @@ For `feat`, `test`, `docs`, and `chore` commits, motivation may be omitted when 
 
 When the subject already conveys the required explanation, the message does not need a body. Source records still follow [R.source-credit](#r.source-credit). [R.sources.regressions](#r.sources.regressions) supplies the format for recording a fix's introducing commit.
 
-<a id="r.commit-wrapping"></a>
-
-**[R.commit-wrapping](#r.commit-wrapping). Wrap final commit messages at 72 columns.** `[auto]`
+<a id="r.commit-wrapping"></a>**[R.commit-wrapping](#r.commit-wrapping). Wrap final commit messages at 72 columns.** `[auto]`
 
 *Required. Principle [Coherence](PRINCIPLES.md#coherence).*
 
 Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole, even past 72 columns, so readers can follow and search them. Markdown paragraphs and PR bodies follow [R.markdown-wrapping](3-prose.md#r.markdown-wrapping) instead.
 
-<a id="r.source-credit"></a>
-
-**[R.source-credit](#r.source-credit). Commits containing copied or adapted work must cite its source and preserve author credit.**
+<a id="r.source-credit"></a>**[R.source-credit](#r.source-credit). Commits containing copied or adapted work must cite its source and preserve author credit.**
 
 *Required. Principle [Provenance](PRINCIPLES.md#provenance).*
 
@@ -72,9 +64,7 @@ Source references let readers trace inherited work and preserve its contributors
 
 Rewrites must preserve source references and author attribution. Credit records do not change responsibility under [R.responsibility](modules/collaboration.md#r.responsibility). Coauthor credit is optional and limited to actual human joint authorship. Tools are not coauthors. Recommended source-trailer formats are described in [Sources and credit](#sources-and-credit).
 
-<a id="r.commit-buildability"></a>
-
-**[R.commit-buildability](#r.commit-buildability). Finalize each commit as a buildable unit.**
+<a id="r.commit-buildability"></a>**[R.commit-buildability](#r.commit-buildability). Finalize each commit as a buildable unit.**
 
 *Required. Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification), [Proportionality](PRINCIPLES.md#proportionality).*
 
@@ -109,9 +99,7 @@ Co-authored-by: Name <email>
 
 The rules below define each part of the form.
 
-<a id="r.commit-format"></a>
-
-**[R.commit-format](#r.commit-format). Commit classification and format**
+<a id="r.commit-format"></a>**[R.commit-format](#r.commit-format). Commit classification and format**
 
 *Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.commit-explanations](#r.commit-explanations).*
 
@@ -139,9 +127,7 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.commit-format.moves"></a>**[R.commit-format.moves](#r.commit-format.moves). List renamed or moved paths in a `reorg` message as `old -> new` bullets and describe mechanical reference updates.** In a PR, put the rename list beneath the relevant scoped summary bullet using the same path format.
 
-<a id="r.commit-prose"></a>
-
-**[R.commit-prose](#r.commit-prose). Commit prose**
+<a id="r.commit-prose"></a>**[R.commit-prose](#r.commit-prose). Commit prose**
 
 *Default. Rule [R.commit-explanations](#r.commit-explanations).*
 
@@ -161,9 +147,7 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.commit-prose.identifiers"></a>**[R.commit-prose.identifiers](#r.commit-prose.identifiers). Use backticks around code identifiers in commit bodies.** This distinguishes identifiers from ordinary prose.
 
-<a id="r.commit-display"></a>
-
-**[R.commit-display](#r.commit-display). Commit character set**
+<a id="r.commit-display"></a>**[R.commit-display](#r.commit-display). Commit character set**
 
 *Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
 
@@ -171,9 +155,7 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 ## Sources and credit
 
-<a id="r.sources"></a>
-
-**[R.sources](#r.sources). Source and related-revision records**
+<a id="r.sources"></a>**[R.sources](#r.sources). Source and related-revision records**
 
 *Default. Rules [R.source-credit](#r.source-credit), [R.commit-explanations](#r.commit-explanations), [R.responsibility](modules/collaboration.md#r.responsibility).*
 

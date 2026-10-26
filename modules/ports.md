@@ -11,17 +11,13 @@
 - Does each Local bullet say why the Port or Sync needs it? [R.imported-work](#r.imported-work)
 - Does Validation compare the result with its source? [R.ports-syncs.groups](#r.ports-syncs.groups), [R.pr-body.validation](pr.md#r.pr-body.validation)
 
-<a id="r.imported-work"></a>
-
-**[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
+<a id="r.imported-work"></a>**[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
 
 *Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
 Reviewers need to compare the source work with the local result. Identify the sources and explain adaptations, omissions, and independent local changes, including conflict resolutions. The [Port and Sync rules](#r.ports-syncs) recommend description groups and explain when upstream explanations can be reused.
 
-<a id="r.ports-syncs"></a>
-
-**[R.ports-syncs](#r.ports-syncs). Upstream scope groups**
+<a id="r.ports-syncs"></a>**[R.ports-syncs](#r.ports-syncs). Upstream scope groups**
 
 *Default. Rules [R.change-scope](../4-history.md#r.change-scope), [R.imported-work](#r.imported-work), [R.source-credit](../4-history.md#r.source-credit), [R.pr-explanations](pr.md#r.pr-explanations).*
 

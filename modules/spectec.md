@@ -2,9 +2,7 @@
 
 ## SpecTec compiler layout
 
-<a id="r.compiler-layout"></a>
-
-**[R.compiler-layout](#r.compiler-layout). Place compiler code according to its responsibility.**
+<a id="r.compiler-layout"></a>**[R.compiler-layout](#r.compiler-layout). Place compiler code according to its responsibility.**
 
 *Default. Principle [Coherence](../PRINCIPLES.md#coherence).*
 

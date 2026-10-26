@@ -11,9 +11,7 @@
 - Does Validation hold only evidence that the diff, Scope, and CI do not show, including what was not checked? [R.pr-body.validation](#r.pr-body.validation)
 - Does the body match the [PR form](#pr-form)?
 
-<a id="r.pr-explanations"></a>
-
-**[R.pr-explanations](#r.pr-explanations). Each PR body should explain its motivation, result, and scope.**
+<a id="r.pr-explanations"></a>**[R.pr-explanations](#r.pr-explanations). Each PR body should explain its motivation, result, and scope.**
 
 *Required. Principles [Motivation](../PRINCIPLES.md#motivation), [Coherence](../PRINCIPLES.md#coherence), [Verification](../PRINCIPLES.md#verification), [Proportionality](../PRINCIPLES.md#proportionality).*
 
@@ -75,9 +73,7 @@ The central idea a reviewer needs before reading the diff.
 
 Sections appear in this order, and empty sections are omitted. A Port or Sync divides Scope into the subsections of [R.ports-syncs.groups](ports.md#r.ports-syncs.groups).
 
-<a id="r.pr-body"></a>
-
-**[R.pr-body](#r.pr-body). PR sections**
+<a id="r.pr-body"></a>**[R.pr-body](#r.pr-body). PR sections**
 
 *Default. Rules [R.change-scope](../4-history.md#r.change-scope), [R.pr-explanations](#r.pr-explanations), [R.follow-ups](collaboration.md#r.follow-ups), [R.responsibility](collaboration.md#r.responsibility).*
 

@@ -2,9 +2,7 @@
 
 These proposed policies are derived from SpecTec research and collaboration practices. They apply as shared requirements and permissions only where a project adopts them. Repository rules and explicit agreements take precedence, including when revising history or publishing changes. These policies do not establish agreements or grant permission to change another contributor's work.
 
-<a id="r.rules"></a>
-
-**[R.rules](#r.rules). Follow the requirements in this outline and agree exceptions with the core maintainer before proceeding.**
+<a id="r.rules"></a>**[R.rules](#r.rules). Follow the requirements in this outline and agree exceptions with the core maintainer before proceeding.**
 
 *Requirement. [Responsibility](#responsibility), [Coordination](#coordination)*
 
@@ -20,9 +18,7 @@ Reviewers should distinguish requirements from recommendations when requesting c
 
 Contributors are welcome to raise issues with these guides when they have ideas for improving the contribution process.
 
-<a id="r.responsibility"></a>
-
-**[R.responsibility](#r.responsibility). Take responsibility for the work you submit, regardless of tools or assistance.**
+<a id="r.responsibility"></a>**[R.responsibility](#r.responsibility). Take responsibility for the work you submit, regardless of tools or assistance.**
 
 *Requirement. [Verification](../PRINCIPLES.md#verification), [Responsibility](#responsibility)*
 
@@ -32,9 +28,7 @@ Contributors are responsible for the work they submit, and reviewers are respons
 
 Routine AI-use disclosures are not required. Explain tool use when it is part of the research method or necessary to understand a result or its limits. Contributors remain responsible for submitted work, including work copied or adapted from others.
 
-<a id="r.renames"></a>
-
-**[R.renames](#r.renames). Agree when a temporary compatibility alias will be removed.**
+<a id="r.renames"></a>**[R.renames](#r.renames). Agree when a temporary compatibility alias will be removed.**
 
 *Requirement. [Coherence](../PRINCIPLES.md#coherence) ↔ [Coordination](#coordination)*
 
@@ -44,9 +38,7 @@ A compatibility alias creates a migration obligation that can outlast the contri
 
 Resolve questions about the contribution's behavior, design, and readiness.
 
-<a id="r.reviewer-tasks"></a>
-
-**[R.reviewer-tasks](#r.reviewer-tasks). Announce review tasks and coordinate edits with the contributor.**
+<a id="r.reviewer-tasks"></a>**[R.reviewer-tasks](#r.reviewer-tasks). Announce review tasks and coordinate edits with the contributor.**
 
 *Requirement. [Responsibility](#responsibility), [Coordination](#coordination)*
 
@@ -56,9 +48,7 @@ Reviewers should tell the contributor which tasks they plan to take on, includin
 
 Before changing behavior, design, or the contributor's stated reasoning, the reviewer should discuss the change with the contributor. History rewrites and PR metadata edits also need agreement unless they fall within R.final-cleanup.
 
-<a id="r.review-blockers"></a>
-
-**[R.review-blockers](#r.review-blockers). Ground review blockers in required rules or concrete problems.**
+<a id="r.review-blockers"></a>**[R.review-blockers](#r.review-blockers). Ground review blockers in required rules or concrete problems.**
 
 *Requirement. [Responsibility](#responsibility), [Coordination](#coordination)*
 
@@ -68,9 +58,7 @@ A reviewer who asks for a change that must be made before merging should explain
 
 Reviewers should present preferences as suggestions. If a rule's meaning is unclear, the reviewer should ask for clarification.
 
-<a id="r.follow-ups"></a>
-
-**[R.follow-ups](#r.follow-ups). Do not delay a ready contribution for independent follow-up work.**
+<a id="r.follow-ups"></a>**[R.follow-ups](#r.follow-ups). Do not delay a ready contribution for independent follow-up work.**
 
 *Requirement. [Coherence](../PRINCIPLES.md#coherence), [Proportionality](../PRINCIPLES.md#proportionality)*
 

@@ -2,9 +2,7 @@
 
 Prepare the reviewed contribution for `main` and record its integration. Substantive changes made during preparation return to review.
 
-<a id="r.final-cleanup"></a>
-
-**[R.final-cleanup](#r.final-cleanup). The core maintainer may polish existing comments and commit messages and prepare reviewed commits during final integration.**
+<a id="r.final-cleanup"></a>**[R.final-cleanup](#r.final-cleanup). The core maintainer may polish existing comments and commit messages and prepare reviewed commits during final integration.**
 
 *Permission. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Responsibility](collaboration.md#responsibility) ↔ [Coordination](collaboration.md#coordination).*
 
@@ -29,17 +27,13 @@ The maintainer may amend commits, rebase them, and publish the rewritten PR bran
 
 New explanations, factual corrections, changes to assumptions or motivation, and resolving ambiguous intent need discussion under [R.reviewer-tasks](collaboration.md#r.reviewer-tasks). Changes to attribution or PR metadata also follow R.reviewer-tasks. Executable-code changes and substantive conflict resolutions return to review under [R.conflict-resolution](#r.conflict-resolution).
 
-<a id="r.conflict-resolution"></a>
-
-**[R.conflict-resolution](#r.conflict-resolution). Resolve integration conflicts on the PR branch before landing.**
+<a id="r.conflict-resolution"></a>**[R.conflict-resolution](#r.conflict-resolution). Resolve integration conflicts on the PR branch before landing.**
 
 *Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Coordination](collaboration.md#coordination).*
 
 Integration conflicts are resolved on the PR branch, where reviewers can inspect the resolutions. Those resolutions can change behavior, so substantive changes need an explanation and a return to review before landing. The landing merge must introduce no further conflict-resolution edits.
 
-<a id="r.merge-method"></a>
-
-**[R.merge-method](#r.merge-method). Preserve final commits and record the contribution when landing.**
+<a id="r.merge-method"></a>**[R.merge-method](#r.merge-method). Preserve final commits and record the contribution when landing.**
 
 *Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
@@ -47,9 +41,7 @@ The history should preserve reviewed units of work and explain their integration
 
 For single-commit PRs, the [integration default](#r.integration.method) is a fast-forward. Their commit message supplies the permanent record under [R.single-commit-record](#r.single-commit-record). Add the PR number through authorized final cleanup under [R.final-cleanup](#r.final-cleanup).
 
-<a id="r.direct-pushes"></a>
-
-**[R.direct-pushes](#r.direct-pushes). The maintainer may push bounded repairs and current-state documentation directly to `main`.**
+<a id="r.direct-pushes"></a>**[R.direct-pushes](#r.direct-pushes). The maintainer may push bounded repairs and current-state documentation directly to `main`.**
 
 *Permission. Principles [Responsibility](collaboration.md#responsibility), [Coordination](collaboration.md#coordination) ↔ [Proportionality](../PRINCIPLES.md#proportionality).*
 
@@ -91,9 +83,7 @@ A fast-forward creates no merge message, so the commit message is the permanent 
 
 The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [R.merge-summary](#r.merge-summary).
 
-<a id="r.merge-summary"></a>
-
-**[R.merge-summary](#r.merge-summary). Merge-message summaries**
+<a id="r.merge-summary"></a>**[R.merge-summary](#r.merge-summary). Merge-message summaries**
 
 *Default. Rules [R.pr-explanations](pr.md#r.pr-explanations), [R.merge-method](#r.merge-method).*
 
