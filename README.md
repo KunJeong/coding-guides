@@ -24,7 +24,7 @@ Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTe
 | --- | --- |
 | Writing or reviewing staged code | 1, 2, and 3, plus ocaml for `.ml` or `.mli` changes |
 | Writing commits or reviewing a branch | 1 to 4, plus ports when source records appear |
-| Writing or checking a PR body | 4 and pr, plus ports for a Port or Sync |
+| Planning a branch or writing a PR body | 4 and pr, plus ports for a Port or Sync |
 | Landing a PR | 4, pr, and landing |
 | Reviewing a collaborator's PR | 1 to 4, pr, collaboration, and the project's CONTRIBUTING.md, plus ocaml or ports when relevant |
 
