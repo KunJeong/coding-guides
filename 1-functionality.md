@@ -33,7 +33,7 @@ Callers need to know which guarantees hold when they use a value or operation. C
 
 *Required. Principle [Verification](PRINCIPLES.md#verification).*
 
-A change's type decides what it claims. The claim decides the evidence.
+A change's type decides what it claims. The claim decides the evidence. Run the checks that produce the evidence before presenting the change for review.
 
 | Type | Claim | Evidence |
 | --- | --- | --- |
