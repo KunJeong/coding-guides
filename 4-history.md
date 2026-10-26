@@ -34,7 +34,7 @@
 
 *Required. Principles [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
-A commit carries one idea with its tests and documentation. A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split as far as possible without placeholders or a broken build under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
+A commit carries one idea with its tests and documentation. A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split along ideas, not along files or rules. One idea applied in several places stays one commit. Combine commits when separating them would need placeholders or break the build, under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
 
 A PR may include commits outside its main topic when a separate PR would add review and landing overhead without enough practical benefit. Those commits should remain distinct, and the PR body should explain why they belong.
 
