@@ -15,18 +15,18 @@ Start with [PRINCIPLES.md](PRINCIPLES.md) for the reasoning behind the guidance.
 
 | Facet | Topic | Guidance |
 | --- | --- | --- |
-| [Functionality](CONVENTIONS.md#functionality) | Guarantees and validation | [Invariants policy](POLICIES.md#p.invariants), [construction](CONVENTIONS.md#contracts-and-invariants), [runtime validation](CONVENTIONS.md#runtime-validation) |
-| [Factoring](CONVENTIONS.md#factoring) | Names and renames | [Names and boundaries](CONVENTIONS.md#names-and-boundaries), [compatibility aliases](POLICIES.md#p.renames) |
-| Factoring | Types and representation | [Types and data](CONVENTIONS.md#types-and-data) |
-| Factoring | Architecture and state | [Abstractions and interfaces](CONVENTIONS.md#abstractions-and-interfaces), [mutation](CONVENTIONS.md#mutation) |
-| Factoring | Language and layout | [OCaml](CONVENTIONS.md#ocaml), [SpecTec compiler layout](CONVENTIONS.md#c.compiler-layout) |
-| [Prose](CONVENTIONS.md#prose) | Wording across media | [General writing](CONVENTIONS.md#general-writing) |
-| Prose | Comments and docstrings | [Comments](CONVENTIONS.md#comments), [documentation policy](POLICIES.md#p.documentation) |
-| Prose | Documentation and presentation | [Documentation](CONVENTIONS.md#documentation), [build and checking documentation](CONVENTIONS.md#build-and-checking-documentation) |
-| [Change records](CONVENTIONS.md#change-records) | Commit messages | [Commit conventions](CONVENTIONS.md#commit-messages), [explanation policy](POLICIES.md#p.commit-explanations), [wrapping policy](POLICIES.md#p.commit-wrapping) |
-| Change records | Sources and attribution | [Source records](CONVENTIONS.md#sources-and-credit), [credit policy](POLICIES.md#p.source-credit), [imported work](POLICIES.md#p.imported-work) |
-| Change records | PR scope and descriptions | [PR conventions](CONVENTIONS.md#pr-titles-and-descriptions), [Ports and Syncs](CONVENTIONS.md#ports-and-syncs), [scope policy](POLICIES.md#p.change-scope), [explanation policy](POLICIES.md#p.pr-explanations) |
-| Change records | Review and landing | [Review comments](CONVENTIONS.md#review), [integration and landing records](CONVENTIONS.md#landing), [review blockers](POLICIES.md#p.review-blockers) |
+| [Functionality](1-functionality.md#functionality) | Guarantees and validation | [Invariants policy](1-functionality.md#p.invariants), [construction](1-functionality.md#contracts-and-invariants), [runtime validation](1-functionality.md#runtime-validation) |
+| [Factoring](2-factoring.md#factoring) | Names and renames | [Names and boundaries](2-factoring.md#names-and-boundaries), [compatibility aliases](modules/collaboration.md#p.renames) |
+| Factoring | Types and representation | [Types and data](2-factoring.md#types-and-data) |
+| Factoring | Architecture and state | [Abstractions and interfaces](2-factoring.md#abstractions-and-interfaces), [mutation](2-factoring.md#mutation) |
+| Factoring | Language and layout | [OCaml](modules/ocaml.md#ocaml), [SpecTec compiler layout](modules/spectec.md#c.compiler-layout) |
+| [Prose](3-prose.md#prose) | Wording across media | [General writing](3-prose.md#general-writing) |
+| Prose | Comments and docstrings | [Comments](3-prose.md#comments), [documentation policy](3-prose.md#p.documentation) |
+| Prose | Documentation and presentation | [Documentation](3-prose.md#documentation), [build and checking documentation](3-prose.md#build-and-checking-documentation) |
+| [Change records](4-history.md#change-records) | Commit messages | [Commit conventions](4-history.md#commit-messages), [explanation policy](4-history.md#p.commit-explanations), [wrapping policy](4-history.md#p.commit-wrapping) |
+| Change records | Sources and attribution | [Source records](4-history.md#sources-and-credit), [credit policy](4-history.md#p.source-credit), [imported work](modules/ports.md#p.imported-work) |
+| Change records | PR scope and descriptions | [PR conventions](modules/pr.md#pr-titles-and-descriptions), [Ports and Syncs](modules/ports.md#ports-and-syncs), [scope policy](4-history.md#p.change-scope), [explanation policy](modules/pr.md#p.pr-explanations) |
+| Change records | Review and landing | [Review comments](modules/collaboration.md#review), [integration and landing records](modules/landing.md#landing), [review blockers](modules/collaboration.md#p.review-blockers) |
 
 [POLICIES.md](POLICIES.md#policy-outline) groups collaboration rules by workflow. [WORKFLOWS.md](WORKFLOWS.md) supplies build, revision, and landing procedures.
 

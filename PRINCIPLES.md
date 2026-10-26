@@ -32,18 +32,6 @@ Recording origins and adaptations lets others evaluate and build on inherited wo
 
 ## Working together
 
-<a id="responsibility"></a>
-
-### Responsibility: Assign decisions to the people accountable for them.
-
-Contributors choose how to implement their work. The core maintainer decides on shared architecture, public interfaces, and project rules because they must maintain those decisions as contributors come and go.
-
-<a id="coordination"></a>
-
-### Coordination: Agree before disrupting another person's work.
-
-Parallel exploration saves time when contributors can trust that their work will not be unexpectedly disrupted. Agreeing on shared changes before making them lets others adjust their plans and avoids wasted effort.
-
 <a id="proportionality"></a>
 
 ### Proportionality: Match review and integration work to a change's risk and reach.
