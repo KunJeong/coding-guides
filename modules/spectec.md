@@ -4,8 +4,6 @@
 
 <a id="r.compiler-layout"></a>**[R.compiler-layout](#r.compiler-layout). Place compiler code according to its responsibility.**
 
-*Default. Principle [Coherence](../PRINCIPLES.md#coherence).*
-
 | Responsibility | Location |
 | --- | --- |
 | Semantic operations usable without command-line handling | `spectec/lib/` |

@@ -13,7 +13,7 @@
 
 <a id="r.pr-explanations"></a>**[R.pr-explanations](#r.pr-explanations). Each PR body should explain its motivation, result, and scope.**
 
-*Required. Principles [Motivation](../PRINCIPLES.md#motivation), [Coherence](../PRINCIPLES.md#coherence), [Verification](../PRINCIPLES.md#verification), [Proportionality](../PRINCIPLES.md#proportionality).*
+*Principles [Motivation](../PRINCIPLES.md#motivation), [Coherence](../PRINCIPLES.md#coherence), [Verification](../PRINCIPLES.md#verification), [Proportionality](../PRINCIPLES.md#proportionality).*
 
 The PR body should give reviewers enough context to assess the contribution as a whole. It explains the problem or research goal, the resulting change, and the affected components and kinds of change. One short description may cover all three.
 
@@ -22,8 +22,6 @@ The PR body should identify commits outside the main topic and explain their inc
 Choose a title that identifies the main concept. When several changes form one idea, name that idea. Account for accompanying work in the body under [R.pr-explanations](#r.pr-explanations). Concrete titles are easier to understand than abstract labels whose meaning depends on the body.
 
 <a id="r.pr-titles"></a>**[R.pr-titles](#r.pr-titles). Match the PR title form to its category.**
-
-*Default. Rule [R.pr-explanations](#r.pr-explanations).*
 
 | Type | Title form |
 | --- | --- |
@@ -74,8 +72,6 @@ The central idea a reviewer needs before reading the diff.
 Sections appear in this order, and empty sections are omitted. A Port or Sync divides Scope into the subsections of [R.ports-syncs.groups](ports.md#r.ports-syncs.groups).
 
 <a id="r.pr-body"></a>**[R.pr-body](#r.pr-body). PR sections**
-
-*Default. Rules [R.change-scope](../4-history.md#r.change-scope), [R.pr-explanations](#r.pr-explanations), [R.follow-ups](collaboration.md#r.follow-ups), [R.responsibility](collaboration.md#r.responsibility).*
 
 <a id="r.pr-body.sections"></a>**[R.pr-body.sections](#r.pr-body.sections). Add sections when they answer additional review questions.** Use the standard headings for the purposes defined below. Give additional sections headings that describe their content. Omit sections that repeat information already covered elsewhere.
 

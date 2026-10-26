@@ -2,8 +2,6 @@
 
 <a id="r.ocaml"></a>**[R.ocaml](#r.ocaml). OCaml conventions**
 
-*Default. Principles [Coherence](../PRINCIPLES.md#coherence), [Proportionality](../PRINCIPLES.md#proportionality).*
-
 <a id="r.ocaml.casing"></a>**[R.ocaml.casing](#r.ocaml.casing). Follow OCaml's casing conventions.** Use `snake_case` for values and types and `PascalCase` for modules and constructors.
 
 <a id="r.ocaml.callback-wrappers"></a>**[R.ocaml.callback-wrappers](#r.ocaml.callback-wrappers). Reserve `with_*` for scoped callback execution.** Restore the context or release the resource when the callback exits.

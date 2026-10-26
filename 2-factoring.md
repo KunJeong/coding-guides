@@ -39,8 +39,6 @@ The [Swift API Design Guidelines](https://www.swift.org/documentation/api-design
 
 <a id="r.established-forms"></a>**[R.established-forms](#r.established-forms). Prefer established code and prose forms when alternatives offer no clear benefit.**
 
-*Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
-
 Familiar forms let readers focus on meaning and avoid repeated decisions. When alternatives express the same idea equally clearly, follow the surrounding code or prose. Use a different form when it makes an operation, dependency, or relationship clearer.
 
 ## Names and boundaries
@@ -50,8 +48,6 @@ As general guidance, use names and interfaces to make a component's meaning and 
 As guidance, spend naming effort in proportion to how widely and how long a name is used. The default order of attention is module names, function names, labeled parameters, positional parameters, local bindings, and bindings in lambdas or match arms. Use compact names in small local scopes when the surrounding code makes their roles clear. Keep public function names and argument labels explicit, using established domain abbreviations where appropriate.
 
 <a id="r.names"></a>**[R.names](#r.names). Names**
-
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.renames](modules/collaboration.md#r.renames).*
 
 <a id="r.names.modules"></a>**[R.names.modules](#r.names.modules). Name modules for the responsibilities they own.**
 
@@ -118,15 +114,11 @@ Rename a component once its boundary and responsibility support the new name. Pu
 
 <a id="r.names.renames"></a>**[R.names.renames](#r.names.renames). Rename declarations and callers together by default.**
 
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.renames](modules/collaboration.md#r.renames).*
-
 Do not retain compatibility aliases by default. Two names can suggest different meanings. When a consumer cannot migrate in the same change, record the obstacle and agree the alias’s removal under [R.renames](modules/collaboration.md#r.renames).
 
 ## Types and data
 
 <a id="r.types"></a>**[R.types](#r.types). Type constraints**
-
-*Default. Rule [R.invariants](1-functionality.md#r.invariants).*
 
 Types let callers rely on constraints without checking them at every use. As guidance, make invalid states unrepresentable with the simplest type that captures the constraint.
 
@@ -141,8 +133,6 @@ As a default, give abstractions responsibilities that current callers need. An a
 Names and interfaces should express the responsibility, what callers supply, and what they can rely on. Callers should be able to use operations without knowing their internal steps. Inputs that affect results should be explicit by default.
 
 <a id="r.abstractions"></a>**[R.abstractions](#r.abstractions). Abstraction boundaries**
-
-*Default. Principle [Coherence](PRINCIPLES.md#coherence).*
 
 <a id="r.abstractions.operations"></a>**[R.abstractions.operations](#r.abstractions.operations). Extract meaningful operations.** Give each helper or module an operation or responsibility that its callers can name. One caller can justify an abstraction when it expresses a distinct operation.
 
@@ -159,8 +149,6 @@ Names and interfaces should express the responsibility, what callers supply, and
 As general guidance, prefer functional updates that return new values over mutation. Returning an updated value makes the change explicit to callers. Other computations can keep using the original value. When mutation is useful, make its dependencies and ownership explicit.
 
 <a id="r.mutation"></a>**[R.mutation](#r.mutation). Mutation**
-
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.invariants](1-functionality.md#r.invariants).*
 
 <a id="r.mutation.inputs"></a>**[R.mutation.inputs](#r.mutation.inputs). Pass inputs as arguments instead of reading mutable global state by default.** Pass settings and environments that affect a result at the call site. This lets readers see the function's dependencies.
 

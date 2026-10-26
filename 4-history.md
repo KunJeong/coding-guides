@@ -30,7 +30,7 @@
 
 <a id="r.change-scope"></a>**[R.change-scope](#r.change-scope). Each commit should express one idea, and each PR should develop one main topic.**
 
-*Required. Principles [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
+*Principles [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
 A commit carries one idea with its tests and documentation. A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split along ideas, not along files or rules. One idea applied in several places stays one commit. Combine commits when separating them would need placeholders or break the build, under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
 
@@ -40,7 +40,7 @@ Final commit preparation follows [R.commit-buildability](#r.commit-buildability)
 
 <a id="r.commit-explanations"></a>**[R.commit-explanations](#r.commit-explanations). Each final commit message should explain the motivation and resulting change.**
 
-*Required. Principles [Motivation](PRINCIPLES.md#motivation), [Coherence](PRINCIPLES.md#coherence).*
+*Principles [Motivation](PRINCIPLES.md#motivation), [Coherence](PRINCIPLES.md#coherence).*
 
 A commit message should let readers understand why the change was needed and what it accomplishes without having seen the original discussion. Motivation explains the prior problem, limitation, or research goal. Solution describes the resulting change. Put motivation and solution in separate paragraphs, with motivation first.
 
@@ -52,13 +52,13 @@ When the subject already conveys the required explanation, the message does not 
 
 <a id="r.commit-wrapping"></a>**[R.commit-wrapping](#r.commit-wrapping). Wrap final commit messages at 72 columns.** `[auto]`
 
-*Required. Principle [Coherence](PRINCIPLES.md#coherence).*
+*Principle [Coherence](PRINCIPLES.md#coherence).*
 
 Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole, even past 72 columns, so readers can follow and search them. Markdown paragraphs and PR bodies follow [R.markdown-wrapping](3-prose.md#r.markdown-wrapping) instead.
 
 <a id="r.source-credit"></a>**[R.source-credit](#r.source-credit). Commits containing copied or adapted work must cite its source and preserve author credit.**
 
-*Required. Principle [Provenance](PRINCIPLES.md#provenance).*
+*Principle [Provenance](PRINCIPLES.md#provenance).*
 
 Source references let readers trace inherited work and preserve its contributors' credit. A commit containing copied or adapted work should identify the source revision and explain local differences in behavior or design. When several commits are folded together, all their source references should remain in the resulting message.
 
@@ -66,7 +66,7 @@ Rewrites must preserve source references and author attribution. Credit records 
 
 <a id="r.commit-buildability"></a>**[R.commit-buildability](#r.commit-buildability). Finalize each commit as a buildable unit.**
 
-*Required. Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification), [Proportionality](PRINCIPLES.md#proportionality).*
+*Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification), [Proportionality](PRINCIPLES.md#proportionality).*
 
 Each final commit should express one idea under [R.change-scope](#r.change-scope) and leave the project buildable, so maintainers can investigate regressions without first repairing intermediate states. If separating commits would require placeholders or break the build, they should be combined.
 
@@ -75,8 +75,6 @@ Review fixups are folded into the commits they complete before landing.
 Apply the [prose rules](3-prose.md#r.prose) to writing in change records. The rules below supply record-specific forms.
 
 <a id="r.change-summaries"></a>**[R.change-summaries](#r.change-summaries). Summarize the conceptual change in commit subjects and PR titles.**
-
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rules [R.commit-explanations](#r.commit-explanations), [R.pr-explanations](modules/pr.md#r.pr-explanations).*
 
 Name the action and affected concept so readers can identify the change before opening its details. A commit subject describes that commit’s idea. A PR title names the contribution’s main topic, and its body accounts for accompanying work.
 
@@ -100,8 +98,6 @@ Co-authored-by: Name <email>
 The rules below define each part of the form.
 
 <a id="r.commit-format"></a>**[R.commit-format](#r.commit-format). Commit classification and format**
-
-*Default. Principle [Coherence](PRINCIPLES.md#coherence). Rule [R.commit-explanations](#r.commit-explanations).*
 
 <a id="r.commit-format.subject"></a>**[R.commit-format.subject](#r.commit-format.subject). Use `type(scope): summary`, with standard types and the additional `reorg` type.** `[auto]`
 
@@ -129,8 +125,6 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.commit-prose"></a>**[R.commit-prose](#r.commit-prose). Commit prose**
 
-*Default. Rule [R.commit-explanations](#r.commit-explanations).*
-
 <a id="r.commit-prose.subjects"></a>**[R.commit-prose.subjects](#r.commit-prose.subjects). Use imperative subjects.** Name the concept. Put code identifiers in the body, where there is room to explain them. For example, `refactor(cli): group shared flags by role` gives the reader a concept, while its body can identify the modules and flag groups.
 
 <a id="r.commit-prose.bodies"></a>**[R.commit-prose.bodies](#r.commit-prose.bodies). Separate motivation and solution into paragraphs, with motivation first.** Exceptions for omitting motivation or the whole body follow [R.commit-explanations](#r.commit-explanations). Section headings are optional. Source citations still follow [R.source-credit](#r.source-credit).
@@ -149,15 +143,11 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.commit-display"></a>**[R.commit-display](#r.commit-display). Commit character set**
 
-*Default. Principles [Coherence](PRINCIPLES.md#coherence), [Proportionality](PRINCIPLES.md#proportionality).*
-
 <a id="r.commit-display.characters"></a>**[R.commit-display.characters](#r.commit-display.characters). Prefer ASCII in commit-message prose for predictable terminal display.** Use UTF-8 when accurate names, identifiers, or exact source text require it. `[auto]`
 
 ## Sources and credit
 
 <a id="r.sources"></a>**[R.sources](#r.sources). Source and related-revision records**
-
-*Default. Rules [R.source-credit](#r.source-credit), [R.commit-explanations](#r.commit-explanations), [R.responsibility](modules/collaboration.md#r.responsibility).*
 
 In commit messages, source records use full URLs so they remain useful outside GitHub's PR view. Repeat records when a local commit combines several sources. Describe meaningful adaptations in the body. Preserve credit under [R.source-credit](#r.source-credit).
 

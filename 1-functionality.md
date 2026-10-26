@@ -21,13 +21,13 @@ Clients are the callers and users who reach the code through its interface.
 
 <a id="r.invariants"></a>**[R.invariants](#r.invariants). Preserve the guarantees callers rely on.**
 
-*Required. Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification).*
+*Principles [Coherence](PRINCIPLES.md#coherence), [Verification](PRINCIPLES.md#verification).*
 
 Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. [R.types.construction](#r.types.construction) and [R.types.runtime-checks](#r.types.runtime-checks) describe ways to enforce them.
 
 <a id="r.evidence"></a>**[R.evidence](#r.evidence). Support each change's claim with evidence others can repeat.**
 
-*Required. Principle [Verification](PRINCIPLES.md#verification).*
+*Principle [Verification](PRINCIPLES.md#verification).*
 
 A change's type decides what it claims. The claim decides the evidence. Run the checks that produce the evidence before presenting the change for review.
 
@@ -52,8 +52,6 @@ A change's type decides what it claims. The claim decides the evidence. Run the 
 
 [Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees.
 
-*Default. Rule [R.invariants](#r.invariants).*
-
 ## Contracts and invariants
 
 <a id="r.types.construction"></a>**[R.types.construction](#r.types.construction). Protect invariants at construction.** When callers rely on a value already being validated, use an abstract or private type with checked constructors. Every exposed operation that constructs or updates a value must preserve those constraints.
@@ -67,8 +65,6 @@ As guidance, prefer explicit checks when encoding a constraint in a type would m
 ## Tests
 
 <a id="r.tests"></a>**[R.tests](#r.tests). Tests**
-
-*Default. Principles [Verification](PRINCIPLES.md#verification) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
 Each test is code to read, run, and maintain.
 

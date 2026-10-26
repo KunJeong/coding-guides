@@ -13,13 +13,11 @@
 
 <a id="r.imported-work"></a>**[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
 
-*Required. Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
+*Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
 Reviewers need to compare the source work with the local result. Identify the sources and explain adaptations, omissions, and independent local changes, including conflict resolutions. The [Port and Sync rules](#r.ports-syncs) recommend description groups and explain when upstream explanations can be reused.
 
 <a id="r.ports-syncs"></a>**[R.ports-syncs](#r.ports-syncs). Upstream scope groups**
-
-*Default. Rules [R.change-scope](../4-history.md#r.change-scope), [R.imported-work](#r.imported-work), [R.source-credit](../4-history.md#r.source-credit), [R.pr-explanations](pr.md#r.pr-explanations).*
 
 <a id="r.ports-syncs.scope"></a>**[R.ports-syncs.scope](#r.ports-syncs.scope). Limit each Port to one upstream PR and the local work it needs.** This applies [R.change-scope](../4-history.md#r.change-scope) to Ports, so reviewers can compare the original work with the local result. Independent local changes belong in another PR. A Sync may cover broader upstream changes and related local work.
 
