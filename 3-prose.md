@@ -116,4 +116,4 @@ Keep each paragraph or bullet's text on one source line and let the renderer wra
 
 *Default. Policy [P.documentation](#p.documentation).*
 
-Document formatter versions, commands, and prerequisites in the relevant component guide. Link those instructions instead of maintaining another command list here. The [workflow guide](modules/spectec.md#spectec-build-and-checks) provides compiler command recipes.
+Document formatter versions, commands, and prerequisites in the relevant component guide. Link those instructions instead of maintaining another command list here. The [SpecTec module](modules/spectec.md#spectec-build-and-checks) provides compiler command recipes.

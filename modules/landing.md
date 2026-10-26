@@ -27,7 +27,7 @@ The core maintainer bears most of the lasting cost of unclear prose and fragment
 
 Combining or reordering commits must preserve the branch's final file contents on the same base. Rebasing onto a new base follows [P.conflict-resolution](#p.conflict-resolution). Editorial edits are limited to the prose and record corrections above. Preserve each change's motivation, source references, and author credit. Keep independent changes distinguishable under [P.change-scope](../4-history.md#p.change-scope).
 
-The maintainer may amend commits, rebase them, and publish the rewritten PR branch using a lease for this cleanup. The [workflow guide](#publishing-a-rewritten-branch) gives the commands. Before rewriting, coordinate with contributors whose branches depend on the affected commits. When merging, tell the contributor what was edited and how the commits were reorganized.
+The maintainer may amend commits, rebase them, and publish the rewritten PR branch using a lease for this cleanup. [Publishing a rewritten branch](#publishing-a-rewritten-branch) gives the commands. Before rewriting, coordinate with contributors whose branches depend on the affected commits. When merging, tell the contributor what was edited and how the commits were reorganized.
 
 New explanations, factual corrections, changes to assumptions or motivation, and resolving ambiguous intent need discussion under [P.reviewer-tasks](collaboration.md#p.reviewer-tasks). Changes to attribution or PR metadata also follow P.reviewer-tasks. Executable-code changes and substantive conflict resolutions return to review under [P.conflict-resolution](#p.conflict-resolution).
 
@@ -63,7 +63,7 @@ Repairs must address an identified fault with known expected behavior and affect
 
 The core maintainer may push a fix directly to `main` when it addresses an identified fault with known expected behavior and affected callers. Documentation edits may also go directly to `main` when they describe existing behavior or clarify existing rules. This keeps routine corrections from waiting for a separate PR that would add little value.
 
-New design or interfaces, multiple independent behaviors, uncertain impact, and changes to contribution rules need a PR. Other contributors use PRs by default. Direct commits must meet the same outline requirements. The [workflow guide](spectec.md#spectec-build-and-checks) describes available checks.
+New design or interfaces, multiple independent behaviors, uncertain impact, and changes to contribution rules need a PR. Other contributors use PRs by default. Direct commits must meet the same outline requirements. The [SpecTec module](spectec.md#spectec-build-and-checks) describes available checks.
 
 ## Integration defaults
 
@@ -136,7 +136,7 @@ Use separate bullets without a deferred-work heading. Record the unfinished task
 
 *Default. Policies [P.final-cleanup](#p.final-cleanup), [P.merge-method](#p.merge-method).*
 
-[P.merge-method](#p.merge-method) requires the PR number in the permanent landing record. Appending `(#PR)` to the subject is the default format. The [workflow guide](#landing-recipes) contains amendment and integration commands.
+[P.merge-method](#p.merge-method) requires the PR number in the permanent landing record. Appending `(#PR)` to the subject is the default format. The [landing recipes](#landing-recipes) contain amendment and integration commands.
 
 ## Landing recipes
 

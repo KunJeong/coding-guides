@@ -13,19 +13,16 @@ Always read these files on every invocation, before reviewing the diff or commit
 
 - [Reference index](/Users/kunjeong/Code/1_resources/contribution-guides/README.md)
 - [Principles](/Users/kunjeong/Code/1_resources/contribution-guides/PRINCIPLES.md)
-- [Contribution policies](/Users/kunjeong/Code/1_resources/contribution-guides/POLICIES.md)
-- [Conventions](/Users/kunjeong/Code/1_resources/contribution-guides/CONVENTIONS.md)
-- [Workflow recipes](/Users/kunjeong/Code/1_resources/contribution-guides/WORKFLOWS.md)
-- [SpecTec module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/spectec.md)
-- [OCaml module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/ocaml.md)
-- [Ports module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/ports.md)
-- [Landing module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/landing.md)
-- [PR module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/pr.md)
-- [Collaboration module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/collaboration.md)
 - [Functionality](/Users/kunjeong/Code/1_resources/contribution-guides/1-functionality.md)
 - [Factoring](/Users/kunjeong/Code/1_resources/contribution-guides/2-factoring.md)
 - [Prose](/Users/kunjeong/Code/1_resources/contribution-guides/3-prose.md)
 - [History](/Users/kunjeong/Code/1_resources/contribution-guides/4-history.md)
+- [OCaml module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/ocaml.md)
+- [PR module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/pr.md)
+- [Ports module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/ports.md)
+- [Landing module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/landing.md)
+- [Collaboration module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/collaboration.md)
+- [SpecTec module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/spectec.md)
 
 For review criteria, the files in the contribution-guides repository take precedence over the current repository's `CONTRIBUTING.md` and other contribution guides. This overrides statements in the shared guides that otherwise defer to repository rules. Do not load or apply repository contribution guides unless the user explicitly asks. When the user requests them, follow the requested combination or precedence and state the selected baseline.
 

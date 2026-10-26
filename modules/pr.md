@@ -10,7 +10,7 @@ One short description may cover all three.
 
 The PR body should give reviewers enough context to assess the contribution as a whole. It explains the problem or research goal, the resulting change, and the affected components and kinds of change. One short description may cover all three.
 
-The PR body should identify commits outside the main topic and explain their inclusion. Section formats are described in [CONVENTIONS.md](#pr-titles-and-descriptions).
+The PR body should identify commits outside the main topic and explain their inclusion. Section formats are described in [C.pr-titles](#c.pr-titles) and [C.pr-body](#c.pr-body).
 
 <a id="p.follow-ups"></a>
 

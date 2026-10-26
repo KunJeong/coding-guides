@@ -1,5 +1,7 @@
 # Collaboration
 
+These proposed policies are derived from SpecTec research and collaboration practices. They apply as shared requirements and permissions only where a project adopts them. Repository rules and explicit agreements take precedence, including when revising history or publishing changes. These policies do not establish agreements or grant permission to change another contributor's work.
+
 <a id="p.rules"></a>
 
 **[P.rules](#p.rules). Follow the requirements in this outline and agree exceptions with the core maintainer before proceeding.**
@@ -16,7 +18,7 @@ Follow project defaults unless another approach better serves the work. Discuss 
 
 Reviewers should distinguish requirements from recommendations when requesting changes. Differences in editorial preference alone should not block merging. Concrete problems can still be raised under [P.review-blockers](#p.review-blockers).
 
-Contributors are welcome to raise issues with this guide or CONVENTIONS.md when they have ideas for improving the contribution process.
+Contributors are welcome to raise issues with these guides when they have ideas for improving the contribution process.
 
 <a id="p.responsibility"></a>
 

@@ -50,7 +50,7 @@ Identify the source revision and explain local differences. Preserve all referen
 
 Source references let readers trace inherited work and preserve its contributors' credit. A commit containing copied or adapted work should identify the source revision and explain local differences in behavior or design. When several commits are folded together, all their source references should remain in the resulting message.
 
-Rewrites must preserve source references and author attribution. Credit records do not change responsibility under [P.responsibility](modules/collaboration.md#p.responsibility). Coauthor credit is optional and limited to actual human joint authorship. Tools are not coauthors. Recommended source-trailer formats are described in [CONVENTIONS.md](#sources-and-credit).
+Rewrites must preserve source references and author attribution. Credit records do not change responsibility under [P.responsibility](modules/collaboration.md#p.responsibility). Coauthor credit is optional and limited to actual human joint authorship. Tools are not coauthors. Recommended source-trailer formats are described in [Sources and credit](#sources-and-credit).
 
 <a id="p.commit-buildability"></a>
 

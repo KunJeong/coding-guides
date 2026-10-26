@@ -1,35 +1,45 @@
 # Coding guides
 
-Personal guides for coding style, technical writing, and commit and PR practices. Consult the document relevant to the task. Repository rules and explicit agreements take precedence.
+Personal guides for coding style, technical writing, and commit and PR practices. The numbered stage files follow the order in which a change is prepared. Functionality settles first, then factoring, then prose, and then history.
 
-- [Principles](PRINCIPLES.md) explain the reasoning behind the guidance, drawn from research and contribution practices.
-- [Policies](POLICIES.md) describe proposed collaboration rules derived from SpecTec. They apply where a project adopts them.
-- [Conventions](CONVENTIONS.md) organize guidance by functionality, factoring, prose, and change records.
-- [Workflow recipes](WORKFLOWS.md) provide Git and GitHub procedures and SpecTec build commands.
+| File | Covers |
+| --- | --- |
+| [PRINCIPLES.md](PRINCIPLES.md) | The reasons behind the guidance |
+| [1-functionality.md](1-functionality.md) | Guarantees, construction, and runtime validation |
+| [2-factoring.md](2-factoring.md) | Names, types, abstractions, and mutation |
+| [3-prose.md](3-prose.md) | Sentences, comments, and documentation |
+| [4-history.md](4-history.md) | Commit messages, source records, and commit preparation |
+| [modules/ocaml.md](modules/ocaml.md) | OCaml conventions |
+| [modules/pr.md](modules/pr.md) | PR titles and descriptions |
+| [modules/ports.md](modules/ports.md) | Ports and Syncs of upstream work |
+| [modules/landing.md](modules/landing.md) | Integration, merge messages, and landing recipes |
+| [modules/collaboration.md](modules/collaboration.md) | Working with other contributors and reviewing their PRs |
+| [modules/spectec.md](modules/spectec.md) | SpecTec layout, specification commits, and build commands |
 
-OCaml conventions apply to OCaml code. SpecTec compiler paths and build commands apply to SpecTec repositories. The collaboration policies do not establish agreements or grant permission to change another contributor's work.
+## Load map
 
-## Topic index
+Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTec repositories, add the spectec module.
 
-Start with [PRINCIPLES.md](PRINCIPLES.md) for the reasoning behind the guidance. Use the topics below to locate the applicable conventions and policies. Read each linked section with its exceptions and supporting policies.
+| Task | Files |
+| --- | --- |
+| Writing or reviewing staged code | 1, 2, and 3, plus ocaml for `.ml` or `.mli` changes |
+| Writing commits or reviewing a branch | 1 to 4, plus ports when source records appear |
+| Writing or checking a PR body | 4 and pr, plus ports for a Port or Sync |
+| Landing a PR | 4, pr, and landing |
+| Reviewing a collaborator's PR | 1 to 4, pr, collaboration, and the project's CONTRIBUTING.md, plus ocaml or ports when relevant |
 
-| Facet | Topic | Guidance |
-| --- | --- | --- |
-| [Functionality](1-functionality.md#functionality) | Guarantees and validation | [Invariants policy](1-functionality.md#p.invariants), [construction](1-functionality.md#contracts-and-invariants), [runtime validation](1-functionality.md#runtime-validation) |
-| [Factoring](2-factoring.md#factoring) | Names and renames | [Names and boundaries](2-factoring.md#names-and-boundaries), [compatibility aliases](modules/collaboration.md#p.renames) |
-| Factoring | Types and representation | [Types and data](2-factoring.md#types-and-data) |
-| Factoring | Architecture and state | [Abstractions and interfaces](2-factoring.md#abstractions-and-interfaces), [mutation](2-factoring.md#mutation) |
-| Factoring | Language and layout | [OCaml](modules/ocaml.md#ocaml), [SpecTec compiler layout](modules/spectec.md#c.compiler-layout) |
-| [Prose](3-prose.md#prose) | Wording across media | [General writing](3-prose.md#general-writing) |
-| Prose | Comments and docstrings | [Comments](3-prose.md#comments), [documentation policy](3-prose.md#p.documentation) |
-| Prose | Documentation and presentation | [Documentation](3-prose.md#documentation), [build and checking documentation](3-prose.md#build-and-checking-documentation) |
-| [Change records](4-history.md#change-records) | Commit messages | [Commit conventions](4-history.md#commit-messages), [explanation policy](4-history.md#p.commit-explanations), [wrapping policy](4-history.md#p.commit-wrapping) |
-| Change records | Sources and attribution | [Source records](4-history.md#sources-and-credit), [credit policy](4-history.md#p.source-credit), [imported work](modules/ports.md#p.imported-work) |
-| Change records | PR scope and descriptions | [PR conventions](modules/pr.md#pr-titles-and-descriptions), [Ports and Syncs](modules/ports.md#ports-and-syncs), [scope policy](4-history.md#p.change-scope), [explanation policy](modules/pr.md#p.pr-explanations) |
-| Change records | Review and landing | [Review comments](modules/collaboration.md#review), [integration and landing records](modules/landing.md#landing), [review blockers](modules/collaboration.md#p.review-blockers) |
+## Rules and labels
 
-[POLICIES.md](POLICIES.md#policy-outline) groups collaboration rules by workflow. [WORKFLOWS.md](WORKFLOWS.md) supplies build, revision, and landing procedures.
+Each rule has an ID, such as `P.invariants` or `C.names.helpers`. IDs name topics and stay stable when rules move or their wording changes.
+
+Entries are defaults unless marked as requirements, permissions, or editorial preferences, or identified as restatements of a requirement. Defaults describe the usual approach and allow judgment under [P.rules](modules/collaboration.md#p.rules). Editorial preferences guide writing and final polish.
+
+Links below a rule's title identify the requirements or principles that support it. `↔` marks a tradeoff between principles.
+
+As a rule of thumb, document a routine choice after similar decisions have been made three times. State the choice and when it applies.
+
+The recipes in these guides do not authorize a rewrite or publication by themselves.
 
 ## Source
 
-The collection comes from the contribution-guide revision discussed in [consensus-spectec #29](https://github.com/kaist-plrg/consensus-spectec/pull/29), at [revision 7ba5f4eb3031](https://github.com/kaist-plrg/consensus-spectec/commit/7ba5f4eb3031d2ace5ad3419d42efe7d1b5be944). Links to repository files use that revision so the workflow reference can be read outside a checkout.
+The collection comes from the contribution-guide revision discussed in [consensus-spectec #29](https://github.com/kaist-plrg/consensus-spectec/pull/29), at [revision 7ba5f4eb3031](https://github.com/kaist-plrg/consensus-spectec/commit/7ba5f4eb3031d2ace5ad3419d42efe7d1b5be944). Links to SpecTec repository files use that revision so they can be read outside a checkout.
