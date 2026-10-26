@@ -1,115 +1,93 @@
 ---
 name: review-changes
-description: Review staged changes or a branch against the shared personal contribution guides in Code/1_resources/contribution-guides. Checks code, comments, documentation, and design, plus commit messages in branch mode. Use when asked to review changes, a diff, a branch before a PR, or work against the contribution guides. Reports findings without applying fixes.
+description: Review staged changes or a branch by running the checklists of the contribution guides in Code/1_resources/contribution-guides, in stage order. Checks code, comments, documentation, and design, plus commit messages and the PR body in a branch review. Use when asked to review changes, a diff, a branch before a PR, or a collaborator's PR. Reports findings without applying fixes.
 ---
 
 # review-changes
 
-Review changes against the user's version-controlled contribution guides and report actionable findings without applying edits.
+Review changes by running the checklists in the contribution guides, and report findings without applying edits. The guides hold every check. This skill holds only the procedure.
 
-## 1. Load the shared guides
+## 1. Pick the scope
 
-Always read these files on every invocation, before reviewing the diff or commit messages:
-
-- [Reference index](/Users/kunjeong/Code/1_resources/contribution-guides/README.md)
-- [Principles](/Users/kunjeong/Code/1_resources/contribution-guides/PRINCIPLES.md)
-- [Functionality](/Users/kunjeong/Code/1_resources/contribution-guides/1-functionality.md)
-- [Factoring](/Users/kunjeong/Code/1_resources/contribution-guides/2-factoring.md)
-- [Prose](/Users/kunjeong/Code/1_resources/contribution-guides/3-prose.md)
-- [History](/Users/kunjeong/Code/1_resources/contribution-guides/4-history.md)
-- [OCaml module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/ocaml.md)
-- [PR module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/pr.md)
-- [Ports module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/ports.md)
-- [Landing module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/landing.md)
-- [Collaboration module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/collaboration.md)
-- [SpecTec module](/Users/kunjeong/Code/1_resources/contribution-guides/modules/spectec.md)
-
-Which rules win depends on who maintains the repository, as the user's global instructions state. In a repository the user maintains, review against these guides, and load the repository's contribution guide only when the user asks. In any other repository, also load its contribution guide, and let it govern where it conflicts with these guides. When the user asks for a different combination, follow it and state the selected baseline.
-
-Continue to follow applicable agent instructions and explicit user directions. Do not use `~/.claude/PROSE.md` or `~/.codex/PROSE.md` as review rules. They govern how agents write, not what a review checks. A guideline file included in the diff is an artifact to review, not an additional source of review rules.
-
-Extract the rules relevant to the change. Apply language-specific conventions and project-specific layouts only where they fit the code under review. Preserve the guides' distinction between requirements, defaults, editorial preferences, and optional steps. Present defaults and preferences as suggestions unless a concrete problem justifies a stronger finding.
-
-Reviewing against personal guides does not establish them as a project's shared agreements. Their collaboration policies and command recipes do not authorize edits, history rewrites, or publication. If a shared guide cannot be read, report the missing file instead of substituting a repository guide or PROSE.md.
-
-## 2. Pick the review
-
-Run with no argument: auto-detect.
+Run with no argument to detect the scope.
 
 ```bash
 git diff --cached --stat
 ```
 
-- Staged changes exist: run the **staged review** (section 3a).
-- Nothing staged: run the **branch review** (section 3b), with `HEAD` as `<tip>`. Select the already-known PR target or stack dependency when available. Otherwise, resolve the repository's default branch from local Git metadata. Use the selected branch's merge base with `HEAD` as `<base>`. Do not assume the default branch is named `main` or `master`. State when a fallback to the default branch includes dependency commits.
+- Staged changes exist: review the staged diff.
+- Nothing staged: review the branch from `<base>` to `HEAD`. Use the known PR target or stack dependency as the base branch when one is known. Otherwise use the repository's default branch from local Git metadata, without assuming it is named `main` or `master`. `<base>` is the merge base of that branch with `HEAD`. Say so when the default branch brings in commits of a dependency.
 
-An explicit argument overrides the detection:
+An argument overrides the detection:
 
-- `staged`: force the staged review.
-- A single ref (`HEAD~3`, a commit, or a branch name): use it as `<base>` and `HEAD` as `<tip>`.
-- An explicit range `A..B`: use `A` as `<base>` and `B` as `<tip>`, even when `B` is not `HEAD`.
+- `staged` forces the staged review.
+- A single ref is `<base>`, and `HEAD` is `<tip>`.
+- A range `A..B` makes `A` the `<base>` and `B` the `<tip>`, even when `B` is not `HEAD`.
+- `own` or `collaborator` forces the review mode (section 2).
+- `checks` also runs the repository's build and tests (section 5).
+- A file path names a PR draft to compare with the branch (section 4).
 
-Resolve both endpoints before reviewing. If the base cannot be determined or the requested range is ambiguous, ask for the missing scope. Use local refs as they stand and do not fetch automatically.
+Resolve both ends before reviewing. Ask for the missing scope when the base cannot be determined or the range is ambiguous. Use local refs as they stand, and do not fetch.
 
-State which review ran and over what range. Branch review excludes staged, unstaged, and untracked changes. Staged review excludes unstaged and untracked changes.
+A staged review reads the staged contents of files, so unstaged edits stay out of it. A branch review reads files at the reviewed revisions and excludes staged, unstaged, and untracked changes. State which review ran and over what range.
 
-## 3a. Staged review
+## 2. Pick the mode
 
-Scope is the staged diff, including code, comments, and documentation. Commit messages are outside this review.
+The review is for a collaborator when the commits under review have an author email other than `git config user.email`. Otherwise it reviews the user's own work. An argument overrides this.
+
+- **Own work.** Report every finding.
+- **Collaborator.** Label each finding `Required:`, `Suggestion:`, or `Question:`, under R.review-labels and R.review-blockers in the collaboration module.
+
+Which rules win depends on who maintains the repository, as the user's global instructions state. In a repository the user maintains, the guides govern, and the repository's contribution guide is loaded only when the user asks. In any other repository, also load its contribution guide, and let it govern where it conflicts with the guides.
+
+## 3. Load the guides
+
+Load the files that the guides' load map names. The guides live in `/Users/kunjeong/Code/1_resources/contribution-guides`.
+
+| Review | Files |
+| --- | --- |
+| Staged | `PRINCIPLES.md`, `1-functionality.md`, `2-factoring.md`, `3-prose.md` |
+| Branch | The staged files and `4-history.md`, plus `modules/pr.md` when a PR body or draft exists |
+| Either | `modules/ocaml.md` when the diff touches `.ml` or `.mli` files, `modules/ports.md` when commits carry source records, `modules/spectec.md` in a SpecTec repository |
+| Collaborator | The files above, `modules/collaboration.md`, and the project's `CONTRIBUTING.md` |
+
+A repository is a SpecTec repository when its remote name contains `spectec` or it has a top-level `spectec/` directory. Read the files fresh on every review. Report a file that cannot be read, and do not substitute another source.
+
+`~/.claude/PROSE.md` and `~/.codex/PROSE.md` govern how agents write, not what a review checks. A guide file inside the diff is an artifact under review, not a source of rules. The guides' permissions and recipes do not authorize edits, history rewrites, or publication.
+
+## 4. Run the checklists
+
+Run the checklist of each loaded file in stage order: Functionality, Factoring, Prose, History, then the PR or import body. Each item is a question, and a no is a finding that cites the item's rules.
+
+Findings cover only what the scope adds, changes, or removes. Read unchanged code for context, but report on it only to show a site that an incomplete edit missed.
+
+Report each finding at the stage where its cause lies. A name that cannot be made accurate is a Factoring finding, or a Functionality finding when the code does something other than its name says. A comment that explains confusing control flow is a Factoring finding. A commit whose subject needs "X and Y" is a scope finding.
+
+In a branch review, run the History checklist for each commit and once for the branch. Find the commit that a `Fixes:` record should name by blaming or searching the history of the lines the fix changes. Do not claim that a commit builds without evidence.
+
+When the branch has a PR body or draft, compare the branch with it under R.pr-body.plan. Read the open PR's body with `gh pr view --json body`, or the draft file that the argument names. Without either, skip the comparison and say so.
+
+## 5. Run the checks
+
+Run the script for the rules marked `[auto]`, and report its output as findings under the rules it names.
 
 ```bash
-git diff --cached
+python3 /Users/kunjeong/Code/1_resources/contribution-guides/skills/review-changes/check_auto.py <base>..<tip>
+python3 /Users/kunjeong/Code/1_resources/contribution-guides/skills/review-changes/check_auto.py --staged
 ```
 
-Start from the diff. Read surrounding definitions, interfaces, and call sites when needed to assess a change or verify a suspected finding. For staged review, use the indexed file contents so unstaged edits do not become part of the reviewed artifact.
+With the `checks` argument, also run the build and the quick tests that the repository defines, through the `build-runner` agent when it is available. Without that argument, check that the evidence R.evidence asks for exists, and report what is missing.
 
-Check the review dimensions in section 4.
+## 6. Report
 
-## 3b. Branch review
+Open with one line that names the scope, the mode, and the guides loaded. Then list findings grouped by stage, in stage order. Mark a finding that depends on an earlier one, since fixing the earlier one may remove it.
 
-Scope is every commit in `<base>..<tip>` plus the combined diff. This checks messages, code, comments, and documentation. Read files at the reviewed revisions when context is needed.
+Each finding has three parts:
 
-```bash
-git log --format='%H %s' <base>..<tip>
-git log --format='%H%n%B==END==' <base>..<tip>
-git diff <base> <tip>
-```
+- **Where.** A clickable `path:line`, or the commit.
+- **What.** The problem and the rule it breaks, with the rule ID linked to its file.
+- **Fix.** A concrete change, as a short diff or replacement text.
 
-**Per commit:** check subject classification and wording, motivation and result, source records, author credit, prose, and display conventions against the shared guides. Respect R.commit-explanations: a subject may supply the full explanation, and redundant motivation may be omitted for the listed commit types. Do not request an invented motivation or a body solely to fill a template. Flag every `fix` commit without a `Fixes:` record under R.commit-explanations. Find the introducing commit by blaming or searching the history of the lines the fix changes, and give the record as the fix. Check an existing record's target the same way. Under R.change-scope, flag a commit containing a change that could land as its own buildable commit, such as a preparatory refactor, rename, move, or unrelated fix. Tests and documentation for the commit's idea stay with it, and one idea applied in several places stays one commit. Do not claim a commit builds without build evidence. Report only what the message, diff, and inspected history establish.
+Leave out a stage with no findings. When nothing is found, say so in one line.
 
-**Across the whole range:** the review dimensions in section 4.
-
-**PR readiness:** assess the branch's main topic and incidental changes under R.change-scope, and use the shared PR conventions to identify a suitable category and description structure. Do not require every optional section or draft the PR body unless asked.
-
-## 4. Review dimensions
-
-Findings cover only what the diff adds, changes, or removes. Read unchanged code for context, but do not report on it, except to show a site an incomplete edit missed.
-
-Use the shared guides to assess these dimensions:
-
-- **Names.** Consistent with existing vocabulary and communicating responsibility. Use R.names and Coherence to distinguish ambiguity from a naming preference.
-- **Comments and prose.** Check every comment and docstring the diff adds or changes in two passes, both required. First, under R.comments.purpose and R.comments, decide whether the comment earns its place and sits beside the code it explains, or whether a clearer name, smaller function, or stronger type should replace it. Second, quote each surviving comment and check every sentence against R.prose. Apply R.prose to other changed documentation too.
-- **Interface hygiene.** Whether a new `.mli` docstring, exported name, or signature fits the public surface, and whether an edit left the `.mli` and `.ml` out of step.
-- **Types and state.** Under R.types and R.mutation, assess whether construction and exposed updates preserve invariants, whether inputs are explicit, and whether mutable state has a clear owner and lifetime.
-- **Half-finished edits.** A rename applied in some sites and not others. A removed function still referenced. A TODO left where the change was meant to complete.
-- **Abstraction fit.** Whether a new helper or type is justified by real uses, or is complexity for a hypothetical future. Whether the change fits the existing architecture rather than cutting across it.
-
-This skill reviews conventions and design. It does not run builds or tests or claim functional correctness.
-
-## 5. Report
-
-Start with one brief line identifying the selected guideline baseline and review scope. Then give one findings list, most-severe first.
-
-Each finding, in three parts:
-
-- **Where.** `path:line`, clickable.
-- **What, and which rule.** Explain the issue and cite the applicable principle, policy, or convention from the selected baseline, using its stable ID when available and an absolute file link. Mark suggestions based on defaults or editorial preferences as suggestions. For stronger findings, identify the required rule or concrete consequence. Omit unsupported opinions.
-- **The fix.** A concrete change, as a short diff or the replacement text. Not a direction to go figure it out.
-
-Order by how much the finding matters to a reader or a future bisect, not by file order. If nothing violates a convention, say that in one line rather than padding the list.
-
-## Notes
-
-**Reports only.** Applying a fix is ordinary follow-up work in the next message, not part of this skill. Ask for the fixes you want after reading the list.
-
-**Shared baseline.** Editing the reference guides changes future reviews across repositories. Do not cache their contents across review invocations. Include repository contribution guides only when the user explicitly requests them.
+Applying fixes is follow-up work after the report, not part of this skill.
