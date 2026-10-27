@@ -18,6 +18,7 @@
 **Each abstraction**
 
 - Does it perform an operation that its callers can name? [R.abstractions.operations](#r.abstractions.operations)
+- Is it the only function or module in the project that performs its operation? [R.abstractions.reuse](#r.abstractions.reuse)
 - Do current callers use it? [R.abstractions](#r.abstractions)
 - Does it expose only what callers need? [R.abstractions.exposure](#r.abstractions.exposure)
 - If several callers share it, do they all need the same operation and the same constraints? [R.abstractions.sharing](#r.abstractions.sharing)
@@ -135,6 +136,8 @@ Names and interfaces should express the responsibility, what callers supply, and
 <a id="r.abstractions"></a>**[R.abstractions](#r.abstractions). Abstraction boundaries**
 
 <a id="r.abstractions.operations"></a>**[R.abstractions.operations](#r.abstractions.operations). Extract meaningful operations.** Give each helper or module an operation or responsibility that its callers can name. One caller can justify an abstraction when it expresses a distinct operation.
+
+<a id="r.abstractions.reuse"></a>**[R.abstractions.reuse](#r.abstractions.reuse). Call an existing operation instead of adding a second one.** Before adding a function or module, search the project for one that already performs the operation. Call or extend the existing function or module. Callers that need different constraints keep separate implementations under [R.abstractions.sharing](#r.abstractions.sharing). The new interface then names the difference.
 
 <a id="r.abstractions.sharing"></a>**[R.abstractions.sharing](#r.abstractions.sharing). Share implementations only when callers need the same operation and constraints.** Similar syntax alone does not justify sharing. Keep mutually recursive semantic operations together. Introduce shared signatures for consumers that need interchangeable implementations. Pass a function when one operation suffices.
 

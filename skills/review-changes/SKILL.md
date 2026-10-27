@@ -76,7 +76,7 @@ Run the checklist of each loaded file in stage order: Functionality, Factoring, 
 
 Read commit messages and any PR body or draft only after finishing the code checklists. Both give the author's account of the change.
 
-Findings cover only what the scope adds, changes, or removes. Read unchanged code for context, but report on it only to show a site that an incomplete edit missed.
+Findings cover only what the scope adds, changes, or removes. Read unchanged code for context, but report on it only to show a site that an incomplete edit missed or an existing function that the change repeats.
 
 Report each finding at the stage where its cause lies. A name that cannot be made accurate is a Factoring finding, or a Functionality finding when the code does something other than its name says. A comment that explains confusing control flow is a Factoring finding. A commit whose subject needs "X and Y" is a scope finding.
 
