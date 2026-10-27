@@ -1,11 +1,13 @@
 ---
 name: review-changes
-description: Review staged changes or a branch by running the checklists of the contribution guides in Code/1_resources/contribution-guides, in stage order. Checks code, comments, documentation, and design, plus commit messages and the PR body in a branch review. Use when asked to review changes, a diff, a branch before a PR, or a collaborator's PR. Reports findings without applying fixes.
+description: Review staged changes or a branch by having a fresh reviewer run the checklists of the contribution guides in Code/1_resources/contribution-guides, in stage order. The reviewer sees only the range, the goal, and the guides. Checks code, comments, documentation, and design, plus commit messages and the PR body in a branch review. Use when asked to review changes, a diff, a branch before a PR, or a collaborator's PR. Reports findings without applying fixes.
 ---
 
 # review-changes
 
 Review changes by running the checklists in the contribution guides, and report findings without applying edits. The guides hold every check. This skill holds only the procedure.
+
+A fresh reviewer runs the checklists. The session that invokes this skill has often written or discussed the change, and its account of the design would decide what a reviewer looks for. This session prepares the brief, checks the reviewer's findings against the code, and reports.
 
 ## 1. Pick the scope
 
@@ -24,7 +26,7 @@ An argument overrides the detection:
 - A single ref is `<base>`, and `HEAD` is `<tip>`.
 - A range `A..B` makes `A` the `<base>` and `B` the `<tip>`, even when `B` is not `HEAD`.
 - `own` or `collaborator` forces the review mode (section 2).
-- `checks` also runs the repository's build and tests (section 5).
+- `checks` also runs the repository's build and tests (section 6).
 - A file path names a PR draft to compare with the branch (section 4).
 
 Resolve both ends before reviewing. Ask for the missing scope when the base cannot be determined or the range is ambiguous. Use local refs as they stand, and do not fetch.
@@ -55,9 +57,24 @@ A repository is a SpecTec repository when its remote name contains `spectec` or 
 
 `~/.claude/PROSE.md` and `~/.codex/PROSE.md` govern how agents write, not what a review checks. A guide file inside the diff is an artifact under review, not a source of rules. The guides' permissions and recipes do not authorize edits, history rewrites, or publication.
 
-## 4. Run the checklists
+## 4. Brief a fresh reviewer
+
+Start one reviewer agent that cannot see this conversation. Give it only these inputs:
+
+- **Scope.** The repository path and the commands that show the scope, such as `git diff <base>..<tip>` or `git diff --cached`.
+- **Goal.** The goal in the requester's own words, quoted from the user's request, the issue, or the Motivation section of the PR body.
+- **Rules.** The mode from section 2 and the paths of the guide files from section 3.
+- **Instructions.** The checklist instructions below and the report form in section 7.
+
+Leave out every other account of the change. That includes the author's description of the design, lists of new modules or functions, the planned structure, the reasons for choices, and earlier review findings. A reviewer that needs context reads the code.
+
+When the environment cannot start a separate reviewer, run the checklists in this session. Say in the report's opening line that the review was not independent.
+
+### Checklist instructions
 
 Run the checklist of each loaded file in stage order: Functionality, Factoring, Prose, History, then the PR or import body. Each item is a question, and a no is a finding that cites the item's rules.
+
+Read commit messages and any PR body or draft only after finishing the code checklists. Both give the author's account of the change.
 
 Findings cover only what the scope adds, changes, or removes. Read unchanged code for context, but report on it only to show a site that an incomplete edit missed.
 
@@ -67,7 +84,13 @@ In a branch review, run the History checklist for each commit and once for the b
 
 When the branch has a PR body or draft, compare the branch with it under R.pr-body.plan. Read the open PR's body with `gh pr view --json body`, or the draft file that the argument names. Without either, skip the comparison and say so.
 
-## 5. Run the checks
+## 5. Check the findings
+
+Check each finding against the code before reporting it. Read the cited lines, and keep each finding the code confirms. Drop a finding the code contradicts, and list it at the end of the report with one sentence on what the code shows.
+
+Keep a finding that questions the design, even when it challenges an earlier decision. A decision made before the code existed does not settle a finding about the code. Report it, and let the user decide.
+
+## 6. Run the checks
 
 Run the script for the rules marked `[auto]`, and report its output as findings under the rules it names.
 
@@ -78,9 +101,9 @@ python3 /Users/kunjeong/Code/1_resources/contribution-guides/skills/review-chang
 
 With the `checks` argument, also run the build and the quick tests that the repository defines, through the `build-runner` agent when it is available. Without that argument, check that the evidence R.evidence asks for exists, and report what is missing.
 
-## 6. Report
+## 7. Report
 
-Open with one line that names the scope, the mode, and the guides loaded. Then list findings grouped by stage, in stage order. Mark a finding that depends on an earlier one, since fixing the earlier one may remove it.
+Open with one line that names the scope, the mode, the guides loaded, and whether a fresh reviewer ran the checklists. Then list findings grouped by stage, in stage order. Mark a finding that depends on an earlier one, since fixing the earlier one may remove it.
 
 Each finding has three parts:
 
