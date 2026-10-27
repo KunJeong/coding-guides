@@ -207,4 +207,4 @@ for the missing field type.
 Fixes: 0123456789ab ("feat(parser): parse field declarations")
 ```
 
-Its PR can contain a short Motivation explaining the same problem and result. It needs no separate Core Concepts, Scope, or Commit Log. If the maintainer performs cleanup within [R.final-cleanup](modules/landing.md#r.final-cleanup), the merge notice can say what was corrected. After final cleanup adds the PR number, this single commit is fast-forwarded and its message carries the landing record.
+Its PR can reuse the commit message, with a short Motivation explaining the problem and a short Solution explaining the result. It needs no Core Concepts, Scope, or Commit Log. If the maintainer performs cleanup within [R.final-cleanup](modules/landing.md#r.final-cleanup), the merge notice can say what was corrected. After final cleanup adds the PR number, this single commit is fast-forwarded and its message carries the landing record.

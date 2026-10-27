@@ -25,24 +25,24 @@ Reviewers need to compare the source work with the local result. Identify the so
 
 The local PR should summarize why the work is needed here and what result it brings. Link sufficient upstream explanations instead of repeating them. Explain any missing reasoning or local design differences in the local PR.
 
-<a id="r.ports-syncs.groups"></a>**[R.ports-syncs.groups](#r.ports-syncs.groups). Use `Ported`, `Adapted`, `Omitted`, and `Local` as the subsections of Scope.** Use `###` headings within `## Scope`. Include the applicable groups and omit empty ones.
+<a id="r.ports-syncs.groups"></a>**[R.ports-syncs.groups](#r.ports-syncs.groups). Use `Ported`, `Adapted`, `Omitted`, and `Local` as the subsections of Scope.** Use `####` headings within `### Scope`. Include the applicable groups and omit empty ones.
 
 ```markdown
-## Scope
+### Scope
 
-### Ported
+#### Ported
 
 - **type(scope):** Upstream work taken nearly directly. Original: org/repo@sha
 
-### Adapted
+#### Adapted
 
 - **type(scope):** Upstream work adjusted for the local context, including conflict resolutions.
 
-### Omitted
+#### Omitted
 
 - **type(scope):** Upstream work not taken, and why.
 
-### Local
+#### Local
 
 - **type(scope):** Local work the Port or Sync needs, and why.
 ```
