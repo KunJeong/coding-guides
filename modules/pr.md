@@ -10,6 +10,7 @@
 - Does Solution account for every commit, in its prose or in a Scope or Minor Changes bullet? [R.pr-body.scope](#r.pr-body.scope), [R.change-scope](../4-history.md#r.change-scope)
 - Does every Scope bullet describe work the branch contains? [R.pr-body.scope](#r.pr-body.scope)
 - Does Validation hold only evidence that the diff, Solution, and CI do not show, including what was not checked? [R.pr-body.validation](#r.pr-body.validation)
+- Does every sentence follow the prose rules? [R.prose](../3-prose.md#r.prose)
 - Does the body match the [PR form](#pr-form)?
 
 <a id="r.pr-explanations"></a>**[R.pr-explanations](#r.pr-explanations). Each PR body should explain its motivation, result, and scope.**

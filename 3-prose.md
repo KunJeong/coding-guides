@@ -36,6 +36,10 @@ As general writing guidance, write for readers who do not share your context. Ex
 
 Apply these rules to prose sentences.
 
+**Length**
+
+<a id="r.prose.cuts"></a>**[R.prose.cuts](#r.prose.cuts). Remove what the reader does not need.** Cut a sentence, clause, or word when the text means the same without it, or when the surrounding artifact already shows it. Look for cuts in every revision, including one that adds text.
+
 **Sentence structure**
 
 <a id="r.prose.focus"></a>**[R.prose.focus](#r.prose.focus). Keep one main idea per sentence.** Split sentences that make separate claims readers need to assess independently.
