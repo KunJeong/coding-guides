@@ -2,11 +2,14 @@
 """Check the contribution guides' rules marked [auto] within a review's scope.
 
 A range checks each commit message in it and the lines it adds. --staged
-checks the lines the staged diff adds. Each finding names the rule it breaks.
-The exit status is 1 when any finding is reported and 2 when Git fails.
+checks the lines the staged diff adds. --event-file takes the range from a
+GitHub pull_request or push event. Each finding names the rule it breaks.
+The exit status is 1 when any finding is reported, and 2 when Git or the
+event file cannot be read.
 """
 
 import argparse
+import json
 from pathlib import Path
 import re
 import subprocess
@@ -31,6 +34,8 @@ CODE_SPAN = re.compile(r"`[^`]*`")
 LINK_TARGET = re.compile(r"\]\([^)]*\)")
 HTML_TAG = re.compile(r"<[^>]*>")
 ODOC_CODE = re.compile(r"\[[^\]]*\]")
+ZERO = "0" * 40
+EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
 
 findings = []
 
@@ -231,22 +236,61 @@ def check_added(diff_args, read):
             check_ocaml(path, read(path), added)
 
 
+def event_range(path):
+    """Return the (base, tip) an event introduces, with base None for a new branch's tip alone."""
+    with open(path, encoding="utf-8") as source:
+        event = json.load(source)
+    if "pull_request" in event:
+        base, tip = event["pull_request"]["base"]["sha"], event["pull_request"]["head"]["sha"]
+    else:
+        base, tip = event["before"], event["after"]
+    if not all(re.fullmatch(r"[0-9a-fA-F]{40}", sha) for sha in (base, tip)):
+        raise ValueError("event commit IDs must be 40 hexadecimal characters")
+    if tip == ZERO:
+        return None
+    return (None if base == ZERO else base), tip
+
+
+def check_range(base, tip, messages_only):
+    if base is None:
+        commits = [git("rev-parse", tip).strip()]
+        parents = git("rev-list", "--parents", "-n", "1", tip).split()[1:]
+        diff_args = [parents[0] if parents else EMPTY_TREE, tip]
+    else:
+        commits = git("rev-list", "--reverse", f"{base}..{tip}").split()
+        diff_args = [f"{base}...{tip}"]
+    for sha in commits:
+        check_commit(sha)
+    if not messages_only:
+        check_added(diff_args, lambda path: git("show", f"{tip}:{path}"))
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("range", nargs="?", help="<base>..<tip>, or a base ref checked up to HEAD")
     parser.add_argument("--staged", action="store_true", help="check the lines the staged diff adds")
+    parser.add_argument("--event-file", help="check the range a GitHub pull_request or push event introduces")
+    parser.add_argument("--messages-only", action="store_true", help="check commit messages and skip added lines")
     args = parser.parse_args()
-    if args.staged == bool(args.range):
-        parser.error("give either a range or --staged")
+    if sum((args.staged, bool(args.range), bool(args.event_file))) != 1:
+        parser.error("give exactly one of a range, --staged, or --event-file")
+    if args.staged and args.messages_only:
+        parser.error("--messages-only needs commits, which --staged does not have")
     try:
         if args.staged:
             check_added(["--cached"], lambda path: git("show", f":{path}"))
+        elif args.event_file:
+            scope = event_range(args.event_file)
+            if scope is None:
+                print("The event deletes a branch. Nothing to check.", file=sys.stderr)
+                return 0
+            check_range(*scope, args.messages_only)
         else:
             base, _, tip = args.range.partition("..")
-            tip = tip or "HEAD"
-            for sha in git("rev-list", "--reverse", f"{base}..{tip}").split():
-                check_commit(sha)
-            check_added([base, tip], lambda path: git("show", f"{tip}:{path}"))
+            check_range(base, tip or "HEAD", args.messages_only)
+    except (OSError, ValueError, KeyError) as exc:
+        print(f"Cannot read the event: {exc}", file=sys.stderr)
+        return 2
     except subprocess.CalledProcessError as exc:
         print(f"git {' '.join(exc.cmd[1:])} failed: {exc.stderr.strip()}", file=sys.stderr)
         return 2

@@ -1,5 +1,6 @@
 """Tests for check_auto.py, run in a temporary Git repository."""
 
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -85,6 +86,31 @@ class CheckAutoTest(unittest.TestCase):
         self.assertIn("sum.ml:1: R.prose.punctuation", output)
         self.assertIn("sum.ml:2: R.names.helpers", output)
         self.assertNotIn("sum.ml:3", output)
+
+    def event(self, payload):
+        path = self.repo / "event.json"
+        path.write_text(json.dumps(payload))
+        return str(path)
+
+    def test_pull_request_event(self):
+        head = self.commit("update the readme")
+        event = self.event({"pull_request": {"base": {"sha": self.base}, "head": {"sha": head}}})
+        self.assertIn("R.commit-format.subject", self.rules("--event-file", event))
+
+    def test_push_event_for_a_new_branch_checks_the_tip_only(self):
+        self.commit("update the readme")
+        tip = self.commit("docs: add a note")
+        event = self.event({"before": "0" * 40, "after": tip})
+        self.assertEqual(self.check("--event-file", event), "")
+
+    def test_push_event_that_deletes_a_branch(self):
+        event = self.event({"before": self.base, "after": "0" * 40})
+        self.assertEqual(self.check("--event-file", event), "")
+
+    def test_messages_only_skips_added_lines(self):
+        self.commit("docs: add a guide", {"guide.md": "A first line\nthat continues.\n"})
+        self.assertEqual(self.check("--messages-only", self.base), "")
+        self.assertIn("R.markdown-wrapping", self.rules(self.base))
 
     def test_staged_lines_only(self):
         (self.repo / "README.md").write_text("# Readme\n\nA wrapped\nparagraph.\n")
