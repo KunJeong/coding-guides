@@ -7,10 +7,10 @@
 | Responsibility | Location |
 | --- | --- |
 | Semantic operations usable without command-line handling | `spectec/lib/` |
-| Shared argument parsing and command coordination | `spectec/lib/cli/` |
-| Executable startup and handoff to the CLI | `spectec/bin/` |
+| Argument parsing and command building that target commands share | `spectec/lib/cli/` |
+| Executable startup and the global commands | `spectec/bin/` |
 
-Keep semantic logic out of executable entrypoints so other callers can use it without starting the CLI.
+A global command, such as `elab`, belongs to no target. Its code in `spectec/bin/` parses arguments, calls library functions and prints their results. Keep semantic logic out of executable entrypoints so other callers can use it without starting the CLI.
 
 ## Specification commits
 
