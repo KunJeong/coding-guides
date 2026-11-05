@@ -52,6 +52,8 @@ Apply these rules to prose sentences.
 
 <a id="r.prose.actors"></a>**[R.prose.actors](#r.prose.actors). Make clear who or what performs each action.** Name the actor when the sentence would otherwise leave it unclear. Assign actions to the entities that actually perform them.
 
+<a id="r.prose.actions"></a>**[R.prose.actions](#r.prose.actions). Prefer verbs over nouns that name actions.** Write "The P4 parser retains the filename" instead of "P4 span construction retains the filename".
+
 <a id="r.prose.pronouns"></a>**[R.prose.pronouns](#r.prose.pronouns). Use pronouns only when their referents are clear.** Repeat a name when a pronoun could refer to more than one entity.
 
 <a id="r.prose.explicit-nouns"></a>**[R.prose.explicit-nouns](#r.prose.explicit-nouns). State what is being described or compared.** Include the noun when readers would otherwise have to guess what has the stated property.
