@@ -29,18 +29,18 @@ Callers need to know which guarantees hold when they use a value or operation. C
 
 *Principle [Verification](PRINCIPLES.md#verification).*
 
-A change's type decides what it claims. The claim decides the evidence. Run the checks that produce the evidence before presenting the change for review.
+A change's type decides what it claims. The claim decides the evidence. Run the checks that produce the evidence before presenting the change for review. Evidence may come from another commit in the same PR. Place tests according to the table below.
 
-| Type | Claim | Evidence |
-| --- | --- | --- |
-| `fix` | The fault no longer occurs. | A test that fails without the fix, or a description of the check when no test can reproduce the fault. |
-| `feat` | The new behavior works as described. | A test. |
-| `refactor` | The change preserves behavior and achieves its stated design goal. | Unchanged test expectations and evidence of the claimed design benefit. |
-| `reorg` | Only paths and references changed. | Unchanged test expectations, and a diff with rename detection that shows only moves. |
-| `perf` | The system is faster or smaller. | Unchanged test expectations, and measurements before and after, with the method. |
-| `test` | The suite catches a failure it missed before. | The new test. |
-| `docs` | The text matches the system. | Its commands and examples produce what it states. |
-| `ci`, `chore`, `style` | Nothing about behavior. | None. |
+| Type | Claim | Evidence | Commit placement |
+| --- | --- | --- | --- |
+| `fix` | The fault no longer occurs. | A test that fails without the fix and passes with it, or a description of the check when no test can reproduce the fault. | Keep the regression test with the fix. |
+| `feat` | The new behavior works as described. | A test through the interface clients use. | Prefer a feature commit followed by a test commit in the same PR. Combine them only when splitting would require placeholders or break a commit. |
+| `refactor` | The change preserves behavior and achieves its stated design goal. | Unchanged test expectations and evidence of the claimed design benefit. | Put any added tests of existing behavior in an earlier commit. They must pass before and after the refactor. |
+| `reorg` | Only paths and references changed. | Unchanged test expectations, and a diff with rename detection that shows only moves. | Keep independent code or behavior changes in separate commits. |
+| `perf` | The system is faster or smaller. | Unchanged test expectations, and measurements before and after, with the method. | Keep independent behavior changes in separate commits. |
+| `test` | The suite catches a failure it missed before. | A new test protecting a previously untested behavior or failure. | Keep tests of existing behavior separate from production-code changes. |
+| `docs` | The text matches the system. | Its commands and examples produce what it states. | Keep documentation needed to explain a code change with that change. |
+| `ci`, `chore`, `style` | Nothing about behavior. | None. | Keep independent maintenance work in separate commits. |
 
 For a refactor that claims to reduce code size, report the number of lines of code before and after and state the files, languages, and counting method. For clearer concepts or separate responsibilities, explain the benefit using representative type definitions, use sites, or module boundaries before and after.
 
