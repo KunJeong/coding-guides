@@ -76,7 +76,7 @@ Start one reviewer agent that cannot see this conversation. Give it only these i
 
 Leave out every other account of the change. That includes the author's description of the design, lists of new modules or functions, the planned structure, the reasons for choices, and earlier review findings. A reviewer that needs context reads the code.
 
-When the environment cannot start a separate reviewer, run the checklists in this session. Say in the report's opening line that the review was not independent.
+When the environment cannot start a separate reviewer, run the checklists in this session. Say in the report's opening line that the review was not independent. A session started only for this review, such as one that `claude-worker` starts from Codex, has no account of the change. It runs the checklists itself and counts as a fresh reviewer.
 
 ### Checklist instructions
 
