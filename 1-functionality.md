@@ -35,12 +35,14 @@ A change's type decides what it claims. The claim decides the evidence. Run the 
 | --- | --- | --- |
 | `fix` | The fault no longer occurs. | A test that fails without the fix, or a description of the check when no test can reproduce the fault. |
 | `feat` | The new behavior works as described. | A test. |
-| `refactor` | Behavior is unchanged. | Unchanged test expectations. |
+| `refactor` | The change preserves behavior and achieves its stated design goal. | Unchanged test expectations and evidence of the claimed design benefit. |
 | `reorg` | Only paths and references changed. | Unchanged test expectations, and a diff with rename detection that shows only moves. |
 | `perf` | The system is faster or smaller. | Unchanged test expectations, and measurements before and after, with the method. |
 | `test` | The suite catches a failure it missed before. | The new test. |
 | `docs` | The text matches the system. | Its commands and examples produce what it states. |
 | `ci`, `chore`, `style` | Nothing about behavior. | None. |
+
+For a refactor that claims to reduce code size, report the number of lines of code before and after and state the files, languages, and counting method. For clearer concepts or separate responsibilities, explain the benefit using representative type definitions, use sites, or module boundaries before and after.
 
 <a id="r.evidence.preservation"></a>**[R.evidence.preservation](#r.evidence.preservation). Keep test expectations unchanged in a refactor, reorg, or performance change.** A changed expectation reveals a behavior change, which belongs in its own commit under [R.change-scope](4-history.md#r.change-scope).
 
