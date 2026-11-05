@@ -9,7 +9,7 @@
 - Does Core Concepts explain the central idea a reviewer needs before reading the diff? [R.pr-body.concepts](#r.pr-body.concepts)
 - Does Solution account for every commit, in its prose or in a Scope or Minor Changes bullet? [R.pr-body.scope](#r.pr-body.scope), [R.change-scope](../4-history.md#r.change-scope)
 - Does every Scope bullet describe work the branch contains? [R.pr-body.scope](#r.pr-body.scope)
-- Does Validation hold only evidence that the diff, Solution, and CI do not show, including what was not checked? [R.pr-body.validation](#r.pr-body.validation)
+- Does Validation hold only evidence that the diff, Solution, and CI do not show? [R.pr-body.validation](#r.pr-body.validation)
 - Does every sentence follow the prose rules? [R.prose](../3-prose.md#r.prose)
 - Does the body match the [PR form](#pr-form)?
 
@@ -64,7 +64,7 @@ The central idea a reviewer needs before reading the diff.
 
 ## Validation
 
-- Evidence the diff, Scope, and CI do not show, and what was not checked.
+- Evidence the diff, Scope, and CI do not show.
 
 ## Future Work
 
@@ -85,7 +85,7 @@ Sections appear in this order. Motivation and Solution are required. Other secti
 
 <a id="r.pr-body.sections"></a>**[R.pr-body.sections](#r.pr-body.sections). Add sections when they answer additional review questions.** Use the standard headings for the purposes defined below. Give additional sections headings that describe their content. Omit sections that repeat information already covered elsewhere.
 
-<a id="r.pr-body.plan"></a>**[R.pr-body.plan](#r.pr-body.plan). Draft the PR body as the plan for the branch.** Write the draft in the final format before the branch is final. Start with the Motivation, the planned Solution, and the checks Validation will report. Change the draft as the commits change. A commit outside the draft's Solution belongs in Minor Changes or in another PR. Planned work in the Solution with no commit marks unfinished or dropped work. Keep the draft in a file until the PR opens, in a location each repository chooses.
+<a id="r.pr-body.plan"></a>**[R.pr-body.plan](#r.pr-body.plan). Draft the PR body as the plan for the branch.** Write the draft in the final format before the branch is final. Start with the Motivation, the planned Solution, and any evidence Validation will need. Change the draft as the commits change. A commit outside the draft's Solution belongs in Minor Changes or in another PR. Planned work in the Solution with no commit marks unfinished or dropped work. Keep the draft in a file until the PR opens, in a location each repository chooses.
 
 <a id="r.pr-body.motivation"></a>**[R.pr-body.motivation](#r.pr-body.motivation). Start PR bodies with a Motivation section.** Use `## Motivation` and explain the problem or research goal. Leave the resulting change to Solution.
 
@@ -109,7 +109,7 @@ In both sections, use `**type(scope):** Description.` for summary bullets. Choos
 - **docs(readme):** Clarifies compiler setup instructions.
 ```
 
-<a id="r.pr-body.validation"></a>**[R.pr-body.validation](#r.pr-body.validation). Under Validation, give the evidence that the diff, the Solution section, and CI do not show.** Report the measurements and other checks that [R.evidence](../1-functionality.md#r.evidence) asks for, taken on the final branch. State what was not checked. Leave out CI status, which the PR page shows, and added tests, which Solution lists. Omit the section when nothing remains.
+<a id="r.pr-body.validation"></a>**[R.pr-body.validation](#r.pr-body.validation). Under Validation, give the evidence that the diff, the Solution section, and CI do not show.** Report evidence from the final branch, such as a manual reproduction or a performance measurement with its method, under [R.evidence](../1-functionality.md#r.evidence). Omit CI status, runs covered by CI, and inventories of checks run or skipped. List added tests under Scope. State any limit that narrows a claim beside that claim. Omit the section when nothing remains.
 
 <a id="r.pr-body.commit-log"></a>**[R.pr-body.commit-log](#r.pr-body.commit-log). End multi-commit PR bodies with `## Commit Log` for GitHub searchability.** List final commit subjects verbatim and in order, including their `type(scope):` prefixes. Do not add backticks or hyperlinks around them. Preserve any literal characters already in a subject and keep the list synchronized with the final history.
 

@@ -9,7 +9,7 @@
 - Does Core Concepts cover only what the source leaves unexplained? [R.ports-syncs.explanations](#r.ports-syncs.explanations)
 - Does every upstream change appear under Ported, Adapted, or Omitted, with a reason for each omission? [R.imported-work](#r.imported-work), [R.ports-syncs.groups](#r.ports-syncs.groups)
 - Does each Local bullet say why the Port or Sync needs it? [R.imported-work](#r.imported-work)
-- Does Validation compare the result with its source? [R.ports-syncs.groups](#r.ports-syncs.groups), [R.pr-body.validation](pr.md#r.pr-body.validation)
+- When Validation is needed, does it compare the result with its source without repeating CI results? [R.ports-syncs.groups](#r.ports-syncs.groups), [R.pr-body.validation](pr.md#r.pr-body.validation)
 
 <a id="r.imported-work"></a>**[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
 
@@ -47,7 +47,7 @@ The local PR should summarize why the work is needed here and what result it bri
 - **type(scope):** Local work the Port or Sync needs, and why.
 ```
 
-Validation compares the result with its source, such as upstream tests that now pass locally or reference suites that pass after a Sync.
+Use Validation for source comparisons the diff and CI do not show, under [R.pr-body.validation](pr.md#r.pr-body.validation).
 
 An omission does not by itself promise later adoption. For necessary work deliberately postponed from the contribution, open an issue and list it under Deferred Tasks, following [R.pr-body.follow-ups](pr.md#r.pr-body.follow-ups).
 

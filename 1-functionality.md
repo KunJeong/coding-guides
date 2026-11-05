@@ -46,8 +46,9 @@ A change's type decides what it claims. The claim decides the evidence. Run the 
 
 <a id="r.evidence.locations"></a>**[R.evidence.locations](#r.evidence.locations). Record evidence where it stays accurate.**
 
-- Tests belong in the diff.
-- Measurements and other checks belong in the PR's [Validation section](modules/pr.md#r.pr-body.validation), taken on the final branch. Commit messages record no measurements, because a rebase can change the numbers.
+- Tests belong in the diff. List added tests under Scope in the PR body.
+- Measurements and other evidence the diff and CI do not show belong in the PR's [Validation section](modules/pr.md#r.pr-body.validation), taken on the final branch.
+- Commit messages explain the reason and result. Leave out test inventories and routine check commands. Mention evidence only when it helps explain the change. Commit messages record no measurements, because a rebase can change the numbers.
 - The [landing record](modules/landing.md#r.merge-method) keeps one line with the result of a performance claim.
 
 [Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees.
