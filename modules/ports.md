@@ -49,7 +49,7 @@ The local PR should summarize why the work is needed here and what result it bri
 
 Validation compares the result with its source, such as upstream tests that now pass locally or reference suites that pass after a Sync.
 
-An omission does not by itself promise later adoption. Include it under Deferred Tasks only when its later adoption has been explicitly deferred.
+An omission does not by itself promise later adoption. For necessary work deliberately postponed from the contribution, open an issue and list it under Deferred Tasks, following [R.pr-body.follow-ups](pr.md#r.pr-body.follow-ups).
 
 <a id="r.ports-syncs.references"></a>**[R.ports-syncs.references](#r.ports-syncs.references). Use GitHub source references in upstream scope groups.** Identify origins, for example `Original: org/repo@sha`, or link a comparison range or reference file for a Sync.
 

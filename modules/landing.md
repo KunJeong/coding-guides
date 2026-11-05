@@ -73,6 +73,8 @@ A fast-forward creates no merge message, so the commit message is the permanent 
 
 The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [R.merge-summary](#r.merge-summary).
 
+<a id="r.merge-issue-closures"></a>**[R.merge-issue-closures](#r.merge-issue-closures). Keep issue-closing directives in the PR body.** Do not copy `Closes #N`, `Fixes #N`, or `Resolves #N` into merge messages. Commit `Fixes:` records that identify an introducing revision follow [R.sources.regressions](../4-history.md#r.sources.regressions).
+
 <a id="r.merge-summary"></a>**[R.merge-summary](#r.merge-summary). Merge-message summaries**
 
 <a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [R.commit-format](../4-history.md#r.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
@@ -90,15 +92,7 @@ Framing paragraph explaining the motivation and resulting change.
 - docs(scope): Description.
 ```
 
-<a id="r.deferred-work"></a>**[R.deferred-work](#r.deferred-work). Reserve `DEFERRED:` for work explicitly postponed from the contribution.**
-
-Carry only the explicitly deferred items identified in the PR's Deferred Tasks subsection or review discussion. These can include a known shortcoming accepted for this PR that should be repaired soon, or work intentionally omitted from a Port or Sync for later adoption. Ideas and Open Questions do not become deferred commitments.
-
-Use separate bullets without a deferred-work heading. Record the unfinished task and the reason for postponing it. This keeps the searchable backlog deliberately selective.
-
-```text
-- DEFERRED: Port the omitted input forms after their dependency lands.
-```
+<a id="r.deferred-work"></a>**[R.deferred-work](#r.deferred-work). Keep deferred tasks in issues linked from the PR body.** Omit deferred-task bullets from merge messages. The [Future Work rules](pr.md#r.pr-body.follow-ups) define which tasks belong in issues.
 
 <a id="r.pr-number"></a>**[R.pr-number](#r.pr-number). Append `(#PR)` to a single-commit PR's commit subject during authorized final cleanup.**
 

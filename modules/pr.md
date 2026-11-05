@@ -70,6 +70,8 @@ The central idea a reviewer needs before reading the diff.
 
 ### Deferred Tasks
 
+- #N
+
 ### Ideas and Open Questions
 
 ## Commit Log
@@ -113,9 +115,9 @@ In both sections, use `**type(scope):** Description.` for summary bullets. Choos
 
 <a id="r.pr-body.follow-ups"></a>**[R.pr-body.follow-ups](#r.pr-body.follow-ups). Separate deferred tasks from ideas and open questions under Future Work.** Use `## Future Work` when the PR has follow-ups to record. Include only subsections with content.
 
-Under `### Deferred Tasks`, identify specific work deliberately postponed from this contribution and explain why it was postponed. These tasks are expected to be completed later and carried into the merge message under [R.deferred-work](landing.md#r.deferred-work).
+Under `### Deferred Tasks`, record necessary work discovered during the contribution and deliberately postponed to keep the PR focused and avoid delay. Open an issue for each task, explaining the work and why it was postponed. Under `### Deferred Tasks`, list issue numbers as bullets, with no titles or explanations.
 
-Under `### Ideas and Open Questions`, describe possible improvements or open design questions without implying a commitment to pursue them. These possibilities do not belong in the merge message's `DEFERRED:` records. Select follow-up items deliberately instead of treating every possible improvement as backlog.
+Under `### Ideas and Open Questions`, record possible improvements, unanswered design questions, and work made possible or unblocked by the PR. These items do not imply a commitment to pursue them. Include only possibilities worth revisiting.
 
 <a id="r.pr-body.tool-use"></a>**[R.pr-body.tool-use](#r.pr-body.tool-use). Omit routine tool-use disclaimer sections by default.** AI use alone does not require a disclosure section. Put relevant tool details with the method, source, or limitation they explain.
 
