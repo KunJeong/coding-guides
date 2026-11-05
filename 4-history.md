@@ -19,7 +19,8 @@
 - Do the type and scope fit the intent and the affected area? [R.commit-format.classification](#r.commit-format.classification)
 - For a fix, does the `Fixes:` record point at the commit that introduced the fault? [R.sources.regressions](#r.sources.regressions)
 - For copied or adapted work, does a source record cite the origin, with author credit preserved? [R.source-credit](#r.source-credit)
-- Does every coauthor credit name a person who wrote part of the change? [R.sources.coauthors](#r.sources.coauthors)
+- For adapted work, is the author the person whose code makes up most of the commit? [R.source-credit](#r.source-credit)
+- Does every coauthor credit name a person who worked on the change together with its author? [R.sources.coauthors](#r.sources.coauthors)
 - Does the body leave out what the diff shows, including measurements? [R.commit-prose.diff](#r.commit-prose.diff), [R.evidence.locations](1-functionality.md#r.evidence.locations)
 - Does every sentence follow the prose rules? [R.prose](3-prose.md#r.prose)
 - Does the message match the [commit form](#commit-form)?
@@ -63,6 +64,8 @@ Terminals, `git log`, and emailed patches show commit messages as written, witho
 Source references let readers trace inherited work and preserve its contributors' credit. A commit containing copied or adapted work should identify the source revision and explain local differences in behavior or design. When several commits are folded together, all their source references should remain in the resulting message.
 
 Rewrites must preserve source references and author attribution. Credit records do not change who is responsible for the work. Coauthor credit is optional and limited to actual human joint authorship. Tools are not coauthors. Recommended source-trailer formats are described in [Sources and credit](#sources-and-credit).
+
+A commit's author is whoever wrote most of its code. Keep the original author when applying local fixes. When an adapter reshapes the code into a new design, make the adapter the author and name the original author in the body.
 
 <a id="r.commit-buildability"></a>**[R.commit-buildability](#r.commit-buildability). Finalize each commit as a buildable unit.**
 
@@ -149,7 +152,7 @@ For documentation changes, choose the scope by topic. Use `docs(principles)` for
 
 <a id="r.sources"></a>**[R.sources](#r.sources). Source and related-revision records**
 
-In commit messages, source records use full URLs so they remain useful outside GitHub's PR view. Repeat records when a local commit combines several sources. Describe meaningful adaptations in the body. Preserve credit under [R.source-credit](#r.source-credit).
+In commit messages, source records use full URLs so they remain useful outside GitHub's PR view. Repeat records when a local commit combines several sources. Describe meaningful adaptations in the body. Preserve credit under [R.source-credit](#r.source-credit). Use names in prose, keep email addresses in `Co-authored-by:` trailers, and use GitHub handles only to notify their owners.
 
 <a id="r.sources.commits"></a>**[R.sources.commits](#r.sources.commits). Identify specific source commits with `Original-commit:`.** Use this record for work ported or adapted from an upstream or sibling-repository commit.
 
@@ -167,7 +170,7 @@ If a one-line `Fixes:` record exceeds 72 characters, move the complete quoted su
 
 <a id="r.sources.hashes"></a>**[R.sources.hashes](#r.sources.hashes). Use 12-character commit hashes in same-repository references and Git URLs that accept abbreviated hashes.** This includes prose references, GitHub shorthand, commit URLs, revision paths, and both endpoints of comparison URLs. Use a longer hash when 12 characters would be ambiguous or the URL requires it. Shortening a hash changes its length while retaining the URL and the identified revision. Preserve hashes in verbatim source quotations and copied commit subjects. `[auto]`
 
-<a id="r.sources.coauthors"></a>**[R.sources.coauthors](#r.sources.coauthors). Credit human coauthors with optional `Co-authored-by: Name <email>` trailers.** Use the trailer only for actual joint authorship and place it in the final record block. Do not add AI or other tool names as coauthors. Existing attribution records remain subject to preservation under [R.source-credit](#r.source-credit) and agreement on attribution changes under [R.reviewer-tasks](modules/collaboration.md#r.reviewer-tasks).
+<a id="r.sources.coauthors"></a>**[R.sources.coauthors](#r.sources.coauthors). Credit human coauthors with optional `Co-authored-by: Name <email>` trailers.** Use the trailer only for people who authored the change together, and place it in the final record block. Credit earlier work through its source record and the body under [R.source-credit](#r.source-credit). Do not add AI or other tool names as coauthors. Existing attribution records remain subject to preservation under [R.source-credit](#r.source-credit) and agreement on attribution changes under [R.reviewer-tasks](modules/collaboration.md#r.reviewer-tasks).
 
 <a id="r.sources.order"></a>**[R.sources.order](#r.sources.order). Place records after the body in one block, in this order: source records, then `Fixes:`, then `Co-authored-by:`.** Source records come first so that a Port's attribution paragraph sits directly above them, under [R.sources.port-attribution](modules/ports.md#r.sources.port-attribution). `[auto]`
 
