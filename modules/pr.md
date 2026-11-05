@@ -52,6 +52,8 @@ What the PR makes true.
 
 The central idea a reviewer needs before reading the diff.
 
+    core type definitions and representative use sites, or changes to either
+
 ### Scope
 
 - **type(scope):** What the change affects, grouped by area.
@@ -87,7 +89,7 @@ Sections appear in this order. Motivation and Solution are required. Other secti
 
 <a id="r.pr-body.solution"></a>**[R.pr-body.solution](#r.pr-body.solution). Follow Motivation with a Solution section.** Use `## Solution` and describe in prose what the PR makes true. Core Concepts, Scope, and Minor Changes are its subsections, under the rules below. A single-commit PR can reuse its commit message, with the motivation paragraph under Motivation and the solution paragraph under Solution.
 
-<a id="r.pr-body.concepts"></a>**[R.pr-body.concepts](#r.pr-body.concepts). Explain the central idea under Core Concepts.** Core Concepts covers what a reviewer must understand before reading the diff. Omit it when the Solution prose already says this. Under `### Core Concepts`, use `#### <concept>` headings for explanations with paragraphs or code examples. Use bolded bullets only when each concept fits compactly in one bullet. Explain how the concepts fit together when their relationship is not already clear.
+<a id="r.pr-body.concepts"></a>**[R.pr-body.concepts](#r.pr-body.concepts). Explain the central idea under Core Concepts.** Core Concepts covers what a reviewer must understand before reading the diff. Omit it when the Solution prose already says this. Under `### Core Concepts`, use `#### <concept>` headings for explanations with paragraphs or code examples. Use short code excerpts when they explain the idea faster than prose. Show core type definitions and representative use sites, or changes to either. Use bolded bullets only when each concept fits compactly in one bullet. Explain how the concepts fit together when their relationship is not already clear.
 
 The heading format appears in [SpecTecX #100](https://github.com/kaist-plrg/spectecx/pull/100) and [consensus-spectec #12](https://github.com/kaist-plrg/consensus-spectec/pull/12). Compact bolded bullets appear in [SpecTecX #88](https://github.com/kaist-plrg/spectecx/pull/88) and [consensus-spectec #20](https://github.com/kaist-plrg/consensus-spectec/pull/20). Those PRs place their headings one level higher than this form does.
 
