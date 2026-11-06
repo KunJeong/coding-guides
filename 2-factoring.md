@@ -19,7 +19,7 @@
 
 - Does it perform an operation that its callers can name? [R.abstractions.operations](#r.abstractions.operations)
 - Is it the only function or module in the project that performs its operation? [R.abstractions.reuse](#r.abstractions.reuse)
-- Do current callers use it? [R.abstractions](#r.abstractions)
+- If it is production code, do current callers outside tests need it? [R.abstractions](#r.abstractions), [R.abstractions.exposure](#r.abstractions.exposure)
 - Does it expose only what callers need? [R.abstractions.exposure](#r.abstractions.exposure)
 - If several callers share it, do they all need the same operation and the same constraints? [R.abstractions.sharing](#r.abstractions.sharing)
 
@@ -143,7 +143,7 @@ Names and interfaces should express the responsibility, what callers supply, and
 
 <a id="r.traversals"></a>**[R.traversals](#r.traversals). Share structural traversal with explicit scope and order.** Use `map_*_children` for shallow transformation, `rewrite_*_postorder` for recursive rewriting, and `iter_*_preorder` or `fold_*_preorder` for visits or accumulation. Use the corresponding suffix for other orders. Define visited nodes, sibling order, and replacement behavior. Preserve metadata by default, and keep binding rules and conversions explicit. Extract against demonstrated duplication.
 
-<a id="r.abstractions.exposure"></a>**[R.abstractions.exposure](#r.abstractions.exposure). Expose what callers need.** Keep representations private when callers need operations rather than direct inspection. Expose data when inspecting it is part of the caller's task.
+<a id="r.abstractions.exposure"></a>**[R.abstractions.exposure](#r.abstractions.exposure). Expose what callers need.** Do not add or expose a production operation solely for tests. Keep representations private when callers need operations rather than direct inspection. Expose data when inspecting it is part of the caller's task.
 
 <a id="r.abstractions.io"></a>**[R.abstractions.io](#r.abstractions.io). Separate computation from loading and saving data by default.** Functions that compute results should accept data directly. Functions whose purpose is loading or saving data should handle the corresponding I/O.
 
