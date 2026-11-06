@@ -124,7 +124,7 @@ Choose the narrowest accurate scope.
 
 For documentation changes, choose the scope by topic. Use `docs(principles)` for project principles, `docs(conventions)` for routine conventions, and `docs(contributing)` for contribution policies or changes spanning the contribution process. Name affected documents in the body when that helps readers locate the work.
 
-<a id="r.commit-format.moves"></a>**[R.commit-format.moves](#r.commit-format.moves). List renamed or moved paths in a `reorg` message as `old -> new` bullets and describe mechanical reference updates.** In a PR, put the rename list beneath the relevant scoped summary bullet using the same path format.
+<a id="r.commit-format.moves"></a>**[R.commit-format.moves](#r.commit-format.moves). Use optional bullet summaries for moves in `reorg` messages.** Group related moves by directory or rename scheme. Omit bullets that would only repeat the diff. Describe mechanical reference updates. In a PR, place any move summaries beneath the relevant scoped summary bullet.
 
 <a id="r.commit-prose"></a>**[R.commit-prose](#r.commit-prose). Commit prose**
 
