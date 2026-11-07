@@ -43,7 +43,7 @@ The review is for a collaborator when the commits under review have an author em
 
 The `code` and `prose` arguments limit the review to what one phase of the work owns. Without either, the review covers everything.
 
-- **Code phase.** The code, the inline comments, and each commit's subject with its type and scope. A commit message in this phase holds the subject and optional `Note:` lines, so a missing body is not a finding. When the project's `AGENTS.md` defines notes, check each note against its rules.
+- **Code phase.** The code, the inline comments, and each commit's type and scope. The wording of subjects is left to the prose review, and the checks that every commit passes already show that it builds. A commit message in this phase holds the subject and optional `Note:` lines, so a missing body is not a finding. When the project's `AGENTS.md` defines notes, check each note against its rules.
 - **Prose phase.** The docstrings, meaning every `(** *)` comment, the commit bodies, the PR body or draft, and the wording of each subject. Read the code only for context. Label a finding about code, an inline comment, or a subject's type or scope `Code phase:`, since that phase fixes it.
 
 Which rules win depends on who maintains the repository, as the user's global instructions state. In a repository the user maintains, the guides govern, and the repository's contribution guide is loaded only when the user asks. In any other repository, also load its contribution guide, and let it govern where it conflicts with the guides.
@@ -84,7 +84,7 @@ Run the checklist of each loaded file in stage order: Functionality, Factoring, 
 
 A phase review runs only the items for what that phase owns:
 
-- **Code phase.** The Functionality and Factoring checklists. The comment items of Prose, for inline comments. From History, the subject's form and type under R.commit-format.subject, R.commit-format.classification and R.commit-prose.subjects, each commit's scope under R.change-scope, and R.commit-buildability.
+- **Code phase.** The Functionality and Factoring checklists. The comment items of Prose, for inline comments. From History, each commit's type under R.commit-format.classification and its scope under R.change-scope.
 - **Prose phase.** The comment items of Prose, for docstrings. The general writing items, for docstrings, commit bodies and the PR body. The rest of History, and the PR checklist. R.evidence applies only to what the messages and the PR body claim.
 
 Read commit messages and any PR body or draft only after finishing the code checklists. Both give the author's account of the change.
