@@ -82,6 +82,8 @@ When the environment cannot start a separate reviewer, run the checklists in thi
 
 Run the checklist of each loaded file in stage order: Functionality, Factoring, Verification, Prose, History, then the PR or import body. Each item is a question, and a no is a finding that cites the item's rules.
 
+For the Functionality checks of commands, flags and output, build the tool with the repository's build command and run each task on real input. Mark checks you cannot run as not checked.
+
 A phase review runs only the items for what that phase owns:
 
 - **Code phase.** The Functionality, Factoring, and Verification checklists. The comment items of Prose, for fact lines. From History, each commit's type under R.commit-format.classification and its scope under R.change-scope.
