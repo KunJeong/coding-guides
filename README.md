@@ -1,14 +1,15 @@
 # Coding guides
 
-Personal guides for coding style, technical writing, and commit and PR practices. The numbered stage files follow the order in which a change is prepared. Functionality settles first, then factoring, then prose, and then history.
+Personal guides for coding style, technical writing, and commit and PR practices. The numbered guides follow the order in which a change is prepared.
 
 | File | Covers |
 | --- | --- |
 | [PRINCIPLES.md](PRINCIPLES.md) | The reasons behind the guidance |
 | [1-functionality.md](1-functionality.md) | Guarantees, construction, and runtime validation |
 | [2-factoring.md](2-factoring.md) | Names, types, abstractions, and mutation |
-| [3-prose.md](3-prose.md) | Sentences, comments, and documentation |
-| [4-history.md](4-history.md) | Commit messages, source records, and commit preparation |
+| [3-verification.md](3-verification.md) | Evidence and tests |
+| [4-prose.md](4-prose.md) | Sentences, comments, and documentation |
+| [5-history.md](5-history.md) | Commit messages, source records, and commit preparation |
 | [modules/ocaml.md](modules/ocaml.md) | OCaml conventions |
 | [modules/pr.md](modules/pr.md) | PR titles and descriptions |
 | [modules/ports.md](modules/ports.md) | Ports and Syncs of upstream work |
@@ -22,11 +23,11 @@ Read only the files a task needs. PRINCIPLES.md applies to every task. In SpecTe
 
 | Task | Files |
 | --- | --- |
-| Writing or reviewing staged code | 1, 2, and 3, plus ocaml for `.ml` or `.mli` changes |
-| Writing commits or reviewing a branch | 1 to 4, plus ports when source records appear |
-| Planning a branch or writing a PR body | 4 and pr, plus ports for a Port or Sync |
-| Landing a PR | 4, pr, and landing |
-| Reviewing a collaborator's PR | 1 to 4, pr, collaboration, and the project's CONTRIBUTING.md, plus ocaml or ports when relevant |
+| Writing or reviewing staged code | 1 to 4, plus ocaml for `.ml` or `.mli` changes |
+| Writing commits or reviewing a branch | 1 to 5, plus ports when source records appear |
+| Planning a branch or writing a PR body | 5 and pr, plus ports for a Port or Sync |
+| Landing a PR | 5, pr, and landing |
+| Reviewing a collaborator's PR | 1 to 5, pr, collaboration, and the project's CONTRIBUTING.md, plus ocaml or ports when relevant |
 
 ## Rules, checklists, and forms
 

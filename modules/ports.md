@@ -19,7 +19,7 @@ Reviewers need to compare the source work with the local result. Identify the so
 
 <a id="r.ports-syncs"></a>**[R.ports-syncs](#r.ports-syncs). Upstream scope groups**
 
-<a id="r.ports-syncs.scope"></a>**[R.ports-syncs.scope](#r.ports-syncs.scope). Limit each Port to one upstream PR and the local work it needs.** This applies [R.change-scope](../4-history.md#r.change-scope) to Ports, so reviewers can compare the original work with the local result. Independent local changes belong in another PR. A Sync may cover broader upstream changes and related local work.
+<a id="r.ports-syncs.scope"></a>**[R.ports-syncs.scope](#r.ports-syncs.scope). Limit each Port to one upstream PR and the local work it needs.** This applies [R.change-scope](../5-history.md#r.change-scope) to Ports, so reviewers can compare the original work with the local result. Independent local changes belong in another PR. A Sync may cover broader upstream changes and related local work.
 
 <a id="r.ports-syncs.explanations"></a>**[R.ports-syncs.explanations](#r.ports-syncs.explanations). Reuse upstream explanations only when they cover the adopted design and its local assumptions.** Ports link their upstream PR in Motivation. Syncs link the comparison range or reference state being adopted.
 

@@ -1,0 +1,54 @@
+# Verification
+
+## Checklist
+
+Clients are the callers and users who reach the code through its interface.
+
+**Each behavior clients rely on**
+
+- Does a test exercise it through the interface clients use? [R.tests.interfaces](#r.tests.interfaces)
+
+**Each test**
+
+- Does it catch a failure that no other test catches? [R.tests.purpose](#r.tests.purpose)
+- Does it reach the code through the interface clients use? [R.tests.interfaces](#r.tests.interfaces)
+
+<a id="r.evidence"></a>**[R.evidence](#r.evidence). Support each change's claim with evidence others can repeat.**
+
+*Principle [Verification](PRINCIPLES.md#verification).*
+
+A change's type decides what it claims. The claim decides the evidence. Run the checks that produce the evidence before presenting the change for review. Evidence may come from another commit in the same PR. Place tests according to the table below.
+
+| Type | Claim | Evidence | Commit placement |
+| --- | --- | --- | --- |
+| `fix` | The fault no longer occurs. | A test that fails without the fix and passes with it, or a description of the check when no test can reproduce the fault. | Keep the regression test with the fix. |
+| `feat` | The new behavior works as described. | A test through the interface clients use. | Prefer a feature commit followed by a test commit in the same PR. Combine them only when splitting would require placeholders or break a commit. |
+| `refactor` | The change preserves behavior and achieves its stated design goal. | Unchanged test expectations and evidence of the claimed design benefit. | Put any added tests of existing behavior in an earlier commit. They must pass before and after the refactor. |
+| `reorg` | Only paths and references changed. | Unchanged test expectations, and a diff with rename detection that shows only moves. | Keep independent code or behavior changes in separate commits. |
+| `perf` | The system is faster or smaller. | Unchanged test expectations, and measurements before and after, with the method. | Keep independent behavior changes in separate commits. |
+| `test` | The suite catches a failure it missed before. | A new test protecting a previously untested behavior or failure. | Keep tests of existing behavior separate from production-code changes. |
+| `docs` | The text matches the system. | Its commands and examples produce what it states. | Keep documentation needed to explain a code change with that change. |
+| `ci`, `chore`, `style` | Nothing about behavior. | None. | Keep independent maintenance work in separate commits. |
+
+For a refactor that claims to reduce code size, report the number of lines of code before and after and state the files, languages, and counting method. For clearer concepts or separate responsibilities, explain the benefit using representative type definitions, use sites, or module boundaries before and after.
+
+<a id="r.evidence.preservation"></a>**[R.evidence.preservation](#r.evidence.preservation). Keep test expectations unchanged in a refactor, reorg, or performance change.** A changed expectation reveals a behavior change, which belongs in its own commit under [R.change-scope](5-history.md#r.change-scope).
+
+<a id="r.evidence.locations"></a>**[R.evidence.locations](#r.evidence.locations). Record evidence where it stays accurate.**
+
+- Tests belong in the diff. List added tests under Scope in the PR body.
+- Measurements and other evidence the diff and CI do not show belong in the PR's [Validation section](modules/pr.md#r.pr-body.validation), taken on the final branch.
+- Commit messages explain the reason and result. Leave out test inventories and routine check commands. Mention evidence only when it helps explain the change. Commit messages record no measurements, because a rebase can change the numbers.
+- The [landing record](modules/landing.md#r.merge-method) keeps one line with the result of a performance claim.
+
+## Tests
+
+<a id="r.tests"></a>**[R.tests](#r.tests). Tests**
+
+Each test is code to read, run, and maintain.
+
+<a id="r.tests.purpose"></a>**[R.tests.purpose](#r.tests.purpose). Add a test only when it catches a failure that no other test catches, in a behavior clients rely on.** Name that failure. Remove or merge a test that stops meeting this rule. Coverage shows which lines a test runs, not which failures it catches.
+
+<a id="r.tests.suites"></a>**[R.tests.suites](#r.tests.suites). Add a case to an existing suite before adding a new runner, fixture format, or test directory.**
+
+<a id="r.tests.interfaces"></a>**[R.tests.interfaces](#r.tests.interfaces). Test through the interface clients use.** Tests of internal code break when a refactor changes that code, even when clients see no difference. Do not add or expose a production operation solely for tests, under [R.abstractions.exposure](2-factoring.md#r.abstractions.exposure). Check properties clients cannot observe, such as speed, by measurement or a [runtime check](1-functionality.md#r.types.runtime-checks).

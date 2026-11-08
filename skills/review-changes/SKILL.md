@@ -54,12 +54,12 @@ Load the files that the guides' load map names. The guides live in `/Users/kunje
 
 | Review | Files |
 | --- | --- |
-| Staged | `PRINCIPLES.md`, `1-functionality.md`, `2-factoring.md`, `3-prose.md` |
-| Branch | The staged files and `4-history.md`, plus `modules/pr.md` when a PR body or draft exists |
+| Staged | `PRINCIPLES.md`, `1-functionality.md`, `2-factoring.md`, `3-verification.md`, `4-prose.md` |
+| Branch | The staged files and `5-history.md`, plus `modules/pr.md` when a PR body or draft exists |
 | Either | `modules/ocaml.md` when the diff touches `.ml` or `.mli` files, `modules/ports.md` when commits carry source records, `modules/spectec.md` in a SpecTec repository |
 | Collaborator | The files above, `modules/collaboration.md`, and the project's `CONTRIBUTING.md` |
-| Code phase | `PRINCIPLES.md`, `1-functionality.md`, `2-factoring.md`, `3-prose.md`, `4-history.md`, and the modules above |
-| Prose phase | `3-prose.md`, `4-history.md`, `1-functionality.md` for R.evidence, `modules/pr.md` when a PR body or draft exists, and the modules above |
+| Code phase | `PRINCIPLES.md`, `1-functionality.md`, `2-factoring.md`, `3-verification.md`, `4-prose.md`, `5-history.md`, and the modules above |
+| Prose phase | `4-prose.md`, `5-history.md`, `3-verification.md` for R.evidence, `modules/pr.md` when a PR body or draft exists, and the modules above |
 
 A repository is a SpecTec repository when its remote name contains `spectec` or it has a top-level `spectec/` directory. Read the files fresh on every review. Report a file that cannot be read, and do not substitute another source.
 
@@ -80,11 +80,11 @@ When the environment cannot start a separate reviewer, run the checklists in thi
 
 ### Checklist instructions
 
-Run the checklist of each loaded file in stage order: Functionality, Factoring, Prose, History, then the PR or import body. Each item is a question, and a no is a finding that cites the item's rules.
+Run the checklist of each loaded file in stage order: Functionality, Factoring, Verification, Prose, History, then the PR or import body. Each item is a question, and a no is a finding that cites the item's rules.
 
 A phase review runs only the items for what that phase owns:
 
-- **Code phase.** The Functionality and Factoring checklists. The comment items of Prose, for fact lines. From History, each commit's type under R.commit-format.classification and its scope under R.change-scope.
+- **Code phase.** The Functionality, Factoring, and Verification checklists. The comment items of Prose, for fact lines. From History, each commit's type under R.commit-format.classification and its scope under R.change-scope.
 - **Prose phase.** The comment items of Prose, for comments and docstrings. The general writing rules for the prose owned by this phase. The rest of History, and the PR checklist. R.evidence applies only to what the messages and the PR body claim.
 
 Read commit messages and any PR body or draft only after finishing the code checklists. Both give the author's account of the change.

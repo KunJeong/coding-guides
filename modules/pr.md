@@ -7,10 +7,10 @@
 - Does Motivation state the problem or research goal without describing the result? [R.pr-body.motivation](#r.pr-body.motivation)
 - Does Solution state what the PR makes true? [R.pr-body.solution](#r.pr-body.solution)
 - Does Core Concepts explain the central idea a reviewer needs before reading the diff? [R.pr-body.concepts](#r.pr-body.concepts)
-- Does Solution account for every commit, in its prose or in a Scope or Minor Changes bullet? [R.pr-body.scope](#r.pr-body.scope), [R.change-scope](../4-history.md#r.change-scope)
+- Does Solution account for every commit, in its prose or in a Scope or Minor Changes bullet? [R.pr-body.scope](#r.pr-body.scope), [R.change-scope](../5-history.md#r.change-scope)
 - Does every Scope bullet describe work the branch contains? [R.pr-body.scope](#r.pr-body.scope)
 - Does Validation hold only evidence that the diff, Solution, and CI do not show? [R.pr-body.validation](#r.pr-body.validation)
-- Does every sentence follow the prose rules? [R.prose](../3-prose.md#r.prose)
+- Does every sentence follow the prose rules? [R.prose](../4-prose.md#r.prose)
 - Does the body match the [PR form](#pr-form)?
 
 <a id="r.pr-explanations"></a>**[R.pr-explanations](#r.pr-explanations). Each PR body should explain its motivation, result, and scope.**
@@ -97,7 +97,7 @@ The heading format appears in [SpecTecX #100](https://github.com/kaist-plrg/spec
 
 <a id="r.pr-body.scope"></a>**[R.pr-body.scope](#r.pr-body.scope). List everything the change affects under Scope.** Scope covers the full extent of the change, including effects outside the central idea, such as updated callers, moved files, and added tests. Omit it when the Solution prose already names every affected area. Group changes by affected area and theme. A single bullet can summarize several commits. Use `### Minor Changes` for incidental work outside the main topic, and say why it is included.
 
-In both sections, use `**type(scope):** Description.` for summary bullets. Choose types and scopes under [R.commit-format](../4-history.md#r.commit-format), capitalize descriptions, and end sentences with periods. Describe related work as a whole instead of repeating individual commit subjects. Split a bullet when no single type and scope accurately describes the work. Optional move summaries follow [R.commit-format.moves](../4-history.md#r.commit-format.moves). Use the same format within [Port and Sync scope groups](ports.md#r.ports-syncs). When these lists are present, their shared format lets the merge summary reuse the reviewed bullets without reclassifying or regrouping the work.
+In both sections, use `**type(scope):** Description.` for summary bullets. Choose types and scopes under [R.commit-format](../5-history.md#r.commit-format), capitalize descriptions, and end sentences with periods. Describe related work as a whole instead of repeating individual commit subjects. Split a bullet when no single type and scope accurately describes the work. Optional move summaries follow [R.commit-format.moves](../5-history.md#r.commit-format.moves). Use the same format within [Port and Sync scope groups](ports.md#r.ports-syncs). When these lists are present, their shared format lets the merge summary reuse the reviewed bullets without reclassifying or regrouping the work.
 
 ```markdown
 ### Scope
@@ -109,7 +109,7 @@ In both sections, use `**type(scope):** Description.` for summary bullets. Choos
 - **docs(readme):** Clarifies compiler setup instructions.
 ```
 
-<a id="r.pr-body.validation"></a>**[R.pr-body.validation](#r.pr-body.validation). Under Validation, give the evidence that the diff, the Solution section, and CI do not show.** Report evidence from the final branch, such as a manual reproduction or a performance measurement with its method, under [R.evidence](../1-functionality.md#r.evidence). Omit CI status, runs covered by CI, and inventories of checks run or skipped. List added tests under Scope. State any limit that narrows a claim beside that claim. Omit the section when nothing remains.
+<a id="r.pr-body.validation"></a>**[R.pr-body.validation](#r.pr-body.validation). Under Validation, give the evidence that the diff, the Solution section, and CI do not show.** Report evidence from the final branch, such as a manual reproduction or a performance measurement with its method, under [R.evidence](../3-verification.md#r.evidence). Omit CI status, runs covered by CI, and inventories of checks run or skipped. List added tests under Scope. State any limit that narrows a claim beside that claim. Omit the section when nothing remains.
 
 <a id="r.pr-body.commit-log"></a>**[R.pr-body.commit-log](#r.pr-body.commit-log). End multi-commit PR bodies with `## Commit Log` for GitHub searchability.** List final commit subjects verbatim and in order, including their `type(scope):` prefixes. Do not add backticks or hyperlinks around them. Preserve any literal characters already in a subject and keep the list synchronized with the final history.
 

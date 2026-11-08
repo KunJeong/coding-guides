@@ -7,8 +7,8 @@
 - Does it hold one idea? [R.change-scope](#r.change-scope)
 - Is it free of changes that could land as their own buildable commit, such as a preparatory refactor, rename, or move? [R.change-scope](#r.change-scope)
 - Does it build without anything that a later commit adds? [R.commit-buildability](#r.commit-buildability)
-- Does the PR supply the evidence this commit's type requires? [R.evidence](1-functionality.md#r.evidence)
-- For a refactor, reorg, or performance change, are test expectations unchanged? [R.evidence.preservation](1-functionality.md#r.evidence.preservation)
+- Does the PR supply the evidence this commit's type requires? [R.evidence](3-verification.md#r.evidence)
+- For a refactor, reorg, or performance change, are test expectations unchanged? [R.evidence.preservation](3-verification.md#r.evidence.preservation)
 
 **Each commit message**
 
@@ -21,8 +21,8 @@
 - For copied or adapted work, does a source record cite the origin, with author credit preserved? [R.source-credit](#r.source-credit)
 - For adapted work, is the author the person whose code makes up most of the commit? [R.source-credit](#r.source-credit)
 - Does every coauthor credit name a person who worked on the change together with its author? [R.sources.coauthors](#r.sources.coauthors)
-- Does the body leave out what the diff shows, including measurements? [R.commit-prose.diff](#r.commit-prose.diff), [R.evidence.locations](1-functionality.md#r.evidence.locations)
-- Does every sentence follow the prose rules? [R.prose](3-prose.md#r.prose)
+- Does the body leave out what the diff shows, including measurements? [R.commit-prose.diff](#r.commit-prose.diff), [R.evidence.locations](3-verification.md#r.evidence.locations)
+- Does every sentence follow the prose rules? [R.prose](4-prose.md#r.prose)
 - Does the message match the [commit form](#commit-form)?
 
 **Each branch**
@@ -33,7 +33,7 @@
 
 *Principles [Coherence](PRINCIPLES.md#coherence) ↔ [Proportionality](PRINCIPLES.md#proportionality).*
 
-A commit carries one idea. Place tests according to [R.evidence](1-functionality.md#r.evidence). A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split along ideas, not along files or rules. One idea applied in several places stays one commit. Combine commits when separating them would need placeholders or break the build, under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
+A commit carries one idea. Place tests according to [R.evidence](3-verification.md#r.evidence). A refactor, rename, or move that the idea depends on is a separate commit placed before it. Split along ideas, not along files or rules. One idea applied in several places stays one commit. Combine commits when separating them would need placeholders or break the build, under [R.commit-buildability](#r.commit-buildability). Separate commits let readers understand, review, and bisect each change on its own.
 
 A PR may include commits outside its main topic when a separate PR would add review and landing overhead without enough practical benefit. Those commits should remain distinct, and the PR body should explain why they belong.
 
@@ -55,7 +55,7 @@ When the subject already conveys the required explanation, the message does not 
 
 *Principle [Coherence](PRINCIPLES.md#coherence).*
 
-Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole, even past 72 columns, so readers can follow and search them. Markdown paragraphs and PR bodies follow [R.markdown-wrapping](3-prose.md#r.markdown-wrapping) instead.
+Terminals, `git log`, and emailed patches show commit messages as written, without rewrapping. Longer lines break at arbitrary points or run off the screen. URLs, identifiers, and quoted subjects in source records stay whole, even past 72 columns, so readers can follow and search them. Markdown paragraphs and PR bodies follow [R.markdown-wrapping](4-prose.md#r.markdown-wrapping) instead.
 
 <a id="r.source-credit"></a>**[R.source-credit](#r.source-credit). Commits containing copied or adapted work must cite its source and preserve author credit.**
 
@@ -75,7 +75,7 @@ Each final commit should express one idea under [R.change-scope](#r.change-scope
 
 Review fixups are folded into the commits they complete before landing.
 
-Apply the [prose rules](3-prose.md#r.prose) to writing in change records. The rules below supply record-specific forms.
+Apply the [prose rules](4-prose.md#r.prose) to writing in change records. The rules below supply record-specific forms.
 
 <a id="r.change-summaries"></a>**[R.change-summaries](#r.change-summaries). Summarize the conceptual change in commit subjects and PR titles.**
 

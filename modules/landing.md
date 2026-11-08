@@ -19,9 +19,9 @@ The core maintainer bears most of the lasting cost of unclear prose and fragment
 **Commit preparation**
 
 - Fold review fixups into the commits they complete. Their messages may stay brief until then.
-- Combine or reorder reviewed commits when needed to make them coherent and buildable under [R.commit-buildability](../4-history.md#r.commit-buildability).
+- Combine or reorder reviewed commits when needed to make them coherent and buildable under [R.commit-buildability](../5-history.md#r.commit-buildability).
 
-Combining or reordering commits must preserve the branch's final file contents on the same base. Rebasing onto a new base follows [R.conflict-resolution](#r.conflict-resolution). Editorial edits are limited to the prose and record corrections above. Preserve each change's motivation, source references, and author credit. Keep independent changes distinguishable under [R.change-scope](../4-history.md#r.change-scope).
+Combining or reordering commits must preserve the branch's final file contents on the same base. Rebasing onto a new base follows [R.conflict-resolution](#r.conflict-resolution). Editorial edits are limited to the prose and record corrections above. Preserve each change's motivation, source references, and author credit. Keep independent changes distinguishable under [R.change-scope](../5-history.md#r.change-scope).
 
 The maintainer may amend commits, rebase them, and publish the rewritten PR branch using a lease for this cleanup. [Publishing a rewritten branch](#publishing-a-rewritten-branch) gives the commands. Before rewriting, coordinate with contributors whose branches depend on the affected commits. When merging, tell the contributor what was edited and how the commits were reorganized.
 
@@ -37,7 +37,7 @@ Integration conflicts are resolved on the PR branch, where reviewers can inspect
 
 *Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
 
-The history should preserve reviewed units of work and explain their integration. Land multi-commit PRs with a merge commit that explains the contribution as a whole. Count commits after cleanup and preserve the resulting commits without squashing during landing. The landing record is the merge message, or the message of a single-commit PR. For a performance claim, it keeps one line with the measured result under [R.evidence.locations](../1-functionality.md#r.evidence.locations).
+The history should preserve reviewed units of work and explain their integration. Land multi-commit PRs with a merge commit that explains the contribution as a whole. Count commits after cleanup and preserve the resulting commits without squashing during landing. The landing record is the merge message, or the message of a single-commit PR. For a performance claim, it keeps one line with the measured result under [R.evidence.locations](../3-verification.md#r.evidence.locations).
 
 For single-commit PRs, the [integration default](#r.integration.method) is a fast-forward. Their commit message supplies the permanent record under [R.single-commit-record](#r.single-commit-record). Add the PR number through authorized final cleanup under [R.final-cleanup](#r.final-cleanup).
 
@@ -65,7 +65,7 @@ Count commits after final cleanup. A fast-forward avoids an extra merge commit b
 
 <a id="r.single-commit-record"></a>**[R.single-commit-record](#r.single-commit-record). A single-commit PR’s message must explain the PR’s motivation, result, and scope.**
 
-A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [R.commit-explanations](../4-history.md#r.commit-explanations) also applies here.
+A fast-forward creates no merge message, so the commit message is the permanent landing record. Include the PR’s motivation, result, and scope, along with applicable source records. The motivation exception in [R.commit-explanations](../5-history.md#r.commit-explanations) also applies here.
 
 ## Merge messages
 
@@ -73,15 +73,15 @@ A fast-forward creates no merge message, so the commit message is the permanent 
 
 The summary uses the PR title with ordinary words in lowercase. Preserve proper names and acronyms. A framing paragraph explains the PR's motivation and overall result. Summary bullets describe the affected work under [R.merge-summary](#r.merge-summary).
 
-<a id="r.merge-issue-closures"></a>**[R.merge-issue-closures](#r.merge-issue-closures). Keep issue-closing directives in the PR body.** Do not copy `Closes #N`, `Fixes #N`, or `Resolves #N` into merge messages. Commit `Fixes:` records that identify an introducing revision follow [R.sources.regressions](../4-history.md#r.sources.regressions).
+<a id="r.merge-issue-closures"></a>**[R.merge-issue-closures](#r.merge-issue-closures). Keep issue-closing directives in the PR body.** Do not copy `Closes #N`, `Fixes #N`, or `Resolves #N` into merge messages. Commit `Fixes:` records that identify an introducing revision follow [R.sources.regressions](../5-history.md#r.sources.regressions).
 
 <a id="r.merge-summary"></a>**[R.merge-summary](#r.merge-summary). Merge-message summaries**
 
-<a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [R.commit-format](../4-history.md#r.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
+<a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [R.commit-format](../5-history.md#r.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
 
 <a id="r.merge-summary.reuse"></a>**[R.merge-summary.reuse](#r.merge-summary.reuse). Use Scope and Minor Changes as the basis for a shorter merge summary.** Condense and regroup their bullets by theme, preserving the main outcome and significant incidental work. Do not reproduce the PR's inventory of APIs, tests or packaging details. Include source references only when they add useful context beyond the provenance preserved in the constituent commits.
 
-Keep identifier backticks and use plain prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [R.commit-display](../4-history.md#r.commit-display). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [R.merge-summary.overview](#r.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
+Keep identifier backticks and use plain prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [R.commit-display](../5-history.md#r.commit-display). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [R.merge-summary.overview](#r.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
 
 ```text
 Merge: <lowercase summary> (#PR)
