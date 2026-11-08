@@ -11,6 +11,10 @@
 - Does each Local bullet say why the Port or Sync needs it? [R.imported-work](#r.imported-work)
 - When Validation is needed, does it compare the result with its source without repeating CI results? [R.ports-syncs.groups](#r.ports-syncs.groups), [R.pr-body.validation](pr.md#r.pr-body.validation)
 
+**Each Sync branch**
+
+- Does the merge commit hold every change the merged tree needs, with only refactors and reorgs after it? [R.sync-merge-scope](#r.sync-merge-scope)
+
 <a id="r.imported-work"></a>**[R.imported-work](#r.imported-work). Distinguish imported work from local changes and explain omissions.**
 
 *Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Proportionality](../PRINCIPLES.md#proportionality).*
@@ -52,6 +56,26 @@ Use Validation for source comparisons the diff and CI do not show, under [R.pr-b
 An omission does not by itself promise later adoption. For necessary work deliberately postponed from the contribution, open an issue and list it under Deferred Tasks, following [R.pr-body.follow-ups](pr.md#r.pr-body.follow-ups).
 
 <a id="r.ports-syncs.references"></a>**[R.ports-syncs.references](#r.ports-syncs.references). Use GitHub source references in upstream scope groups.** Identify origins, for example `Original: org/repo@sha`, or link a comparison range or reference file for a Sync.
+
+## Sync merge commits
+
+<a id="r.sync-merge-scope"></a>**[R.sync-merge-scope](#r.sync-merge-scope). Put every change the merged tree needs in a Sync's merge commit, and nothing the merged tree can do without.**
+
+*Principles [Coherence](../PRINCIPLES.md#coherence), [Provenance](../PRINCIPLES.md#provenance), [Verification](../PRINCIPLES.md#verification).*
+
+Include these required changes in the merge:
+
+- conflict resolutions
+- adaptations of local code to changed upstream interfaces
+- work from either side that taking the other side's version would drop
+- removal of local code that the upstream changes left without effect
+- tests that pin any of these
+
+Changes the merged tree can do without belong after the merge, in `refactor` or `reorg` commits that preserve behavior.
+
+`git show --remerge-diff` shows changes beyond Git's automatic merge. Review those choices against both parents. Keep review fixups that only restructure the merge's adaptations in separate commits, as an exception to [R.commit-buildability](../5-history.md#r.commit-buildability).
+
+Changes that work on the local branch before the merge, and that make the merge smaller, go before it.
 
 ## Port attribution
 

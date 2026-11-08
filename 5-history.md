@@ -73,7 +73,7 @@ A commit's author is whoever wrote most of its code. Keep the original author wh
 
 Each final commit should express one idea under [R.change-scope](#r.change-scope) and leave the project buildable, so maintainers can investigate regressions without first repairing intermediate states. If separating commits would require placeholders or break the build, they should be combined.
 
-Review fixups are folded into the commits they complete before landing.
+Review fixups are folded into the commits they complete before landing. In a Sync, [R.sync-merge-scope](modules/ports.md#r.sync-merge-scope) decides which fixups the merge commit takes.
 
 Apply the [prose rules](4-prose.md#r.prose) to writing in change records. The rules below supply record-specific forms.
 
