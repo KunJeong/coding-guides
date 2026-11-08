@@ -8,6 +8,13 @@ Clients are the callers and users who reach the code through its interface.
 
 - Can a client complete it through the interface the change provides? [R.tasks](#r.tasks)
 
+**Each command, flag, or output format that users see**
+
+- Does each task take one command whose output answers it without another step? [R.user-interfaces.use](#r.user-interfaces.use)
+- Is the common case short to type? [R.user-interfaces.use](#r.user-interfaces.use)
+- Does each error say how to fix the input? [R.user-interfaces.use](#r.user-interfaces.use)
+- Do its invocation and output match the project's other commands? [R.user-interfaces.use](#r.user-interfaces.use)
+
 **Each catch-all branch, such as `| _ ->` or a final `else`**
 
 - Should every value this branch handles get the same result? [R.cases](#r.cases)
@@ -54,6 +61,16 @@ A case is one kind of value the code can receive, such as one constructor, an em
 Callers need to know which guarantees hold when they use a value or operation. Construction must establish those guarantees, and exposed updates must preserve them. [R.types.construction](#r.types.construction) and [R.types.runtime-checks](#r.types.runtime-checks) describe ways to enforce them.
 
 [Factoring](2-factoring.md#factoring) covers how types and interfaces express those guarantees. [Verification](3-verification.md#verification) covers the tests and other evidence that show a change works.
+
+## User interfaces
+
+<a id="r.user-interfaces"></a>**[R.user-interfaces](#r.user-interfaces). User interfaces**
+
+The tool's commands, flags, output and error messages form an interface that users and scripts rely on.
+
+<a id="r.user-interfaces.design"></a>**[R.user-interfaces.design](#r.user-interfaces.design). Agree on a user interface before building it.** Propose each new command, flag, or output format with sample invocations and sample output for each task it serves. Build it after the maintainer approves the samples.
+
+<a id="r.user-interfaces.use"></a>**[R.user-interfaces.use](#r.user-interfaces.use). Review a user interface by using it.** Run each task on real input. Check that the output answers the task without another step, that the common case is short to type, that each error says how to fix the input, and that the invocation and output match the project's other commands.
 
 ## Contracts and invariants
 
