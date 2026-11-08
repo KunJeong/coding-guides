@@ -5,7 +5,7 @@ Personal guides for coding style, technical writing, and commit and PR practices
 | File | Covers |
 | --- | --- |
 | [PRINCIPLES.md](PRINCIPLES.md) | The reasons behind the guidance |
-| [1-functionality.md](1-functionality.md) | Tasks, guarantees, and runtime validation |
+| [1-functionality.md](1-functionality.md) | Tasks, cases, guarantees, and runtime validation |
 | [2-factoring.md](2-factoring.md) | Names, types, abstractions, and mutation |
 | [3-verification.md](3-verification.md) | Evidence and tests |
 | [4-prose.md](4-prose.md) | Sentences, comments, and documentation |

@@ -8,6 +8,22 @@ Clients are the callers and users who reach the code through its interface.
 
 - Can a client complete it through the interface the change provides? [R.tasks](#r.tasks)
 
+**Each catch-all branch, such as `| _ ->` or a final `else`**
+
+- Should every value this branch handles get the same result? [R.cases](#r.cases)
+
+**Each search for a value by name or key**
+
+- Does the code handle no match, one match, and several matches? [R.cases](#r.cases)
+
+**Each value read from outside the program, such as a command-line argument, a file, or an editor buffer**
+
+- When the value is missing or invalid, does the program report an error that says how to fix it? [R.cases](#r.cases), [R.types.runtime-checks](#r.types.runtime-checks)
+
+**Each new constructor, definition kind, or flag**
+
+- Does every function that handles the existing ones also handle the new one? [R.cases](#r.cases)
+
 **Each type with an invariant**
 
 - Does every way to create a value establish the invariant? [R.types.construction](#r.types.construction), [R.invariants](#r.invariants)
@@ -19,6 +35,17 @@ Clients are the callers and users who reach the code through its interface.
 *Principle [Motivation](PRINCIPLES.md#motivation).*
 
 Follow each task named in the motivation through the client interface, from input to result. Check that clients can complete every step.
+
+<a id="r.cases"></a>**[R.cases](#r.cases). Give every case that the inputs allow a defined result.**
+
+*Principle [Verification](PRINCIPLES.md#verification).*
+
+A case is one kind of value the code can receive, such as one constructor, an empty search result, or a missing file. Check these places:
+
+- OCaml cannot warn about a missing constructor covered by a catch-all branch. Check that all values reaching the branch should get the same result.
+- A search for a value by name or key can find nothing, one value, or several values.
+- A value read from outside the program can be missing or invalid. Report it with an error that says what to fix, under [R.types.runtime-checks](#r.types.runtime-checks).
+- A new constructor, definition kind, or flag needs handling in every function that handles the existing ones.
 
 <a id="r.invariants"></a>**[R.invariants](#r.invariants). Preserve the guarantees callers rely on.**
 
