@@ -4,11 +4,21 @@
 
 Clients are the callers and users who reach the code through its interface.
 
+**Each task the change is meant to support**
+
+- Can a client complete it through the interface the change provides? [R.tasks](#r.tasks)
+
 **Each type with an invariant**
 
 - Does every way to create a value establish the invariant? [R.types.construction](#r.types.construction), [R.invariants](#r.invariants)
 - Does every public operation that changes a value keep the invariant? [R.invariants](#r.invariants)
 - Is each constraint the type cannot express checked at runtime? [R.types.runtime-checks](#r.types.runtime-checks)
+
+<a id="r.tasks"></a>**[R.tasks](#r.tasks). Let clients complete each task the change is meant to support.**
+
+*Principle [Motivation](PRINCIPLES.md#motivation).*
+
+Follow each task named in the motivation through the client interface, from input to result. Check that clients can complete every step.
 
 <a id="r.invariants"></a>**[R.invariants](#r.invariants). Preserve the guarantees callers rely on.**
 
