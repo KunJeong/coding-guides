@@ -116,6 +116,14 @@ Comments and documentation describe the current system under [R.documentation-ac
 
 Keep each paragraph or bullet's text on one source line and let the renderer wrap it. Preserve line breaks required by code blocks, tables, or other Markdown structure. This also applies to PR bodies.
 
+<a id="r.code-excerpts.locations"></a>**[R.code-excerpts.locations](#r.code-excerpts.locations). Start each code excerpt with a comment naming its file's path from the repository root.** When the excerpt shows the body of a function, module or type without its definition line, append its name after a comma, as in `(* targets/p4/ebpf_sim.ml, drive *)`. In a block with code from several files, put a location comment before each file's code.
+
+Use the block's comment syntax, such as `;; path` for SpecTec, `// path, name` for Rust or P4, and `# path` for shell. For formats without comments, such as JSON or program output, name the file in the sentence that introduces the block.
+
+The rule covers code that exists in a file or is proposed for one, including code sketches in reviews. Templates, command examples and forms have no location to name.
+
+For examples, see [SpecTecX #152](https://github.com/kaist-plrg/spectecx/pull/152).
+
 ### Build and checking documentation
 
 <a id="r.checking-instructions"></a>**[R.checking-instructions](#r.checking-instructions). Keep build and checking instructions with the component they apply to.**
