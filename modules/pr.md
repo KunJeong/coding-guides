@@ -87,7 +87,7 @@ Sections appear in this order. Motivation and Solution are required. Other secti
 
 <a id="r.pr-body.plan"></a>**[R.pr-body.plan](#r.pr-body.plan). Draft the PR body as the plan for the branch.** Write the draft in the final format before the branch is final. Start with the Motivation, the planned Solution, and any evidence Validation will need. Change the draft as the commits change. A commit outside the draft's Solution belongs in Minor Changes or in another PR. Planned work in the Solution with no commit marks unfinished or dropped work. Keep the draft in a file until the PR opens, in a location each repository chooses.
 
-<a id="r.pr-body.motivation"></a>**[R.pr-body.motivation](#r.pr-body.motivation). Start PR bodies with a Motivation section.** Use `## Motivation` and explain the problem or research goal. Leave the resulting change to Solution.
+<a id="r.pr-body.motivation"></a>**[R.pr-body.motivation](#r.pr-body.motivation). Start PR bodies with a Motivation section.** Use `## Motivation` and explain the problem or research goal. Leave the resulting change to Solution. Put issue-closing directives, such as `Closes #N`, on their own lines at the end of Motivation.
 
 <a id="r.pr-body.solution"></a>**[R.pr-body.solution](#r.pr-body.solution). Follow Motivation with a Solution section.** Use `## Solution` and describe in prose what the PR makes true. Core Concepts, Scope, and Minor Changes are its subsections, under the rules below. A single-commit PR can reuse its commit message, with the motivation paragraph under Motivation and the solution paragraph under Solution.
 
