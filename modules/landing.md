@@ -77,20 +77,22 @@ The summary uses the PR title with ordinary words in lowercase. Preserve proper 
 
 <a id="r.merge-summary"></a>**[R.merge-summary](#r.merge-summary). Merge-message summaries**
 
-<a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. For contributions other than Ports and Syncs, summarize the affected work by area and theme with typed bullets. A bullet can summarize several commits. Choose types and scopes for the contribution as a whole under [R.commit-format](../5-history.md#r.commit-format). Use `type: Description.` when a narrower scope adds no useful distinction. One broad bullet can suffice. Ports and Syncs use the source distinctions under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
+<a id="r.merge-summary.overview"></a>**[R.merge-summary.overview](#r.merge-summary.overview). Use a framing paragraph followed by summary bullets.** The paragraph explains the motivation and overall result. Summarize the affected work under [R.merge-summary.reuse](#r.merge-summary.reuse). A bullet can summarize several commits. Ports and Syncs use source labels under [R.merge-summary.imports](ports.md#r.merge-summary.imports).
 
-<a id="r.merge-summary.reuse"></a>**[R.merge-summary.reuse](#r.merge-summary.reuse). Use Scope and Minor Changes as the basis for a shorter merge summary.** Condense and regroup their bullets by theme, preserving the main outcome and significant incidental work. Do not reproduce the PR's inventory of APIs, tests or packaging details. Include source references only when they add useful context beyond the provenance preserved in the constituent commits.
+<a id="r.merge-summary.reuse"></a>**[R.merge-summary.reuse](#r.merge-summary.reuse). Use Scope and Minor Changes as the basis for a shorter merge summary.** For contributions other than Ports and Syncs, use `module/path: Description.` without bold or commit types. Preserve the main outcome and significant incidental work. Do not reproduce the PR's inventory of APIs, tests or packaging details. Include source references only when they add useful context beyond the provenance preserved in the constituent commits.
 
-Keep identifier backticks and use plain prefixes without bolding. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [R.commit-display](../5-history.md#r.commit-display). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [R.merge-summary.overview](#r.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
+Keep identifier backticks. Render Markdown links as their labels followed by URLs in parentheses. Wrap the text under [R.commit-wrapping](../5-history.md#r.commit-wrapping). For contributions other than Ports and Syncs, use `Changes:` and `Minor Changes:` sections when separating the main and incidental work helps scanning. A compact summary can use one list without headings. If the PR has no Scope list, compose summary bullets from its motivation, result, and affected work under [R.merge-summary.overview](#r.merge-summary.overview). The PR does not need a Scope section solely to supply these bullets.
 
 ```text
 Merge: <lowercase summary> (#PR)
 
 Framing paragraph explaining the motivation and resulting change.
 
-- refactor(scope): Description.
-- docs(scope): Description.
+- module/path: Main outcome.
+- other/module: Incidental work.
 ```
+
+The merged commits retain their types. Read their subjects with `git log --oneline <merge>^1..<merge>^2`.
 
 <a id="r.deferred-work"></a>**[R.deferred-work](#r.deferred-work). Keep deferred tasks in issues linked from the PR body.** Omit deferred-task bullets from merge messages. The [Future Work rules](pr.md#r.pr-body.follow-ups) define which tasks belong in issues.
 

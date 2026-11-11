@@ -56,11 +56,11 @@ The central idea a reviewer needs before reading the diff.
 
 ### Scope
 
-- **type(scope):** What the change affects, grouped by area.
+- **module/path:** What the change affects, grouped by area.
 
 ### Minor Changes
 
-- **type(scope):** Incidental work, and why it is included.
+- **module/path:** Incidental work, and why it is included.
 
 ## Validation
 
@@ -95,19 +95,25 @@ Sections appear in this order. Motivation and Solution are required. Other secti
 
 The heading format appears in [SpecTecX #100](https://github.com/kaist-plrg/spectecx/pull/100) and [consensus-spectec #12](https://github.com/kaist-plrg/consensus-spectec/pull/12). Compact bolded bullets appear in [SpecTecX #88](https://github.com/kaist-plrg/spectecx/pull/88) and [consensus-spectec #20](https://github.com/kaist-plrg/consensus-spectec/pull/20). Those PRs place their headings one level higher than this form does.
 
-<a id="r.pr-body.scope"></a>**[R.pr-body.scope](#r.pr-body.scope). List everything the change affects under Scope.** Scope covers the full extent of the change, including effects outside the central idea, such as updated callers, moved files, and added tests. Omit it when the Solution prose already names every affected area. Group changes by affected area and theme. A single bullet can summarize several commits. Use `### Minor Changes` for incidental work outside the main topic, and say why it is included.
+<a id="r.pr-body.scope"></a>**[R.pr-body.scope](#r.pr-body.scope). List everything the change affects under Scope.** Scope covers the full extent of the change, including effects outside the central idea, such as updated callers, moved files, and added tests. Omit it when the Solution prose already names every affected area. Use `### Minor Changes` for incidental work outside the main topic, and say why it is included.
 
-In both sections, use `**type(scope):** Description.` for summary bullets. Choose types and scopes under [R.commit-format](../5-history.md#r.commit-format), capitalize descriptions, and end sentences with periods. Describe related work as a whole instead of repeating individual commit subjects. Split a bullet when no single type and scope accurately describes the work. Optional move summaries follow [R.commit-format.moves](../5-history.md#r.commit-format.moves). Use the same format within [Port and Sync scope groups](ports.md#r.ports-syncs). When these lists are present, their shared format lets the merge summary reuse the reviewed bullets without reclassifying or regrouping the work.
+In Scope and Minor Changes, use `**module/path:** Description.` with the module scopes used by the commits. Group related work in each area across commit types. Describe behavior changes by their effect and state when work preserves behavior. Repeat a module path for unrelated changes in that area. Capitalize descriptions and end sentences with periods.
+
+List tests with the behavior they check. Give test work its own bullet only when no single area fits it or it changes test infrastructure. Use the test code's module path, such as `test/interp`.
+
+The [Commit Log](#r.pr-body.commit-log) records commit types. Use the same bullet format within [Port and Sync scope groups](ports.md#r.ports-syncs). Optional move summaries follow [R.commit-format.moves](../5-history.md#r.commit-format.moves).
 
 ```markdown
 ### Scope
 
-- **fix(lsp):** Checks unsaved specification files together and reports diagnostics using the editor's negotiated position encoding.
+- **lsp:** Checks unsaved specification files together and reports diagnostics using the editor's negotiated position encoding.
 
 ### Minor Changes
 
-- **docs(readme):** Clarifies compiler setup instructions.
+- **readme:** Clarifies compiler setup instructions.
 ```
+
+For examples, see [SpecTecX #156](https://github.com/kaist-plrg/spectecx/pull/156).
 
 <a id="r.pr-body.validation"></a>**[R.pr-body.validation](#r.pr-body.validation). Under Validation, give the evidence that the diff, the Solution section, and CI do not show.** Report evidence from the final branch, such as a manual reproduction or a performance measurement with its method, under [R.evidence](../3-verification.md#r.evidence). Omit CI status, runs covered by CI, and inventories of checks run or skipped. List added tests under Scope. State any limit that narrows a claim beside that claim. Omit the section when nothing remains.
 

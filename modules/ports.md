@@ -31,24 +31,26 @@ The local PR should summarize why the work is needed here and what result it bri
 
 <a id="r.ports-syncs.groups"></a>**[R.ports-syncs.groups](#r.ports-syncs.groups). Use `Ported`, `Adapted`, `Omitted`, and `Local` as the subsections of Scope.** Use `####` headings within `### Scope`. Include the applicable groups and omit empty ones.
 
+Use the [Scope bullet format](pr.md#r.pr-body.scope) in each group. An Omitted bullet names the area the omitted upstream change would have touched.
+
 ```markdown
 ### Scope
 
 #### Ported
 
-- **type(scope):** Upstream work taken nearly directly. Original: org/repo@sha
+- **module/path:** Upstream work taken nearly directly. Original: org/repo@sha
 
 #### Adapted
 
-- **type(scope):** Upstream work adjusted for the local context, including conflict resolutions.
+- **module/path:** Upstream work adjusted for the local context, including conflict resolutions.
 
 #### Omitted
 
-- **type(scope):** Upstream work not taken, and why.
+- **module/path:** Upstream work not taken, and why.
 
 #### Local
 
-- **type(scope):** Local work the Port or Sync needs, and why.
+- **module/path:** Local work the Port or Sync needs, and why.
 ```
 
 Use Validation for source comparisons the diff and CI do not show, under [R.pr-body.validation](pr.md#r.pr-body.validation).
@@ -89,6 +91,23 @@ Original-commit: https://github.com/kaist-plrg/p4-spectec/commit/<12-character-s
 
 ## Merge summaries
 
-<a id="r.merge-summary.imports"></a>**[R.merge-summary.imports](#r.merge-summary.imports). Use a single bullet list with source labels for Port and Sync merge summaries.** Label bullets `PORTED:`, `ADAPTED:`, `OMITTED:`, or `LOCAL:`. Follow the PR's distinctions under [R.ports-syncs](#r.ports-syncs), with `LOCAL:` corresponding to its Local subsection. Include only applicable labels.
+<a id="r.merge-summary.imports"></a>**[R.merge-summary.imports](#r.merge-summary.imports). Use a single bullet list with source labels for Port and Sync merge summaries.** Prefix each bullet with `PORTED:`, `ADAPTED:`, `OMITTED:` or `LOCAL:`, matching its PR Scope group. Use the source label as the only prefix, with no module scope. Repeat a label for separate changes.
 
-Group related work into concise bullets under [R.merge-summary.reuse](landing.md#r.merge-summary.reuse). Explain adaptations and reasons for omissions. Repeat a label when distinct changes need separate bullets. Use the source label and its colon as the only prefix. Source references may use an `Original: <ref>` suffix when they add useful context.
+Condense the PR's scope under [R.merge-summary.reuse](landing.md#r.merge-summary.reuse). Explain adaptations and reasons for omissions. Source references may use an `Original: <ref>` suffix when they add useful context.
+
+A Port merge message can use this form:
+
+```text
+Merge: support eBPF STF table updates (#PR)
+
+P4 evaluation needed table updates between packets. Ports the upstream
+table rules and applies STF updates through the specification.
+
+- PORTED: Adds rules for table entries and default actions.
+- ADAPTED: Applies STF table updates through the specification.
+- OMITTED: Leaves entry identifiers out because the STF tests do not
+  use them.
+- LOCAL: Lets every interpreter call specification functions.
+```
+
+See [SpecTecX #156's merge message](https://github.com/kaist-plrg/spectecx/commit/9fe09ea2c51e) for an example.
